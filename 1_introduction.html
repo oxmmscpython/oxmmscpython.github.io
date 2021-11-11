@@ -1,0 +1,548 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Introduction: abstraction in mathematics and programming &#8212; Object oriented programming in Python for mathematicians 2021.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/fenics.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/proof.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Programs in files" href="2_programs_in_files.html" />
+    <link rel="prev" title="Object oriented programming in Python for mathematicians" href="index.html" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFVH5C4DC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0EFVH5C4DC');
+</script>
+<link rel="stylesheet" href="_static/featured.css">
+
+
+<link rel="shortcut icon" href="_static/icon.ico" />
+
+
+  </head><body>
+<div class="wrapper">
+  <div id="access">
+    <div class="menu">
+      <ul>
+          <li class="page_item"><a href="https://github.com/oxmmscpython/object-oriented-programming" title="GitHub">GitHub</a></li>
+      </ul>
+    </div><!-- .menu -->
+  </div><!-- #access -->
+</div><!-- #wrapper -->
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="introduction-abstraction-in-mathematics-and-programming">
+<span id="introduction"></span><h1><span class="section-number">1. </span>Introduction: abstraction in mathematics and programming<a class="headerlink" href="#introduction-abstraction-in-mathematics-and-programming" title="Permalink to this headline">¶</a></h1>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Video introduction.<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="vimeo docutils container">
+<iframe src="https://player.vimeo.com/video/486106801"
+frameborder="0" allow="autoplay; fullscreen"
+allowfullscreen></iframe></div>
+</div>
+</details><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the video above, please ignore Dr Ham’s comments regarding assessment, quizzes, the Piazza forum, and
+the midterm in week 7.
+The live lab sessions for the Oxford course will take place on Tuesdays at 09:00 each week.</p>
+</div>
+<p>A core tool of mathematics is to define abstract objects and the
+operations which apply to them. This approach defines all the basic
+building blocks which enable us to reason mathematically and perform
+calculations. We start off with basic objects like numbers and define
+arithmetic operations on them. As we become more sophisticated, we
+define more and more complex objects, with appropriately more involved
+operations: matrices, polynomials, sets, groups, algebras. Being able
+to reason at the level of abstract objects is essential in making
+mathematics comprehensible. Consider matrices: linear algebra would be
+highly impractical at best if we could not define matrix addition and
+multiplication, and had instead to work directly with sums of products
+of scalars. More generally, without abstraction the edifice of higher
+mathematics would rapidly collapse under the weight of its own
+complexity.</p>
+<p>The situation in computer programming is strikingly similar. At the
+simplest level, the central processing unit of a computer is capable
+only of a limited set of rather primitive arithmetic and logical
+operations on a few finite subsets of the integers, and of the
+floating point numbers. However, on this tiny foundation is built
+every piece of software in existence, including very sophisticated
+programs for text manipulation, higher mathematics, sound and
+video. Moreover, this software is routinely created by ordinary people
+using relatively modest amounts of effort. How is this possible? It is
+possible because of the same principle of abstraction which underpins
+mathematics: more abstract objects and the operations on them are
+defined in terms of simpler ones.</p>
+<p>Think about plotting a graph on a computer. As a 21st century
+mathematician you don’t write loops over arrays to compute the pixel
+values that will result in the right curve appearing on a screen, you
+use a high-level language such as Python which has plotting objects
+which take in data and perform all of those calculations for
+you. Where did those plotting objects come from? They are the result
+of the manipulation of lower-level abstract objects in a chain that
+eventually ends up with primitive operations on integers and floating
+point numbers. But, critically, as the person wanting to plot some
+data <em>you don’t care</em>.</p>
+<p>Why, then, as a mathematician should you care about abstraction in
+programming? There are two key reasons. First, because an
+understanding of the abstractions on which software is built will give
+you a better understanding of how that software works and will
+therefore make you a better user of that software. The second is that
+making appropriate use of abstractions will make you a better
+programmer of mathematics and other software. Applied well, objects
+and abstraction produce software which is easier to write, easier to
+understand, easier to debug and easier to extend. Indeed, as with
+abstraction in mathematics, abstraction in coding is a form of
+constructive laziness: it simultaneously allows the mathematician to
+achieve more and do less work.</p>
+<p>This is primarily intended as a second course in programming.
+We won’t teach basic Python syntax; instead, our aim is to make
+you a better programmer. If you have never encountered Python
+syntax before, don’t worry; so long as you have programmed in
+any other popular language, you will get the hang of it very
+quickly.</p>
+<p>In covering more advanced programming, we will pay particular attention to objects
+and abstraction as they occur in Python. Furthermore, we will do so
+from a mathematician’s perspective, understanding programming as a
+process of defining and manipulating mathematical objects, and
+scientifically testing and debugging the results.</p>
+<section id="how-to-do-this-course">
+<h2><span class="section-number">1.1. </span>How to do this course<a class="headerlink" href="#how-to-do-this-course" title="Permalink to this headline">¶</a></h2>
+<p>Programming, like mathematics, is a practical, problem solving discipline. It’s
+not possible to learn to program just by reading notes and watching lectures. To
+learn to program you need to put the content of the course into practice by
+writing code. The structure of this course is designed to help you to really
+understand new concepts in programming by putting them into practice. Each week,
+we run through the same cycle:</p>
+<ol class="arabic simple">
+<li><p>Read the notes</p></li>
+<li><p>Watch the videos</p></li>
+<li><p>Write the code</p></li>
+</ol>
+<section id="the-notes">
+<h3><span class="section-number">1.1.1. </span>The notes<a class="headerlink" href="#the-notes" title="Permalink to this headline">¶</a></h3>
+<p>All of the new material we cover in this course is presented in these notes.
+The notes always the starting point for your work.
+Each chapter will introduce new concepts in programming, often tied back to
+related mathematical concepts, and always illustrated by practical code
+examples. Python has excellent <a class="reference external" href="https://docs.python.org/3/">official online documentation</a>, and we link to that throughout the text.
+External links show up in orange while <a class="reference internal" href="#introduction"><span class="std std-ref">internal links to other parts of
+the notes</span></a> are red. Sometimes we introduce counterexamples:
+illustrations of code errors or bad implementation ideas. These will be flagged
+with a big red cross:</p>
+<div class="badcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="s2">&quot;Hello World&quot;</span>
+</pre></div>
+</div>
+</div>
+<p>Conversely, if it’s necessary in context to highlight which approach is the
+correct one, the code will come with a big green tick:</p>
+<div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>At the end of each chapter there is a glossary containing key new concepts
+introduced in that chapter. Always check the glossary and convince yourself that
+you understand all the terms introduced there, this is a good check on whether
+you have understood the chapter as a whole. However, there is more to learning
+new concepts than just the vocabulary, so don’t be tempted to skip reading the
+chapter and just jump to the glossary!</p>
+<p>The chapters broadly alternate between introducing new programming concepts,
+such as <a class="reference internal" href="3_objects.html#objects"><span class="std std-ref">objects</span></a>, <a class="reference internal" href="5_abstract_data_types.html#abstract-data-types"><span class="std std-ref">abstract data types</span></a>, or <a class="reference internal" href="8_inheritance.html#inheritance"><span class="std std-ref">inheritance</span></a>, and
+covering various aspects of the craft of programming, such as <a class="reference internal" href="8_inheritance.html#inheritance"><span class="std std-ref">style</span></a> and <a class="reference internal" href="9_debugging.html#debugging"><span class="std std-ref">debugging</span></a>. In this way the course combines specific programming knowledge
+with more general coding skills.</p>
+</section>
+<section id="the-videos">
+<h3><span class="section-number">1.1.2. </span>The videos<a class="headerlink" href="#the-videos" title="Permalink to this headline">¶</a></h3>
+<p>Throughout the notes are links to videos. These aren’t typical lecture videos in
+that they’re not primarily focussed on delivering the new ideas in the course.
+In particular, the videos don’t set out to duplicate the delivery of the
+material in the notes. Instead, the videos focus on putting the concepts into
+practice, often by showing live coding sessions. Usually you’ll want to watch
+the video for a given section <em>after</em> reading the corresponding notes.</p>
+</section>
+<section id="the-exercises">
+<h3><span class="section-number">1.1.3. </span>The exercises<a class="headerlink" href="#the-exercises" title="Permalink to this headline">¶</a></h3>
+<p>As we’ve already noted, really learning to program better is only achieved by
+writing code. The core of each week’s activities is therefore to put the new
+concepts and programming structures you’ve learned into practice. The
+programming exercises are given at the end of each chapter, just before the
+glossary. Each time there will be a skeleton code available from
+<a class="reference external" href="https://imperial-fons-computing.github.io/git.html#github-classroom-exercise" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">GitHub Classroom</span></a> which provides the starting
+point. Sometimes you might be asked to complete a piece of code while on other
+occasions you’ll need to write a whole Python module from scratch. Each set of
+exercises will come with a matching set of tests. These are small programs which
+check whether your code produces the correct responses to a range of inputs.
+Tests like this provide immediate feedback and enable you to know how you are
+doing without having to wait for code to be submitted and marked.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Solutions to exercises will not be issued. The notes and accompanying
+example code contain examples of the same programming constructs that the
+exercises require you to implement, and the tests provide a mechanism to
+know when you have a correct answer. There are also help mechanisms via the
+Teams channel and the lab sessions.</p>
+</div>
+</section>
+<section id="assessment">
+<h3><span class="section-number">1.1.4. </span>Assessment<a class="headerlink" href="#assessment" title="Permalink to this headline">¶</a></h3>
+<p>The weekly quiz and exercises are not assessable: they are formative activities
+designed to help you learn the module. For Oxford students, the assessment for
+the course will be finalised shortly.</p>
+</section>
+</section>
+<section id="obtaining-the-right-software-tools">
+<h2><span class="section-number">1.2. </span>Obtaining the right software tools<a class="headerlink" href="#obtaining-the-right-software-tools" title="Permalink to this headline">¶</a></h2>
+<p>In order to do this module, you’ll need some core software tools. As the module
+proceeds we’ll also install several more Python packages, but you don’t need to
+install those right now. The core tools you will need are:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Python version 3.6 or later.</p></li>
+<li><p>Git (the revision control system we’re going to use).</p></li>
+<li><p>A Python-aware text editor. Visual Studio Code is recommended, and all
+the instructions in this course will assume that this is what you are using.</p></li>
+</ol>
+</div></blockquote>
+<p>The Faculty of Natural Sciences at Imperial has
+<a class="reference external" href="https://imperial-fons-computing.github.io/index.html" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-doc">centralised instructions for installing all of these tools</span></a>, and we’ll follow those.</p>
+<section id="python">
+<h3><span class="section-number">1.2.1. </span>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<p>Follow the <a class="reference external" href="https://imperial-fons-computing.github.io/python.html" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-doc">Python instructions</span></a>. We will exclusively
+use <a class="reference external" href="https://imperial-fons-computing.github.io/python.html#python-virtual-environments" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">virtual environments</span></a> so it doesn’t matter at
+all whether you use Python from Anaconda or from another source. Mac users
+should note, though that the built-in Python will not suffice, so you should use
+either Homebrew or Anaconda.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The example code in the exercises uses <a class="reference external" href="https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings" title="(in Python v3.10)"><span class="xref std std-ref">f-strings</span></a>
+which were introduced in Python 3.6, so the code will not work in earlier
+versions of Python.</p>
+</div>
+</section>
+<section id="git">
+<h3><span class="section-number">1.2.2. </span>Git<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h3>
+<p>Git is a revision control system. Revision control systems enable you to keep
+track of the different versions of a piece of code as you work on them, and to
+have these versions on different computers as well as backed up in the cloud. We
+will use Git and GitHub classroom as a mechanism for distributing, working with
+and submitting code exercises.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When you come to real programming tasks in science and industry,
+the code will be distributed and managed using
+Git. It is therefore essential that you incorporate Git into your day to day
+workflow for this course.</p>
+</div>
+</section>
+<section id="visual-studio-code">
+<h3><span class="section-number">1.2.3. </span>Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permalink to this headline">¶</a></h3>
+<p>Visual Studio Code is a Python-aware Integrated Development Environment (IDE).
+This means that it incorporates editing files with other programming features
+such as <a class="reference internal" href="9_debugging.html#debugging"><span class="std std-ref">Debugging and testing</span></a>, Git support, and a built-in <a class="reference external" href="https://imperial-fons-computing.github.io/terminal.html#terminal-vscode" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">terminal</span></a>. Visual Studio Code also provides an incredibly useful remote
+collaborative coding feature called Live Share. This will be very useful for
+getting remote help from the lecturer.</p>
+</section>
+</section>
+<section id="getting-help">
+<h2><span class="section-number">1.3. </span>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h2>
+<section id="writing-an-issue-report">
+<span id="issue-report"></span><h3><span class="section-number">1.3.1. </span>Writing an issue report<a class="headerlink" href="#writing-an-issue-report" title="Permalink to this headline">¶</a></h3>
+<p>It is very likely that you will get stuck and need help during this module.
+Going forward, it is also likely that you will at some point find a programming
+problem you can’t solve, or will find what you believe to be a bug in a piece of
+software you rely on. In these circumstances, you need to be able to ask for
+help, in writing, in some sort of online forum. There is a skill to doing this,
+and doing it well will help others to help you - which radically increases the
+chance that you will quickly get a solution to your problem.</p>
+<p>The following sections explain the content that should (and sometimes shouldn’t)
+be in every issue report. You should get into the habit of thinking through all
+of these stages every time you raise an issue. If the issue report is short then
+there is no need to explicitly highlight each of these stages, so long as the
+information is there. For a longer or more complex issue, it can make the issue
+easier to read if you actually include these steps as subheadings.</p>
+</section>
+<section id="title">
+<h3><span class="section-number">1.3.2. </span>Title<a class="headerlink" href="#title" title="Permalink to this headline">¶</a></h3>
+<p>The title of the issue, which might go in the subject line of an email or a
+forum post, should be a very short (10 word) outline of the key problem you
+observe. Examples might include:</p>
+<blockquote>
+<div><p>command not found when starting Python</p>
+<p>inverting matrix results in FloatingPointError</p>
+<p>Incorrect values from MyClass.somemethod() for complex inputs</p>
+</div></blockquote>
+<p>What these titles have in common is that they (very briefly) contain both what
+the user was doing, and what went wrong. This is enough for someone reading the
+title to have a picture of what sort of thing the user was doing, and what seems
+to have gone wrong.</p>
+<p>Notice that the titles do not need to be full sentences (there are no verbs in
+any of them), but they are precise about what the user was doing, naming the
+exact operation and error observed.</p>
+</section>
+<section id="steps-to-reproduce">
+<h3><span class="section-number">1.3.3. </span>Steps to reproduce<a class="headerlink" href="#steps-to-reproduce" title="Permalink to this headline">¶</a></h3>
+<p>Next, it’s very important to establish exactly what has happened. This is
+essential both for the understanding of the people trying to help, and to enable
+them to recreate the problem themselves. It doesn’t need to be particularly
+long, but it does need to be complete, in the sense that someone else reading
+your description have enough information to know what you did and (all else
+being equal), hit the same problem. The steps to reproduce can themselves be
+divided into categories:</p>
+<dl class="simple">
+<dt>relevant system information</dt><dd><p>The key word here is <em>relevant</em>. For example if you’re having trouble running
+Python itself, then which Python you installed on which operating system is
+very relevant. On the other hand if Python is running just fine but you’re
+hitting an <a class="reference internal" href="6_exceptions.html#term-exception"><span class="xref std std-term">exception</span></a> that you don’t understand, then it probably
+doesn’t matter which operating system you are running.</p>
+</dd>
+<dt>which code failed</dt><dd><p>Were you working on a particular exercise, which one? How would the helper
+find your code? If it’s code that you have edited, then unless you have
+committed and pushed the changes, there is no way for a helper to get access
+to the code you actually ran, so they will be flying blind. Avoid attaching
+large amounts of code to issues, it’s difficult for helpers to work with, or
+even to run in exactly the same way you did. It’s much better to be able to
+point to a complete repository. Of course an even better approach is to construct a
+<a class="reference internal" href="9_debugging.html#debugging-mfe"><span class="std std-ref">minimal failing example</span></a>.</p>
+</dd>
+<dt>what did you actually do?</dt><dd><p>This is one point where running code from the terminal is a major advantage,
+because you can simply copy and paste everything you typed into the issue.
+Explaining precisely what you did with a graphical interface is much harder,
+and requires particular attention to detail. Remember that the person
+reading your issue report can’t see what you can see, so if you skip over
+steps then they might not even be able to see the thing you say you clicked
+on!</p>
+</dd>
+</dl>
+<p>It’s important that the description of what you did is strictly a factual
+historical record. This is not the time to speculate about what you think is
+going wrong, we’ll get to that bit. Here you’re strictly repeating what you did.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When getting help with an exercise,
+ensure that you have <a class="reference external" href="https://imperial-fons-computing.github.io/git.html#commit-push" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">pushed
+your work to Github</span></a>, and then post the <a class="reference external" href="https://imperial-fons-computing.github.io/git.html#git-hash" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">git commit
+hash</span></a>. This will enable the lecturer to find your
+code. It is still important to include all of the other components of the
+issue report.</p>
+</div>
+</section>
+<section id="observed-result">
+<h3><span class="section-number">1.3.4. </span>Observed result<a class="headerlink" href="#observed-result" title="Permalink to this headline">¶</a></h3>
+<p>The next stage is to describe what happened. Again, this is strictly a reporting
+stage. You report your observations and only those. If there is textual output,
+then include all of it. It’s a very common failing for issue reports to only
+contain the part of the output that the reporter thought was relevant, omitting
+a whole load of essential information whose importance the reporter did not
+realise.</p>
+<p>If the problem is in the visual appearance of a graphical output, for example a
+graph with invalid layout, then it would be appropriate to attach an image.</p>
+</section>
+<section id="expected-result">
+<h3><span class="section-number">1.3.5. </span>Expected result<a class="headerlink" href="#expected-result" title="Permalink to this headline">¶</a></h3>
+<p>This is the first point at which you are no longer simply a reporter of observed
+facts. Sometimes the expected result is completely obvious: you observed an
+error and you expected that the code would run correctly. However in other
+circumstances there might not be an error but the result might not be what you
+expect. Regardless of which of these is the case, you should include some sort
+of statement of what you were expecting to have happen. This is for two reasons,
+the first is that the mere fact of stating the question like this forces you to
+think about what the core question you are asking is. This will help you write a
+focussed issue report which is easier for your helpers to respond to. The second
+is that a statement of what you think that the outcome should be can help
+someone reading the issue report to understand the question you are asking, and
+therefore that they should answer.</p>
+</section>
+<section id="any-other-information">
+<h3><span class="section-number">1.3.6. </span>Any other information<a class="headerlink" href="#any-other-information" title="Permalink to this headline">¶</a></h3>
+<p>Finally, you should add any other information you think is relevant. For example
+if you think you have an idea about what is going on, then put it in here.
+Alternatively if you’ve searched for the error online and think you’ve found
+relevant information then include this here.</p>
+</section>
+<section id="issue-pitfalls">
+<h3><span class="section-number">1.3.7. </span>Issue pitfalls<a class="headerlink" href="#issue-pitfalls" title="Permalink to this headline">¶</a></h3>
+<p>Many issue reports suffer from a few common failings. A lot of these come down
+to not providing enough or precise enough information for those who might help
+to actually do so. Always remember that the people you are asking for help
+haven’t seen what’s on your screen, and don’t know what have done. You therefore
+need to spell things out for them in quite exacting detail.</p>
+<section id="be-precise">
+<h4><span class="section-number">1.3.7.1. </span>Be precise<a class="headerlink" href="#be-precise" title="Permalink to this headline">¶</a></h4>
+<p>Rather than just say that you got an error, state exactly which type or, if you don’t
+know, then repeat exactly what was printed out. Exactly which tool were you
+using? Did a Python error occur in a particular script, or was it the result of
+something you typed into the Python command line?</p>
+</section>
+<section id="don-t-leap-to-conclusions">
+<h4><span class="section-number">1.3.7.2. </span>Don’t leap to conclusions<a class="headerlink" href="#don-t-leap-to-conclusions" title="Permalink to this headline">¶</a></h4>
+<p>Very often you will have an idea about what has gone wrong. This is important
+information, and you should include it in your issue report, however don’t let
+it distract you from providing a precise and complete description of what
+happened. If you’ve not been able to fix the issue yourself, then you can’t
+exclude the possibility that you might not understand what it is that has gone
+wrong. For this reason, you should always include everything you did and the
+entirety of any error message, even if you don’t think it’s relevant to the
+error.</p>
+</section>
+<section id="avoid-it">
+<h4><span class="section-number">1.3.7.3. </span>Avoid “it”<a class="headerlink" href="#avoid-it" title="Permalink to this headline">¶</a></h4>
+<p>“It doesn’t work” is every software developer’s least favourite
+issue report. When describing the programs and data that you are using, you have
+a mental model of what you are working with. The reader of your issue does not
+share this model, so when you use pronouns such as “it” then the reader
+frequently has no idea what “it” is that you are referring to. If you know which
+program failed, then name the program explicitly. If you don’t then simply but precisely describe
+what you observed.</p>
+</section>
+<section id="avoid-screenshots-of-text">
+<h4><span class="section-number">1.3.7.4. </span>Avoid screenshots of text<a class="headerlink" href="#avoid-screenshots-of-text" title="Permalink to this headline">¶</a></h4>
+<p>If the input and/or output of the operation which caused the issue are text,
+then copy and paste that text into the issue. Do not insert a screenshot. There
+are many reasons why screenshots are inferior to copying and pasting the text:</p>
+<ol class="arabic simple">
+<li><p>You don’t know what screen the reader will be on. Screenshots can very easily
+end up very hard to read.</p></li>
+<li><p>The reader can’t search the text in a screenshot for particular words or
+phrases they need to find to diagnose your error.</p></li>
+<li><p>The reader may well want to copy exactly what you typed in order to try to
+reproduce the error. They can’t do that from a screenshot.</p></li>
+<li><p>It is very easy for a screenshot to miss important information. For example
+many error messages are quite long, and part of the error may well have scrolled
+out of view.</p></li>
+</ol>
+<p>The only time when it is appropriate to include a screenshot is when the output
+is graphical and you need to illustrate why something looks wrong.</p>
+</section>
+</section>
+<section id="an-example-issue-report">
+<h3><span class="section-number">1.3.8. </span>An example issue report<a class="headerlink" href="#an-example-issue-report" title="Permalink to this headline">¶</a></h3>
+<p>A fairly short and simple issue report which includes all of the relevant
+information, might be written in Markdown as follows.</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>Python square function returns wrong answer
+
+I wrote a function to square its input. I expected to see the
+square of the input but I see the wrong answer.
+
+The following code is in the file <span class="sb">`square.py`</span>:
+
+<span class="sb">```python3</span>
+<span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span>
+<span class="sb">```</span>
+
+I try out this function in iPython and observe the wrong answers:
+
+<span class="sb">```ipython3</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">square</span> <span class="kn">import</span> <span class="n">square</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">square</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="mi">0</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">square</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="mi">1</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">square</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="mi">6</span>
+<span class="sb">```</span>
+
+I would expect to see 4, 9, 16 respectively. I do not understand what is
+going wrong.
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The point of this example is to illustrate how to write an issue report.
+However, you might actually know enough Python to work out what’s wrong with the code here. Can you see what the
+problem is?</p>
+</div>
+</section>
+</section>
+<section id="exercises">
+<h2><span class="section-number">1.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<p>This week’s exercises are designed to ensure that you are set up with the core
+tools that you will need for the rest of the module. Exceptionally, there is no
+quiz this week as we haven’t yet started with the substantive contents of the
+module. Nonetheless, this week’s exercises are an important baseline. Skipping
+them is likely to result in you having to play catchup in the coming weeks.</p>
+<div class="proof proof-type-exercise" id="id1">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise 1.1</span>
+        
+    </div><div class="proof-content">
+<p>Install Python using  the <a class="reference external" href="https://imperial-fons-computing.github.io/python.html" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-doc">Python installation instructions</span></a>.</p>
+</div></div><div class="proof proof-type-exercise" id="id2">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise 1.2</span>
+        
+    </div><div class="proof-content">
+<p>Install Git and work through the entire Git, GitHub, and GitHub Classroom
+tutorial on the <a class="reference external" href="https://imperial-fons-computing.github.io/git.html" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-doc">Git instructions webpage</span></a>.</p>
+</div></div><div class="proof proof-type-exercise" id="id3">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise 1.3</span>
+        
+    </div><div class="proof-content">
+<p>Install Visual Studio Code using the <a class="reference external" href="https://imperial-fons-computing.github.io/vscode.html" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-doc">Visual Studio Code
+installation instructions</span></a>.</p>
+</div></div><div class="proof proof-type-exercise" id="id4">
+
+    <div class="proof-title">
+        <span class="proof-type">Exercise 1.4</span>
+        
+    </div><div class="proof-content">
+<p>With one or two friends from the class, follow the
+<a class="reference external" href="https://imperial-fons-computing.github.io/vscode.html#vscode-liveshare" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">Live Share instructions</span></a>.
+Ensure that each of you can start a Live Share session and have the other
+successfully join, and that all of you can edit files.</p>
+</div></div></section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019-2021, David A. Ham. Modified by Patrick E. Farrell.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+    </div>
+  </body>
+</html>

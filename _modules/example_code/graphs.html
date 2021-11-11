@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>example_code.graphs &#8212; Object oriented programming in Python for mathematicians 2021.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/fenics.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/proof.js"></script>
+    <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFVH5C4DC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0EFVH5C4DC');
+</script>
+<link rel="stylesheet" href="../../_static/featured.css">
+
+
+<link rel="shortcut icon" href="../../_static/icon.ico" />
+
+
+  </head><body>
+<div class="wrapper">
+  <a href="../../index.html"><img src="../../_static/banner.png" width="900px" alt="FInAT Project Banner" /></a>
+  <div id="access">
+    <div class="menu">
+      <ul>
+          <li class="page_item"><a href="https://github.com/object-oriented-python/object-oriented-programming" title="GitHub">GitHub</a></li>
+      </ul>
+    </div><!-- .menu -->
+  </div><!-- #access -->
+</div><!-- #wrapper -->
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for example_code.graphs</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;A simple tree implementation with basic pre- and post-visitors.&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="TreeNode"><a class="viewcode-back" href="../../example_code.html#example_code.graphs.TreeNode">[docs]</a><span class="k">class</span> <span class="nc">TreeNode</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A basic tree implementation.</span>
+
+<span class="sd">    Observe that a tree is simply a collection of connected TreeNodes.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    value:</span>
+<span class="sd">        An arbitrary value associated with this node.</span>
+<span class="sd">    children:</span>
+<span class="sd">        The TreeNodes which are the children of this node.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">*</span><span class="n">children</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">children</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the canonical string representation.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}{</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">,)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Serialise the tree recursively as parent -&gt; (children).&quot;&quot;&quot;</span>
+        <span class="n">childstring</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">))</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">!s}</span><span class="s2"> -&gt; (</span><span class="si">{</span><span class="n">childstring</span><span class="si">}</span><span class="s2">)&quot;</span></div>
+
+
+<div class="viewcode-block" id="previsitor"><a class="viewcode-back" href="../../example_code.html#example_code.graphs.previsitor">[docs]</a><span class="k">def</span> <span class="nf">previsitor</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">fn_parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Traverse tree in preorder applying a function to every node.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tree: TreeNode</span>
+<span class="sd">        The tree to be visited.</span>
+<span class="sd">    fn: function(node, fn_parent)</span>
+<span class="sd">        A function to be applied at each node. The function should take the</span>
+<span class="sd">        node to be visited as its first argument, and the result of visiting</span>
+<span class="sd">        its parent as the second.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fn_out</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">fn_parent</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+        <span class="n">previsitor</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">fn_out</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="postvisitor"><a class="viewcode-back" href="../../example_code.html#example_code.graphs.postvisitor">[docs]</a><span class="k">def</span> <span class="nf">postvisitor</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">fn</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Traverse tree in postorder applying a function to every node.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tree: TreeNode</span>
+<span class="sd">        The tree to be visited.</span>
+<span class="sd">    fn: function(node, *fn_children)</span>
+<span class="sd">        A function to be applied at each node. The function should take the</span>
+<span class="sd">        node to be visited as its first argument, and the results of visiting</span>
+<span class="sd">        its children as any further arguments.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">fn</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">postvisitor</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">children</span><span class="p">))</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019-2021, David A. Ham.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
+    </div>
+  </body>
+</html>
