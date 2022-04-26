@@ -11,15 +11,15 @@
     <link rel="stylesheet" type="text/css" href="_static/fenics.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/proof.js"></script>
-    <script defer="defer" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="8. Debugging and testing" href="9_debugging.html" />
@@ -315,7 +315,7 @@ integer between 0 and 5, an exception is raised.</p>
 </pre></div>
 </div>
 <p><a class="reference internal" href="#cyclic-group"><span class="std std-numref">Listing 7.1</span></a> illustrates <a class="reference internal" href="#term-composition"><span class="xref std std-term">composition</span></a>: on line 4
-<a class="reference internal" href="example_code.html#example_code.groups_basic.Element" title="example_code.groups_basic.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a>, is associated with a group object.
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code>, is associated with a group object.
 This is a classic <em>has a</em> relationship: an element has a group. We might have
 attempted to construct this the other way around with classes having elements,
 however this would have immediately hit the issue that elements have exactly one
@@ -389,9 +389,9 @@ degree.</span><a class="headerlink" href="#general-linear-group" title="Permalin
 </div>
 </div>
 <p>We won’t illustrate the operation of this class, though the reader is welcome to
-<a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> the <a class="reference internal" href="example_code.html#module-example_code.groups_basic" title="example_code.groups_basic"><code class="xref py py-mod docutils literal notranslate"><span class="pre">example_code.groups_basic</span></code></a> module and experiment.
+<a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> the <code class="xref py py-mod docutils literal notranslate"><span class="pre">example_code.groups_basic</span></code> module and experiment.
 Instead, we simply note that this code is very, very similar to the
-implementation of <a class="reference internal" href="example_code.html#example_code.groups_basic.CyclicGroup" title="example_code.groups_basic.CyclicGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">CyclicGroup</span></code></a> in
+implementation of <code class="xref py py-class docutils literal notranslate"><span class="pre">CyclicGroup</span></code> in
 <a class="reference internal" href="#cyclic-group"><span class="std std-numref">Listing 7.1</span></a>. The only functionally important differences are the
 definitions of the <code class="xref py py-meth docutils literal notranslate"><span class="pre">_validate()</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">operation()</span></code> methods.
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">self.order</span></code> is also renamed as <code class="xref py py-obj docutils literal notranslate"><span class="pre">self.degree</span></code>, and <code class="xref py py-obj docutils literal notranslate"><span class="pre">C</span></code> is replaced by <code class="xref py py-obj docutils literal notranslate"><span class="pre">G</span></code> in the
@@ -481,16 +481,16 @@ for the cyclic groups and general linear groups.</span><a class="headerlink" hre
 </div>
 </div>
 <p><a class="reference internal" href="#groups-inheritance"><span class="std std-numref">Listing 7.3</span></a> shows a new implementation of
-<a class="reference internal" href="example_code.html#example_code.groups.CyclicGroup" title="example_code.groups.CyclicGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">CyclicGroup</span></code></a> and
-<a class="reference internal" href="example_code.html#example_code.groups.GeneralLinearGroup" title="example_code.groups.GeneralLinearGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeneralLinearGroup</span></code></a>. These are functionally
+<code class="xref py py-class docutils literal notranslate"><span class="pre">CyclicGroup</span></code> and
+<code class="xref py py-class docutils literal notranslate"><span class="pre">GeneralLinearGroup</span></code>. These are functionally
 equivalent to those presented in <a class="reference internal" href="#cyclic-group"><span class="std std-numref">Listing 7.1</span></a> and
 <a class="reference internal" href="#general-linear-group"><span class="std std-numref">Listing 7.2</span></a> but have all the repeated code removed. The code
 common to both families of groups is instead placed in the
-<a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a> class. In the following sections we will
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code> class. In the following sections we will
 highlight the features of this code which make this work.</p>
 <section id="inheritance-syntax">
 <h3><span class="section-number">7.2.1. </span>Inheritance syntax<a class="headerlink" href="#inheritance-syntax" title="Permalink to this headline">¶</a></h3>
-<p>Look again at the definition of <a class="reference internal" href="example_code.html#example_code.groups.CyclicGroup" title="example_code.groups.CyclicGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">CyclicGroup</span></code></a> on
+<p>Look again at the definition of <code class="xref py py-class docutils literal notranslate"><span class="pre">CyclicGroup</span></code> on
 line 29:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">29</span><span class="k">class</span> <span class="nc">CyclicGroup</span><span class="p">(</span><span class="n">Group</span><span class="p">):</span>
 </pre></div>
@@ -506,10 +506,10 @@ this case, <code class="xref py py-class docutils literal notranslate"><span cla
 <a class="reference internal" href="3_objects.html#term-method"><span class="xref std std-term">methods</span></a> are called, it is the methods from the parent class,
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code> which are used. This is the mechanism that enables methods to be
 shared by different classes. In this case,
-<a class="reference internal" href="example_code.html#example_code.groups.CyclicGroup" title="example_code.groups.CyclicGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">CyclicGroup</span></code></a> and
-<a class="reference internal" href="example_code.html#example_code.groups.GeneralLinearGroup" title="example_code.groups.GeneralLinearGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeneralLinearGroup</span></code></a> share these methods. A user
+<code class="xref py py-class docutils literal notranslate"><span class="pre">CyclicGroup</span></code> and
+<code class="xref py py-class docutils literal notranslate"><span class="pre">GeneralLinearGroup</span></code> share these methods. A user
 could also define another class which inherited from
-<a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a>, for example to implement another family of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code>, for example to implement another family of
 groups.</p>
 </section>
 <section id="class-attributes">
@@ -538,7 +538,7 @@ single attribute that is common to all objects of this class. This is called a
 </pre></div>
 </div>
 <p>This code uses <code class="xref py py-obj docutils literal notranslate"><span class="pre">self.symbol</span></code>, but this attribute isn’t defined anywhere on
-<a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a>. Why doesn’t this cause an
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code>. Why doesn’t this cause an
 <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#AttributeError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributeError</span></code></a> to be raised? One answer is that it indeed would if we
 were to instantiate <code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code> itself:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.groups</span> <span class="kn">import</span> <span class="n">Group</span>
@@ -564,7 +564,7 @@ of an <a class="reference internal" href="11_further_object-oriented_features.ht
 functionality to classes that inherit from it, rather than to be the type of
 objects itself. We will return to this in more detail in
 <code class="xref std std-numref docutils literal notranslate"><span class="pre">abstract_base_classes</span></code>.</p>
-<p>However, if we instead instantiate <a class="reference internal" href="example_code.html#example_code.groups.CyclicGroup" title="example_code.groups.CyclicGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">CyclicGroup</span></code></a>
+<p>However, if we instead instantiate <code class="xref py py-class docutils literal notranslate"><span class="pre">CyclicGroup</span></code>
 then everything works:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.groups</span> <span class="kn">import</span> <span class="n">CyclicGroup</span>
 
@@ -594,7 +594,7 @@ current class inside its definition. Instead, we should use the fact that
 this reason that we typically use the formula <code class="xref py py-obj docutils literal notranslate"><span class="pre">type(self).__name__</span></code> in the
 <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__repr__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a> method of an object. A similar procedure applies if we
 need to create another object of the same class as the current object. For
-example, one might create the next larger <a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a>
+example, one might create the next larger <code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code>
 than the current one with:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -744,19 +744,19 @@ those permutations: <span class="math notranslate nohighlight">\(a \cdot b = a(b
 <p>In this week’s skeleton code repository, create package called
 <code class="xref py py-mod docutils literal notranslate"><span class="pre">groups</span></code> containing a module called <code class="xref py py-mod docutils literal notranslate"><span class="pre">symmetric_groups</span></code>. Define a
 new class <code class="xref py py-class docutils literal notranslate"><span class="pre">SymmetricGroup</span></code> which inherits from
-<a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.groups.Group</span></code></a> and implements the symmetric group of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.groups.Group</span></code> and implements the symmetric group of
 order <code class="xref py py-obj docutils literal notranslate"><span class="pre">n</span></code>. You will need to implement the group operation and the
 validation of group element values. Group elements can be represented by
 sequences containing permutations of the integers from 0 to <code class="xref py py-obj docutils literal notranslate"><span class="pre">n-1</span></code>. You will
 find it advantageous to represent these permutations as
-<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> because the indexing rules for that type mean that
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> because the indexing rules for that type mean that
 the group operation can simply be implemented by indexing the first
 permutation with the second: <code class="xref py py-obj docutils literal notranslate"><span class="pre">a[b]</span></code>.</p>
 <p>You will also need to set the <a class="reference internal" href="#term-class-attribute"><span class="xref std std-term">class attribute</span></a> <code class="xref py py-attr docutils literal notranslate"><span class="pre">symbol</span></code>. For this
 group, this should take the value <code class="xref py py-obj docutils literal notranslate"><span class="pre">S</span></code>.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>You will need to <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> <a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.groups.Group</span></code></a>
+<p>You will need to <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> <code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.groups.Group</span></code>
 from the <code class="xref py py-obj docutils literal notranslate"><span class="pre">object_oriented_programming</span></code> repository that you installed
 <a class="reference internal" href="2_programs_in_files.html#course-repo"><span class="std std-ref">in week 2</span></a>. You should also <code class="xref py py-obj docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> in that
 repository in order to get any changes that have happened in the
@@ -821,7 +821,7 @@ operation would add a duplicate value to the <code class="xref py py-class docut
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019-2021, David A. Ham. Modified by Patrick E. Farrell.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

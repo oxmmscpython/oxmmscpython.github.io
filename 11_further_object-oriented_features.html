@@ -11,8 +11,8 @@
     <link rel="stylesheet" type="text/css" href="_static/fenics.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -245,7 +245,7 @@ allowfullscreen></iframe></div>
 </details><p>We have now on several occasions encountered classes which are not designed to
 be instantiated themselves, but merely serve as parent classes to concrete
 classes which are intended to be instantiated. Examples of these classes
-include <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>, <a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.groups.Group</span></code></a>, and the
+include <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.groups.Group</span></code>, and the
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Expr</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Operator</span></code>, and <code class="xref py py-class docutils literal notranslate"><span class="pre">Terminal</span></code> classes from
 <a class="reference internal" href="10_trees_and_directed_acyclic_graphs.html#trees"><span class="std std-numref">Week 9</span></a>. These classes that are only ever parents are called
 <a class="reference internal" href="#term-abstract-base-class"><span class="xref std std-term">abstract base classes</span></a>. They are abstract in the
@@ -272,18 +272,18 @@ access features that it provides.</p>
 <section id="abstract-methods">
 <h3>Abstract methods<a class="headerlink" href="#abstract-methods" title="Permalink to this headline">¶</a></h3>
 <p>Let’s look back at the groups example from <a class="reference internal" href="8_inheritance.html#inheritance"><span class="std std-numref">Week 7</span></a>. We
-defined the base <a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a> class and specified that
+defined the base <code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code> class and specified that
 child classes had to implement the <code class="xref py py-meth docutils literal notranslate"><span class="pre">_validate()</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">operator()</span></code>
 methods as well as the <code class="xref py py-attr docutils literal notranslate"><span class="pre">symbol</span></code> <a class="reference internal" href="8_inheritance.html#term-class-attribute"><span class="xref std std-term">class attribute</span></a>. But how should
 we actually know that these methods and attribute are required? This might be
 documented, but that is somewhat hit and miss: it is often less than
 completely obvious where to look for the documentation. Abstract methods
 provide a much more satisfactory solution to this problem. The
-<a class="reference internal" href="example_code.html#module-example_code.groups_abc" title="example_code.groups_abc"><code class="xref py py-mod docutils literal notranslate"><span class="pre">example_code.groups_abc</span></code></a> module is an update of the
-<a class="reference internal" href="example_code.html#module-example_code.groups" title="example_code.groups"><code class="xref py py-mod docutils literal notranslate"><span class="pre">example_code.groups</span></code></a> module which uses the <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a> class.</p>
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">example_code.groups_abc</span></code> module is an update of the
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">example_code.groups</span></code> module which uses the <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a> class.</p>
 <div class="literal-block-wrapper docutils container" id="id5">
 <span id="groups-abc"></span><div class="code-block-caption"><span class="caption-text">An abstract base class version of the
-<a class="reference internal" href="example_code.html#example_code.groups_abc.Group" title="example_code.groups_abc.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a> class. Note that the class itself
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code> class. Note that the class itself
 inherits from <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a>, and the methods and attribute to be
 implemented by the <a class="reference internal" href="8_inheritance.html#term-child-class"><span class="xref std std-term">child classes</span></a> have the
 <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.abstractmethod" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abstractmethod</span></code></a> decorator.</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
@@ -335,14 +335,14 @@ implemented by the <a class="reference internal" href="8_inheritance.html#term-c
 </div>
 </div>
 <p>There are a few features of <code class="xref std std-numref docutils literal notranslate"><span class="pre">groups_abc</span></code> which are noteworthy. First,
-observe that <a class="reference internal" href="example_code.html#example_code.groups_abc.Group" title="example_code.groups_abc.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a> now inherits from
+observe that <code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code> now inherits from
 <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a>. This simply enables the features that we will use next.
-The new <a class="reference internal" href="example_code.html#example_code.groups_abc.Group" title="example_code.groups_abc.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a> class has
+The new <code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code> class has
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">_validate()</span></code> and
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">operator()</span></code> methods, but these don’t
 actually do anything (their contents are merely <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#pass" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">pass</span></code></a>). They are,
 however, decorated with <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.abstractmethod" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abstractmethod</span></code></a>. The effect of this decorator can
-be observed if we try to instantiate <a class="reference internal" href="example_code.html#example_code.groups_abc.Group" title="example_code.groups_abc.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a>:</p>
+be observed if we try to instantiate <code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.groups_abc</span> <span class="kn">import</span> <span class="n">Group</span>
 
 <span class="gp">In [2]: </span><span class="n">Group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -361,7 +361,7 @@ There is no <code class="xref py py-obj docutils literal notranslate"><span clas
 by creating an <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.abstractmethod" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abstractmethod</span></code></a> and converting it into a data attribute using
 <a class="reference external" href="https://docs.python.org/3/library/functions.html#property" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">property</span></code></a>. In this case, the order of decorators is important:
 <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.abstractmethod" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abstractmethod</span></code></a> always needs to be the last, innermost, decorator.</p>
-<p>The subclasses of <a class="reference internal" href="example_code.html#example_code.groups_abc.Group" title="example_code.groups_abc.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a> that we defined,
+<p>The subclasses of <code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code> that we defined,
 define all three of these attributes, so they can still be instantiated. For
 example:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.groups_abc</span> <span class="kn">import</span> <span class="n">CyclicGroup</span>
@@ -747,7 +747,7 @@ you really want to know how some part of the language works.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019-2021, David A. Ham. Modified by Patrick E. Farrell.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>
