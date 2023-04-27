@@ -290,16 +290,8 @@ Doing exercises using GitHub or GitHub Classroom
 ------------------------------------------------
 
 The exercises in this book are available as GitHub repositories, including
-skeleton code and automated testing. The way that you use Git and GitHub to
-access and do these exercises is always the same, though there are two
-different ways of initially generating your personal exercise repository on
-GitHub, depending on whether you are doing these exercises as a part of a
-formal course which the instructor has set up using GitHub classroom, or you
-are doing the exercises by yourself in private study. If you're using GitHub
-classroom as a part of a formal course where the instructor will be using
-GitHub classroom then follow the instructions in :numref:`accept_classroom`.
-If you're working on the exercises by yourself then follow the instructions in
-:numref:`accept_template`.
+skeleton code and automated testing. For the Oxford course we will access
+these repositories through Github Classroom, as described in :numref:`accept_classroom`.
 
 .. container:: vimeo
 
@@ -314,12 +306,8 @@ If you're working on the exercises by yourself then follow the instructions in
 Accepting the assignment on GitHub Classroom
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For each exercise, your module will provide access to a link that you can use
-to accept the corresponding GitHub classroom assignment. In this case, there is
-a tiny toy assignment created just for this exercise. The assignment acceptance
-link is available on the exercises page for this book:
-`https://object-oriented-python.github.io/edition2/exercises.html
-<https://object-oriented-python.github.io/edition2/exercises.html>`__
+For each exercise, on `the exercises page <exercises>`_ you will find a link that you can use
+to accept the corresponding GitHub classroom assignment.
 
 When you click on the assignment, if you're not already logged into your `GitHub
 <https://GitHub.com>`__ account then you will be prompted to do so. If this is
@@ -330,38 +318,14 @@ You will now be asked to accept the assignment. Do so by clicking on the large
 green button. GitHub Classroom will now create a new repository containing your
 personal copy of the assignment. You can click on the link provided to navigate
 to your new GitHub repository. You will also receive an email inviting you to
-this repository. You can now skip forward to :numref:`exercise_instructions`. 
-
-.. _accept_template:
-
-Accessing the exercise using the template repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If you don't have an instructor who has set up GitHub Classroom exercises for
-your course then you will obtain your copy of the exercise by creating a new
-repository in your GitHub account using the template provided. To use the
-template, navigate to the exercise repository, which in this case is:
-`https://github.com/oopython-exercises/hello
-<https://github.com/oopython-exercises/hello>`__. On that page, click on the
-green button :kbd:`Use this template`. This will take you to a page which will
-ask you to choose a name for your new repository. It would be reasonable to use
-the same name as the template. In this case, :kbd:`hello`. Click on the green
-button marked :kbd:`Create repository from template`. 
-
-.. image:: images/github_template.png
-
-.. only:: book
-
-    .. raw:: latex
-
-        \clearpage
+this repository.
 
 .. _exercise_instructions:
 
 The exercise instructions
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Whichever way we accessed the exercise, we now have an exercise repository. If
+We now have an exercise repository. If
 we scroll down on the front page of the GitHub repository website, we see the
 README file for this repository. In this case, this gives us the instructions
 for the assignment. For most of the exercises in this course, the instructions

@@ -7,23 +7,16 @@ These are the GitHub template repositories to use for the exercises in each
 Chapter. For further information on using GitHub template repositories, see
 :numref:`Appendix %s <git>`.
 
-If you are using this book as a part of a course where the instructor provides
-GitHub Classroom assignments for the exercises, you should not use the links
-here but rather use the Classroom links provided by your instructor. Students
-taking Principles of Programming at Imperial College London will find their
-list of GitHub Classroom links `on Blackboard
-<https://bb.imperial.ac.uk/webapps/blackboard/content/listContentEditable.jsp?content_id=_2707976_1&course_id=_34500_1>`__.
+Here are the links to enrol on the exercises for Oxford MMSC and DPhil students:
 
-
-* `Chapter 2 exercises <https://github.com/object-oriented-python/exercises-chapter-2>`__
-* `Chapter 3 exercises <https://github.com/object-oriented-python/exercises-chapter-3>`__
-* `Chapter 4 exercises <https://github.com/object-oriented-python/exercises-chapter-4>`__
-* `Chapter 5 exercises <https://github.com/object-oriented-python/exercises-chapter-5>`__
-* `Chapter 6 exercises <https://github.com/object-oriented-python/exercises-chapter-6>`__
-* `Chapter 7 exercises <https://github.com/object-oriented-python/exercises-chapter-7>`__
-* `Chapter 8 exercises <https://github.com/object-oriented-python/exercises-chapter-8>`__ and
+* `Chapter 2 exercises <https://classroom.github.com/a/gJ5cd5wM>`__
+* `Chapter 3 exercises <https://classroom.github.com/a/mCAM3f_B>`__
+* `Chapter 4 exercises <https://classroom.github.com/a/AkcoAOIj>`__
+* `Chapter 5 exercises <https://classroom.github.com/a/VZ0NlgBg>`__
+* `Chapter 6 exercises <https://classroom.github.com/a/7vIFHsIm>`__
+* `Chapter 7 exercises <https://classroom.github.com/a/USfL7I4O>`__
+* `Chapter 8 exercises <https://classroom.github.com/a/gzdA3yg1>`__ and
   `quiz <https://docs.google.com/forms/d/e/1FAIpQLSfW5kfHXgbQHfe9_NFu1KbBq3iNeZDg2gh5K7Q9XSNJtskfwA/viewform?usp=sf_link>`__
-* `Chapter 9 exercises <https://github.com/object-oriented-python/exercises-chapter-9>`__
-* `Chapter 10 exercises <https://github.com/object-oriented-python/exercises-chapter-10>`__
+* `Chapter 9 exercises <https://classroom.github.com/a/429nBtsQ>`__
 
 
