@@ -37,4 +37,4 @@ topics are assessed.
     problems than PDEs (previous submissions implemented various graph algorithms
     in open source libraries, for example). The course lecturer is absolutely open
     to other ideas; If you'd like to do something different to that described
-    above, please contact `Patrick E. Farrell <mailto:patrick.farrell@maths.ox.ac.uk>`.
+    above, please contact `Patrick E. Farrell <mailto:patrick.farrell@maths.ox.ac.uk>`_.
