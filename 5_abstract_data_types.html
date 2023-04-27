@@ -1,23 +1,22 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>5. Abstract data types &#8212; Object oriented programming in Python for mathematicians 2021.0 documentation</title>
+    <title>5. Abstract data types &#8212; Object-oriented Programming  documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/fenics.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/proof.js"></script>
     <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -44,10 +43,16 @@
 
   </head><body>
 <div class="wrapper">
+  <a href="index.html"><img src="_static/banner.png" width="900px" alt="FInAT Project Banner" /></a>
   <div id="access">
     <div class="menu">
       <ul>
-          <li class="page_item"><a href="https://github.com/oxmmscpython/object-oriented-programming" title="GitHub">GitHub</a></li>
+          <li class="page_item"><a href="index.html" title="Book">Book</a></li>
+          <li class="page_item"><a href="videos.html" title="Videos">Videos</a></li>
+          <li class="page_item"><a href="exercises.html"
+          title="Exercises">Exercises</a></li>
+          <li class="page_item"><a href="installation.html" title="Installation">Installation</a></li>
+
       </ul>
     </div><!-- .menu -->
   </div><!-- #access -->
@@ -60,8 +65,8 @@
           <div class="body" role="main">
             
   <section id="abstract-data-types">
-<span id="id1"></span><h1><span class="section-number">5. </span>Abstract data types<a class="headerlink" href="#abstract-data-types" title="Permalink to this headline">¶</a></h1>
-<p>In <a class="reference internal" href="3_objects.html#objects"><span class="std std-numref">week 3</span></a>, we introduced the concept of <a class="reference internal" href="3_objects.html#term-type"><span class="xref std std-term">type</span></a> as an
+<span id="id1"></span><h1><span class="section-number">5. </span>Abstract data types<a class="headerlink" href="#abstract-data-types" title="Permalink to this heading">¶</a></h1>
+<p>In <a class="reference internal" href="3_objects.html#objects"><span class="std std-numref">Chapter 3</span></a>, we introduced the concept of <a class="reference internal" href="3_objects.html#term-type"><span class="xref std std-term">type</span></a> as an
 <a class="reference internal" href="3_objects.html#term-abstraction"><span class="xref std std-term">abstraction</span></a> comprising a set of possible values, and a set of
 operations. All types in Python are abstractions in this sense
 because we deal with them in terms of their defined properties rather
@@ -69,7 +74,7 @@ than their actual implementation. However, it can also be useful to
 define purely mathematical types, distinct from their concrete
 realisation in code. Indeed, there are typically multiple possible
 concrete realisations of a mathematical idea.</p>
-<div class="proof proof-type-definition" id="id3">
+<div class="proof proof-type-definition" id="id4">
 
     <div class="proof-title">
         <span class="proof-type">Definition 5.1</span>
@@ -82,7 +87,7 @@ defined independently of its concrete realisation as code.</p>
 </div></div><p>Abstract data types enable the programmer to reason about algorithms and their
 cost separately from the task of implementing them. In contrast, we can also
 define the concrete realisation of a data type:</p>
-<div class="proof proof-type-definition" id="id4">
+<div class="proof proof-type-definition" id="id5">
 
     <div class="proof-title">
         <span class="proof-type">Definition 5.2</span>
@@ -92,141 +97,49 @@ define the concrete realisation of a data type:</p>
     </div><div class="proof-content">
 <p>A <em>data structure</em> describes the concrete implementation of a data type:
 which data is stored, in what order, and how it is interpreted.</p>
-</div></div><p>In understanding abstract data types, it is often useful to think about the data
-structures which could be used to implement them.</p>
+</div></div><p>In understanding abstract data types, it is often useful to think about the
+data structures which could be used to implement them, but there is also value
+in understanding an abstract type purely in terms of its mathematical
+properties.</p>
 <section id="stacks">
-<span id="id2"></span><h2><span class="section-number">5.1. </span>Stacks<a class="headerlink" href="#stacks" title="Permalink to this headline">¶</a></h2>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Video: stacks as an abstract data type.<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="vimeo docutils container">
-<iframe src="https://player.vimeo.com/video/506479213"
-frameborder="0" allow="autoplay; fullscreen"
-allowfullscreen></iframe></div>
-</div>
-</details><p>Possibly the simplest abstract data type which is not synonymous with
+<span id="id2"></span><h2><span class="section-number">5.1. </span>Stacks<a class="headerlink" href="#stacks" title="Permalink to this heading">¶</a></h2>
+<details>
+<summary>
+Video: stacks as an abstract data type.</summary><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/506479213" style="border: 0; height: 345px; width: 560px">
+</iframe></div></details><p>Possibly the simplest abstract data type which is not synonymous with
 a Python type is the <a class="reference internal" href="#term-stack"><span class="xref std std-term">stack</span></a>. A stack is a sequence of objects
 in which only the most recently added object is accessible. The image
 to have in mind is a stack of plates on a spring-loaded holder of the
-type found in many universities or workplace canteens. Each time a
+type found in many university and workplace canteens. Each time a
 plate is added to the stack, the whole pile is <em>pushed</em> down to keep
 the top of the stack in place. If the top plate is removed, then the
 whole stack <em>pops</em> back up. An alternative name for a stack is
 a <a class="reference internal" href="#term-LIFO-last-in-first-out"><span class="xref std std-term">LIFO (last in, first out)</span></a>, because the last object added to
-the stack is the first object retrieved (contrast <a class="reference internal" href="#term-FIFO-first-in-first-out"><span class="xref std std-term">FIFO</span></a>).</p>
-<p>Recall that a <a class="reference internal" href="3_objects.html#term-type"><span class="xref std std-term">type</span></a> is defined by a set of possible values and
-a set of operations. The value of stack is an ordered sequence of objects of any
-type. The operations are <code class="xref py py-obj docutils literal notranslate"><span class="pre">push</span></code> to add a new object to the sequence,
-and <code class="xref py py-obj docutils literal notranslate"><span class="pre">pop</span></code> to return the most recently added object, and remove it from
-the sequence. <a class="reference internal" href="#stackdiag"><span class="std std-numref">Fig. 5.1</span></a> shows these operations. It is also common to add an additional operation of
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">peek</span></code>, which returns the most recently added object without removing
-it from the stack.</p>
-<figure class="align-default" id="id5">
-<span id="stackdiag"></span><div class="align-default"><svg height="740" viewBox="0 0 832 740" width="832" xmlns="http://www.w3.org/2000/svg" xmlns:inkspace="http://www.inkscape.org/namespaces/inkscape" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <defs id="defs_block">
-    <filter height="1.504" id="filter_blur" inkspace:collect="always" width="1.1575" x="-0.07875" y="-0.252">
-      <feGaussianBlur id="feGaussianBlur3780" inkspace:collect="always" stdDeviation="4.2" />
-    </filter>
-  </defs>
-  <title>blockdiag</title>
-  <desc />
-  <rect fill="rgb(255,165,0)" height="50" style="filter:url(#filter_blur)" width="144" x="248" y="100" />
-  <rect fill="rgb(255,165,0)" height="120" style="filter:url(#filter_blur)" width="144" x="248" y="310" />
-  <rect fill="rgb(255,165,0)" height="190" style="filter:url(#filter_blur)" width="144" x="248" y="520" />
-  <rect fill="rgb(255,165,0)" height="120" style="filter:url(#filter_blur)" width="144" x="632" y="100" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="259" y="46" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="259" y="116" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="267" y="264" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="263" y="260" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="259" y="256" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="259" y="326" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="259" y="396" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="267" y="474" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="263" y="470" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="259" y="466" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="259" y="536" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="259" y="606" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="259" y="676" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="651" y="54" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="647" y="50" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="643" y="46" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="643" y="116" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="643" y="186" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="67" y="46" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="67" y="256" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="67" y="466" />
-  <rect fill="rgb(0,0,0)" height="30" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="451" y="46" />
-  <rect fill="rgb(255,165,0)" height="30" stroke="rgb(0,0,0)" width="128" x="256" y="40" />
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="30" x="320.0" y="61">Stack</text>
-  <rect fill="rgb(255,255,255)" height="30" stroke="rgb(0,0,0)" width="128" x="256" y="110" />
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="12" x="320.0" y="131">24</text>
-  <rect fill="rgb(255,165,0)" height="30" stroke="rgb(0,0,0)" width="128" x="264" y="258" />
-  <rect fill="rgb(255,165,0)" height="30" stroke="rgb(0,0,0)" width="128" x="260" y="254" />
-  <rect fill="rgb(255,165,0)" height="30" stroke="rgb(0,0,0)" width="128" x="256" y="250" />
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="30" x="320.0" y="271">Stack</text>
-  <rect fill="rgb(255,255,255)" height="30" stroke="rgb(0,0,0)" width="128" x="256" y="320" />
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="12" x="320.0" y="341">12</text>
-  <rect fill="rgb(255,255,255)" height="30" stroke="rgb(0,0,0)" width="128" x="256" y="390" />
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="12" x="320.0" y="411">24</text>
-  <rect fill="rgb(255,165,0)" height="30" stroke="rgb(0,0,0)" width="128" x="264" y="468" />
-  <rect fill="rgb(255,165,0)" height="30" stroke="rgb(0,0,0)" width="128" x="260" y="464" />
-  <rect fill="rgb(255,165,0)" height="30" stroke="rgb(0,0,0)" width="128" x="256" y="460" />
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="30" x="320.0" y="481">Stack</text>
-  <rect fill="rgb(255,255,255)" height="30" stroke="rgb(0,0,0)" width="128" x="256" y="530" />
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="12" x="320.0" y="551">57</text>
-  <rect fill="rgb(255,255,255)" height="30" stroke="rgb(0,0,0)" width="128" x="256" y="600" />
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="12" x="320.0" y="621">12</text>
-  <rect fill="rgb(255,255,255)" height="30" stroke="rgb(0,0,0)" width="128" x="256" y="670" />
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="12" x="320.0" y="691">24</text>
-  <rect fill="rgb(255,165,0)" height="30" stroke="rgb(0,0,0)" width="128" x="648" y="48" />
-  <rect fill="rgb(255,165,0)" height="30" stroke="rgb(0,0,0)" width="128" x="644" y="44" />
-  <rect fill="rgb(255,165,0)" height="30" stroke="rgb(0,0,0)" width="128" x="640" y="40" />
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="30" x="704.0" y="61">Stack</text>
-  <rect fill="rgb(255,255,255)" height="30" stroke="rgb(0,0,0)" width="128" x="640" y="110" />
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="12" x="704.0" y="131">12</text>
-  <rect fill="rgb(255,255,255)" height="30" stroke="rgb(0,0,0)" width="128" x="640" y="180" />
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="12" x="704.0" y="201">24</text>
-  <rect fill="rgb(46,139,87)" height="30" stroke="rgb(0,0,0)" width="128" x="64" y="40" />
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="42" x="128.0" y="61">push 24</text>
-  <rect fill="rgb(46,139,87)" height="30" stroke="rgb(0,0,0)" width="128" x="64" y="250" />
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="42" x="128.0" y="271">push 12</text>
-  <rect fill="rgb(46,139,87)" height="30" stroke="rgb(0,0,0)" width="128" x="64" y="460" />
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="42" x="128.0" y="481">push 57</text>
-  <rect fill="rgb(205,92,92)" height="30" stroke="rgb(0,0,0)" width="128" x="448" y="40" />
-  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="18" x="512.0" y="61">pop</text>
-  <ellipse cx="512.0" cy="265.0" fill="rgb(0,0,0)" rx="4.0" ry="4.0" stroke="rgb(0,0,0)" />
-  <ellipse cx="512.0" cy="250.0" fill="rgb(0,0,0)" rx="4.0" ry="4.0" stroke="rgb(0,0,0)" />
-  <ellipse cx="512.0" cy="280.0" fill="rgb(0,0,0)" rx="4.0" ry="4.0" stroke="rgb(0,0,0)" />
-  <path d="M 192 55 L 248 55" fill="none" stroke="rgb(0,0,0)" />
-  <polygon fill="rgb(0,0,0)" points="255,55 248,51 248,59 255,55" stroke="rgb(0,0,0)" />
-  <path d="M 192 265 L 248 265" fill="none" stroke="rgb(0,0,0)" />
-  <polygon fill="rgb(0,0,0)" points="255,265 248,261 248,269 255,265" stroke="rgb(0,0,0)" />
-  <path d="M 192 475 L 248 475" fill="none" stroke="rgb(0,0,0)" />
-  <polygon fill="rgb(0,0,0)" points="255,475 248,471 248,479 255,475" stroke="rgb(0,0,0)" />
-  <path d="M 576 55 L 632 55" fill="none" stroke="rgb(0,0,0)" />
-  <polygon fill="rgb(0,0,0)" points="639,55 632,51 632,59 639,55" stroke="rgb(0,0,0)" />
-</svg>
-</div>
-<figcaption>
-<p><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Cartoon of a sequence of stack operations. First 24, 12, 57 are
-pushed, then 57 is popped.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+the stack is the first object retrieved.</p>
+<p>Recall that a <a class="reference internal" href="3_objects.html#term-type"><span class="xref std std-term">type</span></a> is defined by a set of possible values and a set of
+operations. The value of stack is an ordered sequence of objects of any type.
+The operations are <code class="xref py py-obj docutils literal notranslate"><span class="pre">push</span></code> to add a new object to the sequence, and <code class="xref py py-obj docutils literal notranslate"><span class="pre">pop</span></code> to
+return the most recently added object, and remove it from the sequence.
+<a class="reference internal" href="#stackdiag"><span class="std std-numref">Fig. 5.1</span></a> shows these operations. It is also common to add an
+additional operation of <code class="xref py py-obj docutils literal notranslate"><span class="pre">peek</span></code>, which returns the most recently added object
+without removing it from the stack.</p>
+<figure class="align-default" id="id6">
+<span id="stackdiag"></span><img alt="_images/stack.svg" src="_images/stack.svg" /><figcaption>
+<p><span class="caption-number">Fig. 5.1 </span><span class="caption-text">A sequence of stack operations. 24, 12, and 57. Finally the pop operation
+removes (and would return) 57.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <section id="an-example-reverse-polish-notation">
-<h3><span class="section-number">5.1.1. </span>An example: reverse Polish notation<a class="headerlink" href="#an-example-reverse-polish-notation" title="Permalink to this headline">¶</a></h3>
-<p>Reverse Polish notation, or postfix notation, is a way of writing
-mathematical operations without using operator precedence or brackets in
-order to determine the order of operations. This makes the
-implementation of reverse Polish notation arithmetic particularly
-simple. Reverse Polish calculators require fewer button pushes for
-complex calculations and were popular in the 1970s. They are still
-available, most famously from HP. In a more current example, the
-PostScript language used to describe documents for printers is reverse
-Polish.</p>
+<h3><span class="section-number">5.1.1. </span>An example: reverse Polish notation<a class="headerlink" href="#an-example-reverse-polish-notation" title="Permalink to this heading">¶</a></h3>
+<p>Reverse Polish notation, or postfix notation, is a way of writing mathematical
+operations without using operator precedence or brackets in order to determine
+the order of operations. This makes the algorithm for evaluating expressions
+written in reverse Polish notation arithmetic particularly simple. Reverse
+Polish calculators require fewer button pushes for complex calculations and
+were popular in the 1970s. They are still available, most famously from HP. In
+a more current example, the PostScript language used to describe documents for
+printers is written in reverse Polish notation.</p>
 <p>In reverse Polish notation, the operator follows its operands. For
 example to add the numbers one and two, one would write <span class="math notranslate nohighlight">\(1\ 2\
 +\)</span>. Formally, a reverse Polish calculator comprises a set of numbers,
@@ -237,9 +150,9 @@ the stack and pushes the result onto the stack. At the end of the
 calculation, the result of the calculation is on the top of the stack.
 <a class="reference internal" href="#rpcalc"><span class="std std-numref">Listing 5.1</span></a> shows <a class="reference internal" href="3_objects.html#term-pseudocode"><span class="xref std std-term">pseudocode</span></a> for a reverse Polish
 calculator.</p>
-<div class="literal-block-wrapper docutils container" id="id6">
+<div class="literal-block-wrapper docutils container" id="id7">
 <span id="rpcalc"></span><div class="code-block-caption"><span class="caption-number">Listing 5.1 </span><span class="caption-text">Pseudocode for a reverse Polish calculator implemented
-using a <a class="reference internal" href="#term-stack"><span class="xref std std-term">stack</span></a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+using a <a class="reference internal" href="#term-stack"><span class="xref std std-term">stack</span></a></span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">inputs</span><span class="p">:</span>
 <span class="linenos">2</span>    <span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="n">number</span><span class="p">:</span>
 <span class="linenos">3</span>        <span class="n">stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
@@ -253,16 +166,16 @@ using a <a class="reference internal" href="#term-stack"><span class="xref std s
 </div>
 <p>Notice that we pop the second operand before the first. This is
 because <span class="math notranslate nohighlight">\(4\ 2\ -\)</span> means <span class="math notranslate nohighlight">\(4 - 2\)</span>, not <span class="math notranslate nohighlight">\(2 - 4\)</span>.
-<a class="reference internal" href="#rptable"><span class="std std-numref">Table 5.1</span></a> Shows how a reverse Polish calculator would evaluate
+<a class="reference internal" href="#rptable"><span class="std std-numref">Table 5.1</span></a> shows how a reverse Polish calculator would evaluate
 an arithmetic expression.</p>
-<span id="rptable"></span><table class="colwidths-given docutils align-default" id="id7">
+<span id="rptable"></span><table class="docutils align-default" id="id8">
 <caption><span class="caption-number">Table 5.1 </span><span class="caption-text">Evaluation of the reverse Polish expression
              <code class="xref py py-obj docutils literal notranslate"><span class="pre">6</span> <span class="pre">2</span> <span class="pre">/</span> <span class="pre">2</span> <span class="pre">4</span> <span class="pre">**</span> <span class="pre">+</span></code> using a stack
-             (equivalent to <span class="math notranslate nohighlight">\(6/2 + 2^4 = 3 + 16 = 19\)</span>).</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+             (equivalent to <span class="math notranslate nohighlight">\(6/2 + 2^4 = 3 + 16 = 19\)</span>).</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 46%" />
-<col style="width: 15%" />
-<col style="width: 38%" />
+<col style="width: 46.2%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Expression</p></th>
@@ -307,18 +220,18 @@ an arithmetic expression.</p>
 </table>
 </section>
 <section id="implementing-stacks-in-python">
-<h3><span class="section-number">5.1.2. </span>Implementing stacks in Python<a class="headerlink" href="#implementing-stacks-in-python" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.2. </span>Implementing stacks in Python<a class="headerlink" href="#implementing-stacks-in-python" title="Permalink to this heading">¶</a></h3>
 <p>While it is strictly true that Python does not have a stack type, the
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> class functions as a perfectly good stack. The
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> class functions as a perfectly good stack. The
 relationship between the two is shown in <a class="reference internal" href="#list-stack"><span class="std std-numref">Table 5.2</span></a>.</p>
-<span id="list-stack"></span><table class="colwidths-given docutils align-default" id="id8">
+<span id="list-stack"></span><table class="docutils align-default" id="id9">
 <caption><span class="caption-number">Table 5.2 </span><span class="caption-text">Correspondence between abstract stack operations, and
              Python list operations. We assume a list called
-             <code class="xref py py-obj docutils literal notranslate"><span class="pre">my_list</span></code></span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+             <code class="xref py py-obj docutils literal notranslate"><span class="pre">my_list</span></code></span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Stack operation</p></th>
@@ -350,14 +263,14 @@ stack operation, but often useful.</p></td>
 </section>
 </section>
 <section id="separation-of-concerns">
-<h2><span class="section-number">5.2. </span>Separation of concerns<a class="headerlink" href="#separation-of-concerns" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.2. </span>Separation of concerns<a class="headerlink" href="#separation-of-concerns" title="Permalink to this heading">¶</a></h2>
 <p>At first sight, discussions of abstract data types can seem like a
 complication of what, at the end of the day, are just operations on
 some objects. Instead of talking about stacks, why don’t we just say
 that a reverse Polish calculator can be implemented using a
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>?</p>
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>?</p>
 <p>The critical conceptual difference here is that a
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> is a Python construct, while a stack is a mathematical
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> is a Python construct, while a stack is a mathematical
 concept with universal applicability. If you understand the concept of
 a stack, then you will be able to use this to design algorithms and
 write programs in other languages where the concrete implementation
@@ -377,37 +290,28 @@ understanding. Directly addressing a large and complex problem is
 likely to result in a large and complex piece of code which nobody
 understands. Such a program will almost inevitably produce the wrong
 answer, and finding out what is wrong will be exceptionally difficult.</p>
-<p>Abstract data types provide part of the mathematical interface that
-separates different concerns. The user of an abstract data type has an
-object with a simple set of operations which is easy to reason about,
-while the implementer of an abstract data type only has to provide an
-object with the required methods. They do not have to reason about all
-the ways in which that object might be used. By learning to think
-about programming in terms of abstract types and objects, you will
-become a better programmer who can address more complex programming
-tasks.</p>
+<p>Abstract data types provide part of the mathematical interface that separates
+different concerns. The user of an abstract data type has an object with a
+simple set of operations which is easy to reason about. At the same time, the
+implementer of an abstract data type only has to provide an object with the
+required methods: they do not have to reason about all the ways in which that
+object might be used. By learning to think about programming in terms of
+abstract types and objects, you will become a better programmer who can address
+more complex programming tasks.</p>
 </section>
 <section id="algorithmic-complexity">
-<h2><span class="section-number">5.3. </span>Algorithmic complexity<a class="headerlink" href="#algorithmic-complexity" title="Permalink to this headline">¶</a></h2>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Video: dynamic arrays and algorithmic complexity.<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="vimeo docutils container">
-<iframe src="https://player.vimeo.com/video/506479208"
-frameborder="0" allow="autoplay; fullscreen"
-allowfullscreen></iframe></div>
-</div>
-</details><p>The second reason that understanding abstract data types is important
+<h2><span class="section-number">5.3. </span>Algorithmic complexity<a class="headerlink" href="#algorithmic-complexity" title="Permalink to this heading">¶</a></h2>
+<details>
+<summary>
+Video: dynamic arrays and algorithmic complexity.</summary><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/506479208" style="border: 0; height: 345px; width: 560px">
+</iframe></div></details><p>The second reason that understanding abstract data types is important
 is that a good implementation of a well-designed abstract data type
 will have well-defined performance characteristics. In particular, the
 optimal algorithmic complexity, expressed in big <span class="math notranslate nohighlight">\(O\)</span> notation, of
 operations on abstract data types will be known. Recall the definition
 of big <span class="math notranslate nohighlight">\(O\)</span>:</p>
-<div class="proof proof-type-definition" id="id9">
+<div class="proof proof-type-definition" id="id10">
 <span id="bigo"></span>
     <div class="proof-title">
         <span class="proof-type">Definition 5.3</span>
@@ -415,10 +319,10 @@ of big <span class="math notranslate nohighlight">\(O\)</span>:</p>
             <span class="proof-title-name">(<span class="math notranslate nohighlight">\(O\)</span>)</span>
         
     </div><div class="proof-content">
-<p>Let <code class="xref py py-obj docutils literal notranslate"><span class="pre">f</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">g</span></code>, be real-valued functions. Then:</p>
+<p>Let <span class="math notranslate nohighlight">\(f\)</span>, <span class="math notranslate nohighlight">\(g\)</span>, be real-valued functions. Then:</p>
 <div class="math notranslate nohighlight">
 \[f(n) = O(g(n)) \textrm{ as } n\rightarrow \infty\]</div>
-<p>if there exists <span class="math notranslate nohighlight">\(M&gt;0\)</span> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">N&gt;0</span></code> such that:</p>
+<p>if there exists <span class="math notranslate nohighlight">\(M&gt;0\)</span> and <span class="math notranslate nohighlight">\(N&gt;0\)</span> such that:</p>
 <div class="math notranslate nohighlight">
 \[n&gt;N\, \Rightarrow\, |f(n)| &lt; M g(n).\]</div>
 </div></div><p>We use <span class="math notranslate nohighlight">\(n\)</span> rather than <span class="math notranslate nohighlight">\(x\)</span> as the independent variable,
@@ -426,26 +330,26 @@ because we are primarily interested in characterising the number of
 primitive operations or the amount of memory that an algorithm will
 use as a function of the number of objects stored in the relevant
 abstract data type.</p>
-<p>For example, in the Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> implementation, all of
+<p>For example, in the Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> implementation, all of
 the stack operations are, on average, <span class="math notranslate nohighlight">\(O(1)\)</span>. This means that
 each of pushing, popping, and peeking has an approximately fixed cost
 that does not depend on the current size of the stack. This does not
 obviously have to be the case, especially for the push and pop
 operations, which modify the stack. <a class="reference internal" href="#badstack"><span class="std std-numref">Listing 5.2</span></a> provides an
 implementation of a stack in which the data is stored as a Python
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>. Here, every time item is pushed onto or popped from
-the stack, a new copy of the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> has to be made. This
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>. Here, every time item is pushed onto or popped from
+the stack, a new copy of the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> has to be made. This
 touches every one of the <span class="math notranslate nohighlight">\(n\)</span> items currently in the stack, and
 therefore costs <span class="math notranslate nohighlight">\(O(n)\)</span> operations. It is often useful to
 distinguish between time complexity, which is an indication of the
 number of operations required to execute an algorithm, and space
 complexity, which measures the peak memory usage of an algorithm or
 data structure.</p>
-<div class="badcode docutils container" id="badstack">
-<div class="literal-block-wrapper docutils container" id="id10">
-<div class="code-block-caption"><span class="caption-number">Listing 5.3 </span><span class="caption-text">A poorly designed stack implementation in which push and pop cost
+<div class="badcode docutils container">
+<div class="literal-block-wrapper docutils container" id="id11">
+<span id="badstack"></span><div class="code-block-caption"><span class="caption-number">Listing 5.2 </span><span class="caption-text">A poorly designed stack implementation in which push and pop cost
 <span class="math notranslate nohighlight">\(O(n)\)</span> operations, where <span class="math notranslate nohighlight">\(n\)</span> is the current
-number of objects on the stack.</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+number of objects on the stack.</span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span> <span class="nc">BadStack</span><span class="p">:</span>
 <span class="linenos"> 2</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos"> 3</span>        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">()</span>
@@ -477,8 +381,8 @@ really rather good since <code class="xref py py-obj docutils literal notranslat
 cost is very expensive indeed!</p>
 </div>
 <section id="amortised-complexity-and-worst-case-complexity">
-<h3><span class="section-number">5.3.1. </span>Amortised complexity and worst case complexity<a class="headerlink" href="#amortised-complexity-and-worst-case-complexity" title="Permalink to this headline">¶</a></h3>
-<p>The actual implementation of a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> is of a contiguous
+<h3><span class="section-number">5.3.1. </span>Amortised complexity and worst case complexity<a class="headerlink" href="#amortised-complexity-and-worst-case-complexity" title="Permalink to this heading">¶</a></h3>
+<p>The actual implementation of a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> is of a contiguous
 sequence of locations in memory, each of which can hold a reference to
 a Python object. How, then, can appending an item to a list work? The
 next location in memory might already be in use for some other
@@ -498,65 +402,13 @@ to the current length of the list. That is, if the current list length
 is <span class="math notranslate nohighlight">\(n\)</span> then the new memory allocation will be of size
 approximately <span class="math notranslate nohighlight">\(kn\)</span> for some <span class="math notranslate nohighlight">\(k&gt;1\)</span>. This <a class="reference internal" href="#term-data-structure"><span class="xref std std-term">data structure</span></a> is
 called a <a class="reference internal" href="#term-dynamic-array"><span class="xref std std-term">dynamic array</span></a>. <a class="reference internal" href="#dynamicarray"><span class="std std-numref">Fig. 5.2</span></a> illustrates its operation.</p>
-<figure class="align-center" id="id11">
-<span id="dynamicarray"></span><div class="graphviz"><object data="_images/graphviz-1031807c2d8ac550ebcd831770dd06c4981d7d70.svg" type="image/svg+xml" class="graphviz">
-<p class="warning">digraph dl {
-    bgcolor=&quot;#ffffff00&quot; # RGBA (with alpha)
-        graph [
-        rankdir = &quot;LR&quot;
-        ];
-        node [
-        fontsize = &quot;16&quot;
-        shape = &quot;ellipse&quot;
-        ];
-        edge [
-        ];
-
-        subgraph cluster_0 {
-                    style=&quot;ellipse, dashed&quot;;
-                    bgcolor=&quot;#CD5C5C&quot;;
-        &quot;node0&quot; [
-        label = &quot;&lt;f0&gt; 2 | 3| 5| 7 |e &lt;f1&gt;&quot;
-        shape = &quot;record&quot;
-        ];
-        }
-
-        subgraph cluster_3 {
-                    style=&quot;ellipse, dashed&quot;;
-                    bgcolor=&quot;#2E8B57&quot;;
-
-        &quot;node1&quot; [
-        label = &quot;&lt;f0&gt; 2 | 3| 5| 7 | &lt;f1&gt; 11| | | &lt;f2&gt;&quot;
-        shape = &quot;record&quot;
-
-        ];
-    }
-        subgraph cluster_4 {
-                    style=&quot;ellipse, dashed&quot;;
-                    bgcolor=&quot;#2E8B57&quot;;
-
-        &quot;node3&quot; [
-        label = &quot;&lt;f0&gt; 2 | 3| 5| 7| &lt;f1&gt; 11| &lt;f2&gt; 13| | &lt;f3&gt;&quot;
-        shape = &quot;record&quot;
-        ];
-        }
-
-        &quot;node0&quot;:f0 -&gt; &quot;node1&quot;:f0 [
-        id = 2
-            label = &quot;append 11&quot;
-        ];
-
-            &quot;node1&quot;:f0 -&gt; &quot;node3&quot;:f0 [
-        id = 2
-            label = &quot;append 13&quot;
-        ];
-}</p></object></div>
-<figcaption>
-<p><span class="caption-number">Fig. 5.2 </span><span class="caption-text">A dynamic array implementation of a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>. The existing
+<figure class="align-default" id="id12">
+<span id="dynamicarray"></span><img alt="_images/dynamic_array.svg" src="_images/dynamic_array.svg" /><figcaption>
+<p><span class="caption-number">Fig. 5.2 </span><span class="caption-text">A dynamic array implementation of a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>. The existing
 memory buffer is full, so when 11 is appended to the list, a larger
 buffer is created and the whole list is copied into it. When 13 is
 subsequently appended to the list, there is still space in the buffer so
-it is not necessary to copy the whole list.</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+it is not necessary to copy the whole list.</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>What does this memory allocation strategy mean for the computational
@@ -588,18 +440,18 @@ list has an amortised time complexity of <span class="math notranslate nohighlig
 time complexity of <span class="math notranslate nohighlight">\(O(n)\)</span>.</p>
 <p>We can use Python’s <a class="reference internal" href="#term-introspection"><span class="xref std std-term">introspection</span></a> capabilities to illustrate how the
 dynamic allocation of space for a list works as the list is appended. The
-<a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.getsizeof" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.getsizeof()</span></code></a> function returns the amount of computer memory that an
-object consumes. The function in <a class="reference internal" href="#byte-size"><span class="std std-numref">Listing 5.4</span></a> uses this to diagnose the memory
-consumption of progressively longer lists, and <a class="reference internal" href="#byte-size"><span class="std std-numref">Listing 5.4</span></a> demonstrates
-this.</p>
-<div class="literal-block-wrapper docutils container" id="id12">
-<span id="byte-size"></span><div class="code-block-caption"><span class="caption-number">Listing 5.4 </span><span class="caption-text">Code to progressively lengthen a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> and observe the
+<a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.getsizeof" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.getsizeof()</span></code></a> function returns the amount of computer memory that an
+object consumes. The function in <a class="reference internal" href="#byte-size"><span class="std std-numref">Listing 5.3</span></a> uses this to diagnose the
+memory consumption of progressively longer lists, and <a class="reference internal" href="#byte-size-demo"><span class="std std-numref">Listing 5.4</span></a>
+demonstrates this.</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<span id="byte-size"></span><div class="code-block-caption"><span class="caption-number">Listing 5.3 </span><span class="caption-text">Code to progressively lengthen a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> and observe the
 impact on its memory consumption. This function is available as
-<a class="reference internal" href="example_code.html#example_code.linked_list.byte_size" title="example_code.linked_list.byte_size"><code class="xref py py-func docutils literal notranslate"><span class="pre">example_code.linked_list.byte_size()</span></code></a>.</span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
+<a class="reference internal" href="example_code.html#example_code.linked_list.byte_size" title="example_code.linked_list.byte_size"><code class="xref py py-func docutils literal notranslate"><span class="pre">example_code.linked_list.byte_size()</span></code></a>.</span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="k">def</span> <span class="nf">byte_size</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="linenos"> 4</span>    <span class="sd">&quot;&quot;&quot;Print the size in bytes of lists up to length n.&quot;&quot;&quot;</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Print the size in bytes of lists up to length n.&quot;&quot;&quot;</span>
 <span class="linenos"> 5</span>    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="linenos"> 6</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 <span class="linenos"> 7</span>        <span class="n">a</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -609,9 +461,9 @@ impact on its memory consumption. This function is available as
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id13">
-<span id="byte-size-demo"></span><div class="code-block-caption"><span class="caption-number">Listing 5.5 </span><span class="caption-text">The memory consumption of lists of length 0 to 19. We can infer
-that the list is reallocated at lengths 1, 5, 9, and 17.</span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id14">
+<span id="byte-size-demo"></span><div class="code-block-caption"><span class="caption-number">Listing 5.4 </span><span class="caption-text">The memory consumption of lists of length 0 to 19. We can infer
+that the list is reallocated at lengths 1, 5, 9, and 17.</span><a class="headerlink" href="#id14" title="Permalink to this code">¶</a></div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.linked_list</span> <span class="kn">import</span> <span class="n">byte_size</span>
 
 <span class="gp">In [2]: </span><span class="n">byte_size</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
@@ -641,49 +493,42 @@ that the list is reallocated at lengths 1, 5, 9, and 17.</span><a class="headerl
 </section>
 </section>
 <section id="queues-and-deques">
-<h2><span class="section-number">5.4. </span>Queues and deques<a class="headerlink" href="#queues-and-deques" title="Permalink to this headline">¶</a></h2>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Video: deques and ring buffers.<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="vimeo docutils container">
-<iframe src="https://player.vimeo.com/video/506710190"
-frameborder="0" allow="autoplay; fullscreen"
-allowfullscreen></iframe></div>
-</div>
-</details><p>A <a class="reference internal" href="#term-queue"><span class="xref std std-term">queue</span></a> is, like a <a class="reference internal" href="#term-stack"><span class="xref std std-term">stack</span></a>, an ordered sequence of
+<h2><span class="section-number">5.4. </span>Queues and deques<a class="headerlink" href="#queues-and-deques" title="Permalink to this heading">¶</a></h2>
+<details>
+<summary>
+Video: deques and ring buffers.</summary><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/506710190" style="border: 0; height: 345px; width: 560px">
+</iframe></div></details><p>A <a class="reference internal" href="#term-queue"><span class="xref std std-term">queue</span></a> is, like a <a class="reference internal" href="#term-stack"><span class="xref std std-term">stack</span></a>, an ordered sequence of
 objects. The difference is that the only accessible item in the
 sequence is the <em>earliest</em> added. Items can be added to the back of
 the queue and taken from the front. As with a stack, the optimal
 implementations of item insertion and removal are <span class="math notranslate nohighlight">\(O(1)\)</span>.</p>
 <p>A <a class="reference internal" href="#term-deque"><span class="xref std std-term">deque</span></a> (Double Ended QUEue) is a generalisation of a queue to
-permit adding and removing items at either end. Indeed, the observant
-reader will note that a stack is also a special case of a
-deque. Python’s standard library contains the
-<a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.deque</span></code></a> class, providing a simple and efficient
+permit adding and removing items at either end. The observant
+reader will note that stacks and queues are both special cases of
+deques. Python’s standard library contains the
+<a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.deque</span></code></a> class, providing a simple and efficient
 implementation of a deque.</p>
 <section id="ring-buffers">
-<h3><span class="section-number">5.4.1. </span>Ring buffers<a class="headerlink" href="#ring-buffers" title="Permalink to this headline">¶</a></h3>
-<p>How might one go about implementing a deque? A dynamic array allows values to be
-appended with <span class="math notranslate nohighlight">\(O(1)\)</span> complexity, but doesn’t offer an efficient mechanism
-for prepending values. One might think that the natural solution for this would
-be to create a double-ended dynamic array: a buffer with spare space at each
-end. Unfortunately this is not optimally efficient in the case where the deque
-is used to implement a queue of approximately constant length. In that case,
-values are consistently added at one end of the <a class="reference internal" href="#term-data-structure"><span class="xref std std-term">data structure</span></a> and removed from
-the other. Even in the case of a double-ended dynamic array, the buffer space at
-the append end of the queue will constantly run out, necessitating an expensive
-copy operation. The solution is to use a dynamic array, but to logically join up
-its ends, so that the first position in the buffer follows on from the last.
-Only in the case where all positions in the buffer are full will the buffer be
-reallocated. This data structure is called a ring buffer.</p>
-<figure class="align-default" id="id14">
+<h3><span class="section-number">5.4.1. </span>Ring buffers<a class="headerlink" href="#ring-buffers" title="Permalink to this heading">¶</a></h3>
+<p>How might one go about implementing a deque? A dynamic array allows values to
+be appended with <span class="math notranslate nohighlight">\(O(1)\)</span> complexity, but doesn’t offer an efficient
+mechanism for prepending values. One might think that the natural solution for
+this would be to create a double-ended dynamic array: a buffer with spare space
+at each end. Unfortunately this is not optimally efficient in the case where
+the deque is used to implement a queue of approximately constant length. In
+that case, values are consistently added at one end of the <a class="reference internal" href="#term-data-structure"><span class="xref std std-term">data
+structure</span></a> and removed from the other. Even in the case of a double-ended
+dynamic array, the buffer space at the append end of the queue will constantly
+run out, necessitating an expensive copy operation. The solution is to use a
+dynamic array, but to logically join up its ends, so that the first position in
+the buffer follows on from the last. Only in the case where all positions in
+the buffer are full will the buffer be reallocated. This data structure is
+called a ring buffer.</p>
+<figure class="align-default" id="id15">
 <span id="ring-buffer"></span><img alt="_images/ring_buffer.svg" src="_images/ring_buffer.svg" /><figcaption>
 <p><span class="caption-number">Fig. 5.3 </span><span class="caption-text">An implementation of a ring buffer, with queue
-operations illustrating its operation.</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+operations illustrating its operation.</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p><a class="reference internal" href="#ring-buffer"><span class="std std-numref">Fig. 5.3</span></a> shows a ring buffer being used as a queue. At each step,
@@ -695,20 +540,12 @@ buffer.</p>
 </section>
 </section>
 <section id="linked-lists">
-<h2><span class="section-number">5.5. </span>Linked lists<a class="headerlink" href="#linked-lists" title="Permalink to this headline">¶</a></h2>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Video: linked lists.<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="vimeo docutils container">
-<iframe src="https://player.vimeo.com/video/506743244"
-frameborder="0" allow="autoplay; fullscreen"
-allowfullscreen></iframe></div>
-</div>
-</details><p>One disadvantage of a deque (and hence of a stack or queue) is that inserting an
+<h2><span class="section-number">5.5. </span>Linked lists<a class="headerlink" href="#linked-lists" title="Permalink to this heading">¶</a></h2>
+<details>
+<summary>
+Video: linked lists.</summary><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/506743244" style="border: 0; height: 345px; width: 560px">
+</iframe></div></details><p>One disadvantage of a deque (and hence of a stack or queue) is that inserting an
 object into the middle of the sequence is often an <span class="math notranslate nohighlight">\(O(n)\)</span> operation,
 because on average half of the items in the sequence need to be shuffled to make
 space. A linked list provides a mechanism for avoiding this. A singly linked
@@ -718,132 +555,41 @@ possible to move along the list by following the references to successive
 further links. A new item can be inserted at the current point in the list by
 creating a new link, pointing the link reference of the new link to the next
 link, and pointing the link reference of the current link to the new link.
-<a class="reference internal" href="#linked-list-dia"><span class="std std-numref">Fig. 5.4</span></a> shows this process, while <a class="reference internal" href="#linked-list"><span class="std std-numref">Listing 5.6</span></a> shows
+<a class="reference internal" href="#linked-list-dia"><span class="std std-numref">Fig. 5.4</span></a> shows this process, while <a class="reference internal" href="#linked-list"><span class="std std-numref">Listing 5.5</span></a> shows
 a minimal implementation of a linked list in Python. Notice that there is no
 object for the list itself: a linked list is simply a linked set of links. Some
 linked list implementations do store an object for the list itself, in order to
 record convenient information such as the list length, but it’s not strictly necessary.</p>
-<figure class="align-center" id="id15">
-<span id="linked-list-dia"></span><div class="graphviz"><object data="_images/graphviz-73f38ecb7e79a1bc02d36b1a505e4ad099affb78.svg" type="image/svg+xml" class="graphviz">
-<p class="warning">digraph ll {
-             bgcolor=&quot;#ffffff00&quot;
-             graph [
-             rankdir = &quot;TB&quot;
-             ];
-             node [
-             fontsize = &quot;16&quot;
-             ];
-             edge [
-             ];
-
-             subgraph cluster_1 {
-                             style=&quot;ellipse, dashed&quot;;
-                             bgcolor=&quot;lightgray&quot;;
-
-             &quot;node_init&quot; [
-             label = &quot;&lt;f0&gt; A| next| 1 &lt;f1&gt;&quot;
-             shape = &quot;record&quot;
-             ];
-
-             &quot;node0&quot; [
-             label = &quot;&lt;f0&gt; B| next| 1 &lt;f1&gt;&quot;
-             shape = &quot;record&quot;
-             ];
-
-             &quot;node1&quot; [
-             label = &quot;&lt;f0&gt; C| next| 1 &lt;f1&gt;&quot;
-             shape = &quot;record&quot;
-             ];
-
-             &quot;node2&quot; [
-             label = &quot;&lt;f0&gt; D| next| 1 &lt;f1&gt;&quot;
-             shape = &quot;record&quot;
-             ];
-
-              &quot;node3&quot; [
-             label = &quot;&lt;f0&gt; E| next| 1 &lt;f1&gt;&quot;
-             shape = &quot;record&quot;
-             ];
-
-              &quot;node4&quot; [
-             label = &quot;None&quot;
-             shape = &quot;record&quot;
-             ];
-
-
-
-             subgraph cluster_2 {
-                             style=&quot;ellipse, dashed&quot;;
-                             bgcolor=&quot;#2E8B57&quot;;
-
-             &quot;node5&quot; [
-             label = &quot;&lt;f0&gt; F| next|_ &lt;f1&gt;&quot;
-             shape = &quot;record&quot;
-             ];
-             }
-
-             &quot;node_init&quot;:f1 -&gt; &quot;node0&quot;:f0 [
-             id = 0
-             ];
-
-             &quot;node0&quot;:f1 -&gt; &quot;node1&quot;:f0 [
-             id = 1
-             ];
-
-             &quot;node1&quot;:f1 -&gt; &quot;node2&quot;:f0 [
-             id = 2
-             label =&quot;old link&quot;
-             ];
-
-             &quot;node2&quot;:f1 -&gt; &quot;node3&quot;:f0 [
-             id = 3
-             ];
-
-             &quot;node1&quot;:f1 -&gt; &quot;node5&quot;:f0 [
-             id = 4
-             label =&quot; new link&quot;
-             style= &quot;dashed&quot;
-             ];
-
-             &quot;node5&quot;:f1 -&gt; &quot;node2&quot;:f0 [
-             id = 5
-             style= &quot;dashed&quot;
-             ];
-
-     &quot;node3&quot;:f1 -&gt; &quot;node4&quot;:f1 [
-     id = 6
-     style = dashed
-             ];
-        }
-}</p></object></div>
-<figcaption>
-<p><span class="caption-number">Fig. 5.4 </span><span class="caption-text">Diagram of a linked list. A new link containing the value <code class="xref py py-obj docutils literal notranslate"><span class="pre">F</span></code> is
-being inserted between the link with value <code class="xref py py-obj docutils literal notranslate"><span class="pre">C</span></code> and that with value <code class="xref py py-obj docutils literal notranslate"><span class="pre">D</span></code>.</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+<figure class="align-default" id="id16">
+<span id="linked-list-dia"></span><img alt="_images/linked_list.svg" src="_images/linked_list.svg" /><figcaption>
+<p><span class="caption-number">Fig. 5.4 </span><span class="caption-text">Diagram of a linked list. A new link containing the value <code class="xref py py-obj docutils literal notranslate"><span class="pre">E</span></code> is
+inserted between the link with value <code class="xref py py-obj docutils literal notranslate"><span class="pre">B</span></code> and that with value <code class="xref py py-obj docutils literal notranslate"><span class="pre">C</span></code>. First,
+the link reference from <code class="xref py py-obj docutils literal notranslate"><span class="pre">E</span></code> is pointed to <code class="xref py py-obj docutils literal notranslate"><span class="pre">C</span></code> (blue dashed line). Next,
+the link reference from <code class="xref py py-obj docutils literal notranslate"><span class="pre">B</span></code> is pointed to <code class="xref py py-obj docutils literal notranslate"><span class="pre">E</span></code> (red dotted line).</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="literal-block-wrapper docutils container" id="linked-list">
-<div class="code-block-caption"><span class="caption-number">Listing 5.6 </span><span class="caption-text">A simple singly linked list implementation.</span><a class="headerlink" href="#linked-list" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 5.5 </span><span class="caption-text">A simple singly linked list implementation.</span><a class="headerlink" href="#linked-list" title="Permalink to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span> <span class="nc">Link</span><span class="p">:</span>
 <span class="linenos"> 2</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="linenos"> 3</span>       <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
 <span class="linenos"> 4</span>       <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">next</span>
 <span class="linenos"> 5</span>
 <span class="linenos"> 6</span>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="p">):</span>
-<span class="linenos"> 7</span>       <span class="sd">&#39;&#39;&#39;Insert a new link after the current one.&#39;&#39;&#39;</span>
+<span class="linenos"> 7</span><span class="w">       </span><span class="sd">&#39;&#39;&#39;Insert a new link after the current one.&#39;&#39;&#39;</span>
 <span class="linenos"> 8</span>
 <span class="linenos"> 9</span>       <span class="n">link</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">next</span>
 <span class="linenos">10</span>       <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">link</span>
 </pre></div>
 </div>
 </div>
-<p>Linked lists tend to have advantages where data is sparse. For
-example, our implementation of a <a class="reference internal" href="example_code.html#example_code.polynomial.Polynomial" title="example_code.polynomial.Polynomial"><code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code></a> in
-<a class="reference internal" href="3_objects.html#objects"><span class="std std-numref">Section 3</span></a> would represent <span class="math notranslate nohighlight">\(x^{100} + 1\)</span> very
-inefficiently, with 98 zeroes. Squaring this polynomial would cause
-tens of thousands of operations, almost all of them on
-zeroes. Conversely, if we implemented polynomials with linked lists of
-terms, this squaring operation would take the handful of operations we
-expect.</p>
+<p>Linked lists tend to have advantages where data is sparse. For example, our
+implementation of a <a class="reference internal" href="example_code.html#example_code.polynomial.Polynomial" title="example_code.polynomial.Polynomial"><code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code></a> in
+<a class="reference internal" href="3_objects.html#objects"><span class="std std-numref">Chapter 3</span></a> would represent <span class="math notranslate nohighlight">\(x^{100} + 1\)</span> very
+inefficiently, with 98 zeroes. Squaring this polynomial would cause tens of
+thousands of operations, almost all of them on zeroes. Conversely, if we
+implemented polynomials with linked lists of terms, this squaring operation
+would take the handful of operations we expect.</p>
 <p>A doubly linked list differs from a singly linked list in that each
 link contains links both to the next link and to the previous
 one. This enables the list to be traversed both forwards and
@@ -854,25 +600,17 @@ new link objects is typically less efficient than implementations
 based on ring buffers.</p>
 </section>
 <section id="the-iterator-protocol">
-<span id="iterator-protocol"></span><h2><span class="section-number">5.6. </span>The iterator protocol<a class="headerlink" href="#the-iterator-protocol" title="Permalink to this headline">¶</a></h2>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Video: the iterator protocol.<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="vimeo docutils container">
-<iframe src="https://player.vimeo.com/video/506743250"
-frameborder="0" allow="autoplay; fullscreen"
-allowfullscreen></iframe></div>
-</div>
-</details><p>The abstract data types we have considered here are collections of
+<span id="iterator-protocol"></span><h2><span class="section-number">5.6. </span>The iterator protocol<a class="headerlink" href="#the-iterator-protocol" title="Permalink to this heading">¶</a></h2>
+<details>
+<summary>
+Video: the iterator protocol.</summary><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/506743250" style="border: 0; height: 345px; width: 560px">
+</iframe></div></details><p>The abstract data types we have considered here are collections of
 objects, and one common abstract operation which is applicable to
 collections is to iterate over them. That is to say, to loop over the
 objects in the collection and perform some action for each one. This
 operation is sufficiently common that Python provides a special syntax
-for it, the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#for" title="(in Python v3.10)"><span class="xref std std-ref">for loop</span></a>. You will already be very
+for it: the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#for" title="(in Python v3.11)"><span class="xref std std-ref">for loop</span></a>. You will already be very
 familiar with looping over sequences such as lists:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="k">for</span> <span class="n">planet</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;World&quot;</span><span class="p">,</span> <span class="s2">&quot;Mars&quot;</span><span class="p">,</span> <span class="s2">&quot;Venus&quot;</span><span class="p">]:</span>
 <span class="gp">   ...: </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">planet</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -882,53 +620,54 @@ familiar with looping over sequences such as lists:</p>
 <span class="go">Hello Venus</span>
 </pre></div>
 </div>
-<p>Python offers a useful abstraction of this concept. By implementing
-the correct <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special methods</span></a>, a container
-class can provide the ability to be iterated over. This is a great
-example of abstraction in action: the user doesn’t need to know or
-care how a particular container is implemented and therefore how to
-find all of its contents.</p>
+<p>Python offers a useful abstraction of this concept. By implementing the correct
+<a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special methods</span></a>, a container class can provide the
+ability to be iterated over. This is a great example of abstraction in action:
+the user doesn’t need to know or care how a particular container is implemented
+and therefore how to find all of its contents, they can simply write a for loop
+to access every item in turn.</p>
 <p>There are two <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special methods</span></a> required for iteration.
 Neither take any arguments beyond the object itself. The first,
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#container.__iter__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a>, needs to be implemented by the container type. Its
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#container.__iter__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a>, needs to be implemented by the container type. Its
 role is to return an object which implements iteration. This could be the
-container itself, or it could be a special iteration object (for example because
-it is necessary to store a number recording where the iteration is up to).</p>
-<p>The object returned by <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#container.__iter__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> needs to itself implement
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__iter__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> (for example it could simply <code class="xref py py-obj docutils literal notranslate"><span class="pre">return</span> <span class="pre">self</span></code>). In
-addition, it needs to implement the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> method. This is
-called by Python repeatedly to obtain the next object in the iteration
-sequence. Once the sequence is exhausted, subsequent calls to
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> should raise the built-in <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#StopIteration" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">StopIteration</span></code></a>
-exception. This tells Python that the iteration is over. This
-arrangement is called the iterator protocol, and it’s further
-documented in the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typeiter" title="(in Python v3.10)"><span class="xref std std-ref">official Python documentation</span></a>.</p>
+container itself, or it could be a special iteration object (for example
+because it is necessary to store a number recording where the iteration is up
+to).</p>
+<p>The object returned by <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#container.__iter__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> is called an iterator. It
+also needs to implement <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__iter__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> (for example it could simply
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">return</span> <span class="pre">self</span></code>). In addition, it needs to implement the
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> method. This is called by Python repeatedly to
+obtain the next object in the iteration sequence. Once the sequence is
+exhausted, subsequent calls to <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> should raise the
+built-in <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#StopIteration" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">StopIteration</span></code></a> exception. This tells Python that the iteration
+is over. This arrangement is called the iterator protocol, and it’s further
+documented in the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typeiter" title="(in Python v3.11)"><span class="xref std std-ref">official Python documentation</span></a>.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>Raising exceptions is the subject of <a class="reference internal" href="6_exceptions.html#raising-exceptions"><span class="std std-numref">Section 6.4</span></a>,
-to which we will turn presently. Fur current purposes, it is
-sufficient to know that iteration is halted when <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a>
+to which we will turn presently. For current purposes, it is
+sufficient to know that iteration is halted when <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a>
 executes this line of code:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">StopIteration</span>
 </pre></div>
 </div>
 </div>
-<p>Let’s suppose we want to make the linked list in <a class="reference internal" href="#linked-list"><span class="std std-numref">Listing 5.6</span></a>
-iterable. We’ll need to make another object to keep track of where we
-are in the list at each point in the
-iteration. <a class="reference internal" href="#iterating-linked-list"><span class="std std-numref">Listing 5.7</span></a> shows the code. The helper
-class <code class="xref py py-class docutils literal notranslate"><span class="pre">LinkIterator</span></code> is never seen by the user, it’s just there
-to keep track of the iteration.</p>
-<div class="literal-block-wrapper docutils container" id="id16">
-<span id="iterating-linked-list"></span><div class="code-block-caption"><span class="caption-number">Listing 5.7 </span><span class="caption-text">A simple linked list implementation that supports the iterator
-protocol.</span><a class="headerlink" href="#id16" title="Permalink to this code">¶</a></div>
+<p>Let’s suppose we want to make the linked list in <a class="reference internal" href="#linked-list"><span class="std std-numref">Listing 5.5</span></a>
+iterable. We’ll need to make another object (an iterator) to keep track of
+where we are in the list at each point in the iteration.
+<a class="reference internal" href="#iterating-linked-list"><span class="std std-numref">Listing 5.6</span></a> shows the code. The iterator class
+<code class="xref py py-class docutils literal notranslate"><span class="pre">LinkIterator</span></code> is never seen by the user, it’s just there to keep track
+of the iteration.</p>
+<div class="literal-block-wrapper docutils container" id="id17">
+<span id="iterating-linked-list"></span><div class="code-block-caption"><span class="caption-number">Listing 5.6 </span><span class="caption-text">A simple linked list implementation that supports the iterator
+protocol.</span><a class="headerlink" href="#id17" title="Permalink to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span> <span class="nc">Link</span><span class="p">:</span>
 <span class="linenos"> 2</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="linenos"> 3</span>        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
 <span class="linenos"> 4</span>        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">next</span>
 <span class="linenos"> 5</span>
 <span class="linenos"> 6</span>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="p">):</span>
-<span class="linenos"> 7</span>        <span class="sd">&#39;&#39;&#39;Insert a new link after the current one.&#39;&#39;&#39;</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="sd">&#39;&#39;&#39;Insert a new link after the current one.&#39;&#39;&#39;</span>
 <span class="linenos"> 8</span>
 <span class="linenos"> 9</span>        <span class="n">link</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">next</span>
 <span class="linenos">10</span>        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">link</span>
@@ -966,7 +705,7 @@ protocol.</span><a class="headerlink" href="#id16" title="Permalink to this code
 </pre></div>
 </div>
 <p>Indeed, since Python now knows how to iterate over our linked list,
-converting it to a sequence type such as a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> will now work
+converting it to a sequence type such as a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> will now work
 automatically:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="nb">tuple</span><span class="p">(</span><span class="n">linked_list</span><span class="p">)</span>
 <span class="gh">Out[5]: </span><span class="go">(1, 2, 3)</span>
@@ -974,37 +713,38 @@ automatically:</p>
 </div>
 </section>
 <section id="other-abstract-data-types">
-<h2><span class="section-number">5.7. </span>Other abstract data types<a class="headerlink" href="#other-abstract-data-types" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.7. </span>Other abstract data types<a class="headerlink" href="#other-abstract-data-types" title="Permalink to this heading">¶</a></h2>
 <p>Here we have introduced in some detail a few relatively simple abstract data
 types that illustrate the distinction between the mathematical properties of a
 type and the concrete details of its implementation. There are many other
 abstract data types, some of which you will have already met, and we will
-encouter a few more in this course. For context, here are a few other examples.</p>
+encounter a few more in this course. For context, here are a few other
+examples.</p>
 <dl class="simple">
 <dt>set</dt><dd><p>A set is an unordered collection of objects with the property that objects
 that compare equal can only occur once in the set. Inserting or accessing a
 set member has <span class="math notranslate nohighlight">\(O(1)\)</span> <a class="reference internal" href="#term-amortised-complexity"><span class="xref std std-term">amortised complexity</span></a>. Python provides the
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> built in class as an implementation.</p>
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> built in class as an implementation.</p>
 </dd>
 <dt>dictionary or map</dt><dd><p>A generalised function in which unique (up to equality) keys are mapped to
 arbitrary values. Again, insertion and deletion cost <span class="math notranslate nohighlight">\(O(1)\)</span>
-operations on average. The Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> type is an implementation.</p>
+operations on average. The Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> type is an implementation.</p>
 </dd>
-<dt>graph</dt><dd><p>A general relation between a set and itself defined by a set of values and a
-set of edges, where each edge connects exactly two vertices. Graphs can be
-used to describe very general relationships among data.</p>
+<dt>graph</dt><dd><p>A general relation between a set and itself defined by a set of vertices
+and a set of edges, where each edge connects exactly two vertices. Graphs
+can be used to describe very general relationships among data.</p>
 </dd>
 <dt>tree</dt><dd><p>A particular sort of graph in which edges have a direction (a from and a to
-node), and each node is the origin of at most one edge. Trees can be used to
-describe many types of structured relationship. We will show how trees and
-related structures can be used in symbolic maths in <a class="reference internal" href="10_trees_and_directed_acyclic_graphs.html#trees"><span class="std std-numref">Section 9</span></a>.</p>
+node), and each node is the origin of at most one edge. Trees can be used
+to describe many types of structured relationship. We will show how trees
+and related structures can be used in symbolic maths in <a class="reference internal" href="9_trees_and_directed_acyclic_graphs.html#trees"><span class="std std-numref">Chapter 9</span></a>.</p>
 </dd>
 </dl>
 </section>
 <section id="glossary">
-<h2><span class="section-number">5.8. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.8. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading">¶</a></h2>
 <blockquote>
-<div><dl class="glossary simple">
+<div><dl class="simple glossary">
 <dt id="term-abstract-data-type">abstract data type<a class="headerlink" href="#term-abstract-data-type" title="Permalink to this term">¶</a></dt><dd><p>A mathematical <a class="reference internal" href="3_objects.html#term-type"><span class="xref std std-term">type</span></a>, defined independently of any
 concrete implementation in code. Contrast <a class="reference internal" href="#term-data-structure"><span class="xref std std-term">data structure</span></a></p>
 </dd>
@@ -1065,18 +805,20 @@ worst case complexity can be expected to occur.</p>
 </div></blockquote>
 </section>
 <section id="exercises">
-<h2><span class="section-number">5.9. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<p>Obtain the <a class="reference external" href="https://classroom.github.com/a/VZ0NlgBg">skeleton code for these exercises from GitHub classroom</a>. You will also need to install the pytest-timeout package.</p>
-<div class="proof proof-type-exercise" id="id17">
+<h2><span class="section-number">5.9. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
+<p>Using the information on the <a class="reference external" href="https://object-oriented-python.github.io/edition2/exercises.html">book website</a>
+obtain the skeleton code for these exercises. You will also need to install
+the pytest-timeout package.</p>
+<div class="proof proof-type-exercise" id="id18">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 5.4</span>
         
     </div><div class="proof-content">
-<p>In this week’s skeleton repository, create a <a class="reference internal" href="2_programs_in_files.html#term-package"><span class="xref std std-term">package</span></a> called
+<p>In the exercise repository, create a <a class="reference internal" href="2_programs_in_files.html#term-package"><span class="xref std std-term">package</span></a> called
 <code class="xref py py-mod docutils literal notranslate"><span class="pre">adt_examples</span></code> with a <a class="reference internal" href="2_programs_in_files.html#term-module"><span class="xref std std-term">module</span></a> called
-<code class="xref py py-mod docutils literal notranslate"><span class="pre">adt_examples.fibonacci</span></code>. Make the package installable and install in
-editable mode. Create a class <code class="xref py py-class docutils literal notranslate"><span class="pre">Fib</span></code> implementing the iterator
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">adt_examples.fibonacci</span></code>. Make the package installable and install it
+in editable mode. Create a class <code class="xref py py-class docutils literal notranslate"><span class="pre">Fib</span></code> implementing the iterator
 protocol which returns the Fibonacci numbers. In other words, the following
 code should print the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Fibonacci</span></code> numbers under 100:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">adt_examples.fibonacci</span> <span class="kn">import</span> <span class="n">Fib</span>
@@ -1088,24 +830,25 @@ code should print the <code class="xref py py-obj docutils literal notranslate">
 </pre></div>
 </div>
 <p>Obviously the Fibonacci sequence is infinite, so your iterator will never
-raise <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#StopIteration" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">StopIteration</span></code></a>. Make sure that calculating the next number is
+raise <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#StopIteration" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">StopIteration</span></code></a>. Make sure that calculating the next number is
 always a <span class="math notranslate nohighlight">\(O(1)\)</span> operation: don’t recalculate from 1 each time.</p>
-</div></div><div class="proof proof-type-exercise" id="id18">
+</div></div><div class="proof proof-type-exercise" id="id19">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 5.5</span>
         
     </div><div class="proof-content">
-<p>In this week’s skeleton repository, create a <a class="reference internal" href="2_programs_in_files.html#term-module"><span class="xref std std-term">module</span></a>
+<p>In the exercise repository, create a <a class="reference internal" href="2_programs_in_files.html#term-module"><span class="xref std std-term">module</span></a>
 <code class="xref py py-mod docutils literal notranslate"><span class="pre">adt_examples.rpcalc</span></code> containing a class <code class="xref py py-class docutils literal notranslate"><span class="pre">RPCalc</span></code> implementing a
 reverse Polish calculator. The calculator should have the following methods:</p>
 <dl class="simple">
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">push(n)</span></code></dt><dd><p>This takes a single argument. If it is a number then it should be
 pushed onto the calculator’s internal stack. If it is the string for a
 recognised operator, then the appropriate number of operands should be
-popped from the internal stack, the result pushed back on the stack.
-Your calculator should support the following operators: <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;+&quot;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;-&quot;</span></code>,
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;*&quot;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;/&quot;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;sin&quot;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;cos&quot;</span></code>. The method should not return anything.</p>
+popped from the internal stack, and the result pushed back on the
+stack. Your calculator should support the following operators: <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;+&quot;</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;-&quot;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;*&quot;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;/&quot;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;sin&quot;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;cos&quot;</span></code>. This method should not return
+anything.</p>
 </dd>
 <dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">pop()</span></code></dt><dd><p>This method, which takes no arguments, should pop the top item on the
 internal stack and return it.</p>
@@ -1113,18 +856,18 @@ internal stack and return it.</p>
 <dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">peek()</span></code></dt><dd><p>This method, which takes no arguments, should return the top item on the
 internal stack without popping it.</p>
 </dd>
-<dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code></dt><dd><p>This is the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__len__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code></a> <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special method</span></a>, which takes no
+<dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code></dt><dd><p>This is the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__len__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code></a> <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special method</span></a>, which takes no
 arguments but returns the length of the object. In this case, the length
 of the calculator is defined to be the number of items on its internal stack.</p>
 </dd>
 </dl>
-</div></div><div class="proof proof-type-exercise" id="id19">
+</div></div><div class="proof proof-type-exercise" id="id20">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 5.6</span>
         
     </div><div class="proof-content">
-<p>In this week’s skeleton repository, create a <a class="reference internal" href="2_programs_in_files.html#term-module"><span class="xref std std-term">module</span></a>
+<p>In the exercise repository, create a <a class="reference internal" href="2_programs_in_files.html#term-module"><span class="xref std std-term">module</span></a>
 <code class="xref py py-mod docutils literal notranslate"><span class="pre">adt_examples.deque</span></code> containing a class <code class="xref py py-class docutils literal notranslate"><span class="pre">Deque</span></code> implementing a
 <a class="reference internal" href="#term-deque"><span class="xref std std-term">deque</span></a>. Your implementation should use a ring buffer implemented
 as a Python list. In order to make things somewhat simpler, we will use a
@@ -1145,7 +888,7 @@ argument which is the size of the list you will use as your ring buffer.</p>
 </dd>
 <dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">peekleft()</span></code></dt><dd><p>Return the first item in the <code class="xref py py-class docutils literal notranslate"><span class="pre">Deque</span></code> without removing it.</p>
 </dd>
-<dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code></dt><dd><p>The <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__len__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code></a> <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special method</span></a>. This should return
+<dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code></dt><dd><p>The <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__len__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code></a> <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special method</span></a>. This should return
 the number of items currently in the <code class="xref py py-class docutils literal notranslate"><span class="pre">Deque</span></code>.</p>
 </dd>
 </dl>
@@ -1156,7 +899,7 @@ starting from the first to the last. Iterating over the
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>You can create a list of length <code class="xref py py-obj docutils literal notranslate"><span class="pre">n</span></code> containing only
-<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">None</span></code></a> using the following syntax:</p>
+<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">None</span></code></a> using the following syntax:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
 </pre></div>
 </div>
@@ -1167,14 +910,21 @@ to be very useful.</p>
 <p class="admonition-title">Hint</p>
 <p>When removing an item from the <code class="xref py py-class docutils literal notranslate"><span class="pre">Deque</span></code>, it is important to
 actually overwrite the place in the ring buffer occupied by that item,
-perhaps with <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>. Failing to do so can cause a program to “leak”
+perhaps with <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>. Failing to do so can cause a program to “leak”
 memory (i.e. fail to free memory that is no longer needed).</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You may not use <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.deque</span></code></a> to implement this exercise.</p>
+<p>You may not use <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.deque</span></code></a> to implement this exercise.</p>
 </div>
-</div></div></section>
+</div></div><p class="rubric">Footnotes</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="exercise-page" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://object-oriented-python.github.io/edition2/exercises.html">https://object-oriented-python.github.io/edition2/exercises.html</a></p>
+</aside>
+</aside>
+</section>
 </section>
 
 
@@ -1185,8 +935,8 @@ memory (i.e. fail to free memory that is no longer needed).</p>
       <div class="clearer"></div>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019-2021, David A. Ham. Modified by Patrick E. Farrell.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2019-2023, David A. Ham.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
     </div>
   </body>
 </html>

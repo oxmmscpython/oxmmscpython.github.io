@@ -1,23 +1,22 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>3. Objects and abstraction &#8212; Object oriented programming in Python for mathematicians 2021.0 documentation</title>
+    <title>3. Objects and abstraction &#8212; Object-oriented Programming  documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/fenics.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/proof.js"></script>
     <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -44,10 +43,16 @@
 
   </head><body>
 <div class="wrapper">
+  <a href="index.html"><img src="_static/banner.png" width="900px" alt="FInAT Project Banner" /></a>
   <div id="access">
     <div class="menu">
       <ul>
-          <li class="page_item"><a href="https://github.com/oxmmscpython/object-oriented-programming" title="GitHub">GitHub</a></li>
+          <li class="page_item"><a href="index.html" title="Book">Book</a></li>
+          <li class="page_item"><a href="videos.html" title="Videos">Videos</a></li>
+          <li class="page_item"><a href="exercises.html"
+          title="Exercises">Exercises</a></li>
+          <li class="page_item"><a href="installation.html" title="Installation">Installation</a></li>
+
       </ul>
     </div><!-- .menu -->
   </div><!-- #access -->
@@ -60,19 +65,19 @@
           <div class="body" role="main">
             
   <section id="objects-and-abstraction">
-<span id="objects"></span><h1><span class="section-number">3. </span>Objects and abstraction<a class="headerlink" href="#objects-and-abstraction" title="Permalink to this headline">¶</a></h1>
-<p>This week we will take a first look at the representation of
+<span id="objects"></span><h1><span class="section-number">3. </span>Objects and abstraction<a class="headerlink" href="#objects-and-abstraction" title="Permalink to this heading">¶</a></h1>
+<p>In this chapter we will take a first look at the representation of
 abstract mathematical objects and operations as data objects in a
 computer program. We will learn about what it means for objects to have
-a <a class="reference internal" href="#term-type"><span class="xref std std-term">type</span></a>, and how to create new types using the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">class</span></code></a> keyword.</p>
+a <a class="reference internal" href="#term-type"><span class="xref std std-term">type</span></a>, and how to create new types using the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">class</span></code></a> keyword.</p>
 <section id="abstraction-in-action">
-<h2><span class="section-number">3.1. </span>Abstraction in action<a class="headerlink" href="#abstraction-in-action" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>Abstraction in action<a class="headerlink" href="#abstraction-in-action" title="Permalink to this heading">¶</a></h2>
 <p>Consider this line of Python code:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>What does it do? Well, assuming that <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">b</span></code> are suitably defined, it
-prints their sum. This, however, begs the question: what is “suitably
+prints their sum. This, however, begs the questions: what is “suitably
 defined”, and what is “sum”? For example:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="gp">In [2]: </span><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
@@ -80,8 +85,7 @@ defined”, and what is “sum”? For example:</p>
 <span class="go">3</span>
 </pre></div>
 </div>
-<p>You’re unlikely to be surprised that Python can add <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesnumeric" title="(in Python v3.10)"><span class="xref std std-ref">integers</span></a>. On the
-other hand:</p>
+<p>You’re unlikely to be surprised that Python can add <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesnumeric" title="(in Python v3.11)"><span class="xref std std-ref">integers</span></a>. On the other hand it turns out we can also add strings:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;fr&#39;</span>
 <span class="gp">In [2]: </span><span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;og&#39;</span>
 <span class="gp">In [3]: </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
@@ -89,13 +93,15 @@ other hand:</p>
 </pre></div>
 </div>
 <p>So the meaning of <code class="xref py py-obj docutils literal notranslate"><span class="pre">+</span></code> depends on what is being added. What happens if
-we add an integer to a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#textseq" title="(in Python v3.10)"><span class="xref std std-ref">string</span></a>?</p>
+we add an integer to a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#textseq" title="(in Python v3.11)"><span class="xref std std-ref">string</span></a>?</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+
 <span class="gp">In [2]: </span><span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;og&#39;</span>
+
 <span class="gp">In [3]: </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">0</span><span class="n">ae8b1612688</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="gt">--------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
 
 <span class="ne">TypeError</span>: unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39;
@@ -107,21 +113,23 @@ string. This makes our understanding of “suitably defined” more
 concrete: clearly some pairs of objects can be added and others
 can’t. However, we should be careful about the conclusions we draw. We
 might be tempted to believe that we can add two values if they are of
-the same type. However, if we try this with a pair of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#types-set" title="(in Python v3.10)"><span class="xref std std-ref">sets</span></a> then we’re
+the same type. However, if we try this with a pair of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#types-set" title="(in Python v3.11)"><span class="xref std std-ref">sets</span></a> then we’re
 also in trouble:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+
 <span class="gp">In [2]: </span><span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+
 <span class="gp">In [3]: </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">0</span><span class="n">ae8b1612688</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="gt">--------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
 
 <span class="ne">TypeError</span>: unsupported operand type(s) for +: &#39;set&#39; and &#39;set&#39;
 </pre></div>
 </div>
 <p>Conversely we might suspect that two values can be added only if they are of the same
-type. However it is perfectly legal to add an integer and a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesnumeric" title="(in Python v3.10)"><span class="xref std std-ref">floating
+type. However it is perfectly legal to add an integer and a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesnumeric" title="(in Python v3.11)"><span class="xref std std-ref">floating
 point value</span></a>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="gp">In [2]: </span><span class="n">b</span> <span class="o">=</span> <span class="mf">2.5</span>
@@ -138,7 +146,7 @@ the mechanism by which the addition is calculated and the value of the
 result. This enables a programmer to think about the relatively simple
 mathematical operation of addition, rather than the potentially
 complex or messy way it might be implemented for particular data.</p>
-<div class="proof proof-type-definition" id="id2">
+<div class="proof proof-type-definition" id="id4">
 
     <div class="proof-title">
         <span class="proof-type">Definition 3.1</span>
@@ -156,12 +164,12 @@ and the code object. “Type” is one such example, and we turn to that
 now.</p>
 </section>
 <section id="types">
-<h2><span class="section-number">3.2. </span>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Types<a class="headerlink" href="#types" title="Permalink to this heading">¶</a></h2>
 <p>In the previous section, we observed that addition may or may not be
 defined, depending on what the types of its operands are. In doing so,
 we skirted the question of what it means for an object to have
 type.</p>
-<div class="proof proof-type-definition" id="id3">
+<div class="proof proof-type-definition" id="id5">
 
     <div class="proof-title">
         <span class="proof-type">Definition 3.2</span>
@@ -170,35 +178,35 @@ type.</p>
 <p>A <em>type</em> or <em>class</em> is an abstraction defined by a set of possible values, and
 a set of operators valid for objects of that type.</p>
 </div></div><p>Every object in Python has a type. This is true for primitive numeric
-types, such as <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, and <a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">complex</span></code></a>; for sequences such as
-string (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>), <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>, and <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>; and also for more complex types
-such as <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> and dictionary (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>). Indeed, the
+types, such as <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, and <a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">complex</span></code></a>; for sequences such as
+string (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>), <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>, and <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>; and also for more complex types
+such as <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> and dictionary (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>). Indeed, the
 Python concept of type goes much further, as we discover if we call
-<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> on various objects:</p>
+<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> on various objects:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="nb">type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="gh">Out[1]: </span><span class="go">int</span>
 <span class="gp">In [2]: </span><span class="nb">type</span><span class="p">(</span><span class="nb">abs</span><span class="p">)</span>
 <span class="gh">Out[2]: </span><span class="go">builtin_function_or_method</span>
 </pre></div>
 </div>
-<p>So <code class="xref py py-obj docutils literal notranslate"><span class="pre">1</span></code> is an object of type <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, which means that it comes with all of
-Python’s operations for integer arithmetic. <a class="reference external" href="https://docs.python.org/3/library/functions.html#abs" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">abs()</span></code></a>, on the other hand,
-is a <a class="reference external" href="https://docs.python.org/3/library/functions.html" title="(in Python v3.10)"><span class="xref std std-doc">built-in function</span></a>, so its defining operation is that it can be
+<p>So <code class="xref py py-obj docutils literal notranslate"><span class="pre">1</span></code> is an object of type <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, which means that it comes with all of
+Python’s operations for integer arithmetic. <a class="reference external" href="https://docs.python.org/3/library/functions.html#abs" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">abs()</span></code></a>, on the other hand,
+is a <a class="reference external" href="https://docs.python.org/3/library/functions.html" title="(in Python v3.11)"><span class="xref std std-doc">built-in function</span></a>, so its defining operation is that it can be
 called on one or more suitable arguments (for example <code class="xref py py-obj docutils literal notranslate"><span class="pre">abs(1)</span></code>). If
 every object has a type, what about types themselves? What is the type
-of <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>?</p>
+of <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>?</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="nb">type</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="gh">Out[1]: </span><span class="go">type</span>
 </pre></div>
 </div>
-<p>We see that <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> is the type of integer objects, and is itself an
-object with type <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a>. That rather invites the question of what
-is the type of <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a>?</p>
+<p>We see that <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> is the type of integer objects, and is itself an
+object with type <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a>. That rather invites the question of what
+is the type of <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a>?</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="nb">type</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span>
 <span class="gh">Out[1]: </span><span class="go">type</span>
 </pre></div>
 </div>
-<p>This actually makes perfect sense, because <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> is simply the
+<p>This actually makes perfect sense, because <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> is simply the
 type of types.</p>
 <p>We will return to types in much more detail later. At this stage, the
 take-home message is that essentially everything you will encounter in
@@ -208,26 +216,18 @@ Python is an object, and every object has a type.</p>
 <p>In Python, the term
 “class” is essentially synonymous with “type”, so “what is the class
 of <code class="xref py py-obj docutils literal notranslate"><span class="pre">foo</span></code>” is the same as saying “what is the type of <code class="xref py py-obj docutils literal notranslate"><span class="pre">foo</span></code>”. However
-the two terms are not synonyms when used in code. <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> can be
-used to determine the type of an object, while <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">class</span></code></a> is
+the two terms are not synonyms when used in code. <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> can be
+used to determine the type of an object, while <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">class</span></code></a> is
 used to define new types.</p>
 </div>
 </section>
 <section id="defining-new-types">
-<h2><span class="section-number">3.3. </span>Defining new types<a class="headerlink" href="#defining-new-types" title="Permalink to this headline">¶</a></h2>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Video: a first class<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="vimeo docutils container">
-<iframe src="https://player.vimeo.com/video/488143930"
-frameborder="0" allow="autoplay; fullscreen"
-allowfullscreen></iframe></div>
-</div>
-</details><p>Python has a rich set of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html" title="(in Python v3.10)"><span class="xref std std-doc">built-in types</span></a>. These form powerful building blocks for the
+<h2><span class="section-number">3.3. </span>Defining new types<a class="headerlink" href="#defining-new-types" title="Permalink to this heading">¶</a></h2>
+<details>
+<summary>
+Video: a first class</summary><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/488143930" style="border: 0; height: 345px; width: 560px">
+</iframe></div></details><p>Python has a rich set of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html" title="(in Python v3.11)"><span class="xref std std-doc">built-in types</span></a>. These form powerful building blocks for the
 language, but one very soon finds mathematical abstractions which do
 not have implementations among the built-in types of the Python
 interpreter. For example, the built-in types do not include a matrix
@@ -248,7 +248,7 @@ of <span class="math notranslate nohighlight">\(x\)</span>, which would result i
 <p>This is the mathematical abstraction of a polynomial. How would we
 represent this abstraction in Python code? A polynomial is
 characterised by its set of coefficients, so we could in principle
-represent a polynomial as a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of coefficient
+represent a polynomial as a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of coefficient
 values. However, the addition of tuples is <a class="reference internal" href="#term-concatenation"><span class="xref std std-term">concatenation</span></a>, and
 multiplication of two tuples isn’t even defined, so this would be a
 very poor representation of the mathematics: a polynomial represented
@@ -256,16 +256,15 @@ as a tuple of coefficients would not behave the way a mathematician
 would expect. Instead, what we need to do is make a new type whose
 operations match the mathematical properties of a polynomial.</p>
 <section id="classes-and-constructors">
-<h3><span class="section-number">3.3.1. </span>Classes and constructors<a class="headerlink" href="#classes-and-constructors" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.1. </span>Classes and constructors<a class="headerlink" href="#classes-and-constructors" title="Permalink to this heading">¶</a></h3>
 <p>The Python keyword for declaring a new type is
-<a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">class</span></code></a>. Just like a function declaration, this creates a new
+<a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">class</span></code></a>. Just like a function declaration, this creates a new
 indented block. In this case, the block contains all of the function
 declarations which define the operations on this new type. Let’s make
 a very simple implementation:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Polynomial</span><span class="p">:</span>
 
   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coefs</span><span class="p">):</span>
-
       <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span> <span class="o">=</span> <span class="n">coefs</span>
 </pre></div>
 </div>
@@ -282,21 +281,21 @@ a simple polynomial, and inspect its coefficients:</p>
 <p>The three lines of Python defining the <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class contain
 several important concepts and Python details that it is important to
 understand.</p>
-<p>The <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.10)"><span class="xref std std-ref">class definition</span></a> statement opens a new block, so
-just like a <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#function" title="(in Python v3.10)"><span class="xref std std-ref">function definition</span></a>, it starts with
-the keyword, followed by the name of the class we are defining, and
+<p>The <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.11)"><span class="xref std std-ref">class definition</span></a> statement opens a new block, so
+just like a <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#function" title="(in Python v3.11)"><span class="xref std std-ref">function definition</span></a>, it starts with
+the keyword followed by the name of the class we are defining, and
 ends with a colon. User-defined classes in Python (i.e. classes not
 built into the language) usually have CapWords names. This means
 that all the words in the name are capitalised and run together without spaces. For
 example, if we decided to make a separate class for complex-valued
 polynomials, we might call it <code class="xref py py-class docutils literal notranslate"><span class="pre">ComplexPolynomial</span></code>.</p>
 <p>Inside the class definition, i.e. indented inside the block, is a
-function called <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>. Functions defined inside a class
-definition are called <a class="reference internal" href="#term-method"><span class="xref std std-term">methods</span></a>. The <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> method has a
+function called <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>. Functions defined inside a class
+definition are called <a class="reference internal" href="#term-method"><span class="xref std std-term">methods</span></a>. The <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> method has a
 rather distinctive form of name, starting and ending with two
 underscores. Names of this format are used in the Python language for
 objects which have special meaning in the Python language. The
-<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> method of a class has special meaning in Python as
+<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> method of a class has special meaning in Python as
 the <a class="reference internal" href="#term-constructor"><span class="xref std std-term">constructor</span></a> of a class. When we write:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">f</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
@@ -305,29 +304,29 @@ the <a class="reference internal" href="#term-constructor"><span class="xref std
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code>. The following steps occur:</p>
 <ol class="arabic simple">
 <li><p>Python creates an object of type <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code>.</p></li>
-<li><p>The <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> <a class="reference internal" href="#term-special-method"><span class="xref std std-term">special method</span></a> of <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code>
+<li><p>The <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> <a class="reference internal" href="#term-special-method"><span class="xref std std-term">special method</span></a> of <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code>
 is called. The new <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> object is passed as the
-first parameter (<code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>), and the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1,</span> <span class="pre">2)</span></code> is passed
+first parameter (<code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>), and the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> <code class="xref py py-obj docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1,</span> <span class="pre">2)</span></code> is passed
 as the second parameter (<code class="xref py py-obj docutils literal notranslate"><span class="pre">coefs</span></code>).</p></li>
 <li><p>The name <code class="xref py py-obj docutils literal notranslate"><span class="pre">f</span></code> in the surrounding <a class="reference internal" href="2_programs_in_files.html#term-scope"><span class="xref std std-term">scope</span></a> is associated with the
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code>.</p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Notice that <code class="xref py py-meth docutils literal notranslate"><span class="pre">Polynomial.__init__()</span></code> doesn’t return anything. The role of
-<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> is to set up the object, <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>; it is not to return a
-value. <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> never returns a value.</p>
+<p>Notice that <code class="xref py py-meth docutils literal notranslate"><span class="pre">Polynomial.__init__()</span></code> doesn’t return anything. The role
+of the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> method is to set up the object, <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>; it
+is not to return a value. <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> never returns a value.</p>
 </div>
 </section>
 <section id="attributes">
-<h3><span class="section-number">3.3.2. </span>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
-<p>Let’s now look at what happened inside the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> method. We
+<h3><span class="section-number">3.3.2. </span>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h3>
+<p>Let’s now look at what happened inside the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> method. We
 have just one line:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span> <span class="o">=</span> <span class="n">coefs</span>
 </pre></div>
 </div>
-<p>Remember that <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code> is the object we are setting up, and coefs is the
-other parameter to <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>. This line of code creates a new
+<p>Remember that <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code> is the object we are setting up, and <code class="xref py py-obj docutils literal notranslate"><span class="pre">coefs</span></code> is the
+other parameter to <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>. This line of code creates a new
 name inside this <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> object, called
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">coefficients</span></code>, and associates this new name with the object passed as
 the argument to the <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> constructor. Names such as
@@ -345,20 +344,12 @@ underscore, so these should be avoided in your own names unless you intend to
 create a private attribute.</p>
 </section>
 <section id="methods">
-<h3><span class="section-number">3.3.3. </span>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Video: defining methods<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="vimeo docutils container">
-<iframe src="https://player.vimeo.com/video/488273256"
-frameborder="0" allow="autoplay; fullscreen"
-allowfullscreen></iframe></div>
-</div>
-</details><p>We have already met the <a class="reference internal" href="#term-special-method"><span class="xref std std-term">special method</span></a> <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>,
+<h3><span class="section-number">3.3.3. </span>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">¶</a></h3>
+<details>
+<summary>
+Video: defining methods</summary><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/488273256" style="border: 0; height: 345px; width: 560px">
+</iframe></div></details><p>We have already met the <a class="reference internal" href="#term-special-method"><span class="xref std std-term">special method</span></a> <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>,
 which defines the class constructor. A much more typical case is an
 ordinary method, without a special underscore name. For example,
 suppose we wish to be able to access the degree of a polynomial, then
@@ -366,20 +357,18 @@ we might add a <code class="xref py py-meth docutils literal notranslate"><span 
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Polynomial</span><span class="p">:</span>
 
   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coefs</span><span class="p">):</span>
-
       <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span> <span class="o">=</span> <span class="n">coefs</span>
 
   <span class="k">def</span> <span class="nf">degree</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
       <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<p>Observe that the new method is indented inside the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">class</span></code></a>
-block at the same level as the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> method. Observe also
+<p>Observe that the new method is indented inside the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">class</span></code></a>
+block at the same level as the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> method. Observe also
 that it too takes <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code> as its first parameter. A key difference from
-the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> method is that <code class="xref py py-meth docutils literal notranslate"><span class="pre">degree()</span></code> now returns a
+the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> method is that <code class="xref py py-meth docutils literal notranslate"><span class="pre">degree()</span></code> now returns a
 value, as most functions do. We can now use our new method to recover
-the degree of our Polynomial.</p>
+the degree of our polynomial.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">f</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="gp">In [2]: </span><span class="n">f</span><span class="o">.</span><span class="n">degree</span><span class="p">()</span>
 <span class="gh">Out[2]: </span><span class="go">2</span>
@@ -391,7 +380,8 @@ that <code class="xref py py-obj docutils literal notranslate"><span class="pre"
 name. Attributes and methods on an object form part of the same
 <a class="reference internal" href="2_programs_in_files.html#term-namespace"><span class="xref std std-term">namespace</span></a>, so you can’t have an attribute and a method with the same
 name. If you try, then the name will be overwritten with whichever was defined
-later, so that will be the one which is accessed.</p>
+later, and the attribute or method defined first will no longer be accessible
+under that name. This is unlikely to be what you wanted.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The object itself is always passed as the first argument to a <a class="reference internal" href="#term-method"><span class="xref std std-term">method</span></a>.
@@ -403,20 +393,12 @@ programmer who reads your code!</p>
 </div>
 </section>
 <section id="string-representations-of-objects">
-<h3><span class="section-number">3.3.4. </span>String representations of objects<a class="headerlink" href="#string-representations-of-objects" title="Permalink to this headline">¶</a></h3>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Video: printing classes<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="vimeo docutils container">
-<iframe src="https://player.vimeo.com/video/488275072"
-frameborder="0" allow="autoplay; fullscreen"
-allowfullscreen></iframe></div>
-</div>
-</details><p>Remember that a key reason for defining new classes is to enable users
+<h3><span class="section-number">3.3.4. </span>String representations of objects<a class="headerlink" href="#string-representations-of-objects" title="Permalink to this heading">¶</a></h3>
+<details>
+<summary>
+Video: printing classes</summary><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/488275072" style="border: 0; height: 345px; width: 560px">
+</iframe></div></details><p>Remember that a key reason for defining new classes is to enable users
 to reason about the resulting objects at a higher mathematical level. An
 important aid to the user in doing this is to be able to look at the
 object. What happens if we print a <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code>?</p>
@@ -433,7 +415,7 @@ sort of string representation makes sense for this object? We will
 have to tell it.</p>
 <p>The way we do so is using another <a class="reference internal" href="#term-special-method"><span class="xref std std-term">special method</span></a>. The special
 method name for the human readable string representation of an object is
-<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__str__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a>. It takes no arguments other than the object itself.
+<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__str__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a>. It takes no arguments other than the object itself.
 <a class="reference internal" href="#polynomial-str"><span class="std std-numref">Listing 3.1</span></a> provides one possible implementation of this method.</p>
 <div class="literal-block-wrapper docutils container" id="polynomial-str">
 <div class="code-block-caption"><span class="caption-number">Listing 3.1 </span><span class="caption-text">An implementation of the string representation of a
@@ -452,7 +434,7 @@ omitting zero terms and unit coefficients.</span><a class="headerlink" href="#po
 <span class="linenos">10</span>        <span class="n">terms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">coefs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">x&quot;</span><span class="p">)</span>
 <span class="linenos">11</span>
 <span class="linenos">12</span>    <span class="c1"># Remaining terms look like cx^d, though factors of 1 are dropped.</span>
-<span class="linenos">13</span>    <span class="n">terms</span> <span class="o">+=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">c</span><span class="si">}</span><span class="s2">x^</span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="linenos">13</span>    <span class="n">terms</span> <span class="o">+=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">c</span><span class="si">}</span><span class="s2">x^</span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="linenos">14</span>              <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">coefs</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">start</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">c</span><span class="p">]</span>
 <span class="linenos">15</span>
 <span class="linenos">16</span>    <span class="c1"># Sum polynomial terms from high to low exponent.</span>
@@ -460,7 +442,7 @@ omitting zero terms and unit coefficients.</span><a class="headerlink" href="#po
 </pre></div>
 </div>
 </div>
-<p>This slightly longer piece of code results from the fact that the
+<p>This somewhat longer piece of code results from the fact that the
 linear and constant terms in a polynomial are usually represented
 slightly differently from the higher-order terms. Having added this
 new method to our class, we can now observe the result:</p>
@@ -471,48 +453,46 @@ new method to our class, we can now observe the result:</p>
 </div>
 <p>In fact, Python provides not one, but two <a class="reference internal" href="#term-special-method"><span class="xref std std-term">special
 methods</span></a> which convert an object to a
-string. <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__str__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a> is called by <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> and also by
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>. Its role is to provide the string representation which
+string. <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__str__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a> is called by <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> and also by
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>. Its role is to provide the string representation which
 is best understood by humans. In mathematical code, this will usually
 be the mathematical notation for the object. In contrast, the
-<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__repr__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a> method  is called by <a class="reference external" href="https://docs.python.org/3/library/functions.html#repr" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> and also provides
+<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__repr__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a> method  is called by <a class="reference external" href="https://docs.python.org/3/library/functions.html#repr" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> and also provides
 the default string representation printed out by the Python command
-line. By convention, <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__repr__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a> should return a string which a
+line. By convention, <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__repr__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a> should return a string which a
 user might type in order to recreate the object. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s2">&quot;(&quot;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
+    <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s2">&quot;(&quot;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
 </pre></div>
 </div>
-<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">self.__class__.__name__</span></code> simply evaluates to the class name, in this case
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">type(self).__name__</span></code> simply evaluates to the class name, in this case
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">Polynomial</span></code>. This is better than hard-coding the class name because, as we will
-see in <a class="reference internal" href="8_inheritance.html#inheritance"><span class="std std-numref">week 7</span></a>, this implementation of
-<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__repr__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a> might well end up being inherited by a class with a
+see in <a class="reference internal" href="7_inheritance.html#inheritance"><span class="std std-numref">Chapter 7</span></a>, this implementation of
+<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__repr__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a> might well end up being inherited by a class with a
 different name. Notice that in order to help ensure consistency of
-representations we call <a class="reference external" href="https://docs.python.org/3/library/functions.html#repr" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> on the coefficients in this case, whereas
-in the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__str__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a> method we called <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>.</p>
+representations we call <a class="reference external" href="https://docs.python.org/3/library/functions.html#repr" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> on the coefficients in this case, whereas
+in the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__str__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a> method we called <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>.</p>
 <p>We can now observe the difference in the result:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="n">f</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="gp">In [3]: </span><span class="n">f</span>
 <span class="gh">Out[3]: </span><span class="go">Polynomial((1, 2, 0, 4, 5))</span>
 </pre></div>
 </div>
+<p>When using <a class="reference external" href="https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings" title="(in Python v3.11)"><span class="xref std std-ref">f-strings</span></a>, the <a class="reference external" href="https://docs.python.org/3/library/functions.html#repr" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> of a an
+object can be inserted instead of the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> by using the <code class="docutils literal notranslate"><span class="pre">!r</span></code> modifier.
+For example, we could just as well have written the method above as:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="si">!r}</span><span class="s2">)&quot;</span>
+</pre></div>
+</div>
 </section>
 <section id="object-equality">
-<span id="id1"></span><h3><span class="section-number">3.3.5. </span>Object equality<a class="headerlink" href="#object-equality" title="Permalink to this headline">¶</a></h3>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Video: object equality and test driven development<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="vimeo docutils container">
-<iframe src="https://player.vimeo.com/video/488981397"
-frameborder="0" allow="autoplay; fullscreen"
-allowfullscreen></iframe></div>
-</div>
-</details><p>When are two objects equal? For built-in types Python has equality rules which
+<span id="id1"></span><h3><span class="section-number">3.3.5. </span>Object equality<a class="headerlink" href="#object-equality" title="Permalink to this heading">¶</a></h3>
+<details>
+<summary>
+Video: object equality and test driven development</summary><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/488981397" style="border: 0; height: 345px; width: 560px">
+</iframe></div></details><p>When are two objects equal? For built-in types Python has equality rules which
 broadly match the mathematical identities that you might expect. For example,
 two numbers of different types are equal if their numerical value is equal:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="mi">2</span> <span class="o">==</span> <span class="mf">2.0</span>
@@ -549,7 +529,7 @@ polynomials might compare equal:</p>
 <p>The reason for this is obvious when one thinks about it: Python has no way to
 know when two instances of a new class should be considered equal. Instead, it
 falls back to comparing the unique identity of every object. This is accessible
-using the built-in function <a class="reference external" href="https://docs.python.org/3/library/functions.html#id" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">id()</span></code></a>:</p>
+using the built-in function <a class="reference external" href="https://docs.python.org/3/library/functions.html#id" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">id()</span></code></a>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="gh">Out[10]: </span><span class="go">4487083344</span>
 
@@ -559,16 +539,15 @@ using the built-in function <a class="reference external" href="https://docs.pyt
 </div>
 <p>This is a perfectly well-defined equality operator, but not a very
 mathematically useful one. Fortunately, Python allows us to define a more useful
-equality operator using the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__eq__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__()</span></code></a> <a class="reference internal" href="#term-special-method"><span class="xref std std-term">special method</span></a>. This
+equality operator using the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__eq__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__()</span></code></a> <a class="reference internal" href="#term-special-method"><span class="xref std std-term">special method</span></a>. This
 takes the current object and the object it is being compared to, and returns
-<a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">True</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">False</span></code></a> depending on whether the objects should be
+<a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">True</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">False</span></code></a> depending on whether the objects should be
 considered equal. When we write <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code> in Python, what actually happens is
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">a.__eq__(b)</span></code>.</p>
-<p>A basic implementation of <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__eq__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__()</span></code></a> that checks that the other
+<p>A basic implementation of <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__eq__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__()</span></code></a> that checks that the other
 object is a <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> with the same
 coefficients is:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-
     <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Polynomial</span><span class="p">)</span> <span class="ow">and</span> \
         <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">coefficients</span>
 </pre></div>
@@ -587,38 +566,32 @@ equality now behaves as we might expect.</p>
 </div>
 </section>
 <section id="defining-arithmetic-options-on-objects">
-<span id="object-arithmetic"></span><h3><span class="section-number">3.3.6. </span>Defining arithmetic options on objects<a class="headerlink" href="#defining-arithmetic-options-on-objects" title="Permalink to this headline">¶</a></h3>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Video: polynomial addition.<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="vimeo docutils container">
-<iframe src="https://player.vimeo.com/video/489009900"
-frameborder="0" allow="autoplay; fullscreen"
-allowfullscreen></iframe></div>
-</div>
-</details><p>It’s all very well to be able to compare our polynomial objects, but
+<span id="object-arithmetic"></span><h3><span class="section-number">3.3.6. </span>Defining arithmetic options on objects<a class="headerlink" href="#defining-arithmetic-options-on-objects" title="Permalink to this heading">¶</a></h3>
+<details>
+<summary>
+Video: polynomial addition.</summary><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/489009900" style="border: 0; height: 345px; width: 560px">
+</iframe></div></details><p>It’s all very well to be able to compare our polynomial objects, but
 we won’t really have captured the mathematical abstraction involved
 unless we have at least some mathematical operations. We have already
 observed that objects of some classes can be added. Is this true for
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code>s?</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
 <span class="gp">In [3]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">((</span><span class="mi">1</span><span class="p">,))</span>
+
 <span class="gp">In [4]: </span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">bd58363a63fc</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="gt">--------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 
 <span class="ne">TypeError</span>: unsupported operand type(s) for +: &#39;Polynomial&#39; and &#39;Polynomial&#39;
 </pre></div>
 </div>
-<p>Of course, once again this is not so surprising since we haven’t
+<p>Once again, this is not so surprising since we haven’t
 defined what addition of polynomials should mean. The <a class="reference internal" href="#term-special-method"><span class="xref std std-term">special
-method</span></a> which defines addition is <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__add__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__()</span></code></a>. It takes the
+method</span></a> which defines addition is <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__add__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__()</span></code></a>. It takes the
 object itself and another object and returns their sum. That is,
 when you write <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> in Python, then what actually happens is
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">a.__add__(b)</span></code>.</p>
@@ -628,42 +601,42 @@ should be able to add two polynomials, but it also makes sense to add
 a number to a polynomial. In either case, the result will be a new
 polynomial, with coefficients equal to the sum of those of the
 summands.</p>
-<p>We also need to do something in the case where a user attempts to add
-to a polynomial a value for which the operation makes no sense. For
-example, a user might accidentally attempt to add a string to a
-polynomial. In this case, the Python language specification requires
-that we return the special value
-<a class="reference external" href="https://docs.python.org/3/library/constants.html#NotImplemented" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NotImplemented</span></code></a>. Differentiating between the types of operands
-requires two more Python features we have not yet met. One of these is
-the built in function <a class="reference external" href="https://docs.python.org/3/library/functions.html#isinstance" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">isinstance()</span></code></a>, which tests whether an
-object is an instance of a class. The other is the class <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Number</span></code></a>,
-which we import from the <a class="reference external" href="https://docs.python.org/3/library/numbers.html#module-numbers" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numbers</span></code></a> module. All Python numbers are
-instances of <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Number</span></code></a> so this provides a mechanism for checking
-whether the other operand is a number. We will consider
-<a class="reference external" href="https://docs.python.org/3/library/functions.html#isinstance" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">isinstance()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Number</span></code></a> in more detail when we look at
-<a class="reference internal" href="8_inheritance.html#inheritance"><span class="std std-ref">inheritance</span></a> and <a class="reference internal" href="11_further_object-oriented_features.html#abstract-base-classes"><span class="std std-ref">abstract base classes</span></a>.</p>
+<p>We also need to do something in the case where a user attempts to add to a
+polynomial a value for which the operation makes no sense. For example, a user
+might accidentally attempt to add a string to a polynomial. In this case, the
+Python language specification requires that we return the special value
+<a class="reference external" href="https://docs.python.org/3/library/constants.html#NotImplemented" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NotImplemented</span></code></a>. Differentiating between the types of operands requires
+two more Python features we have not yet met. One of these is the built in
+function <a class="reference external" href="https://docs.python.org/3/library/functions.html#isinstance" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">isinstance()</span></code></a>, which tests whether an object is an instance of a
+class. The other is the class <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Number</span></code></a>, which we import from
+the built-in <a class="reference external" href="https://docs.python.org/3/library/numbers.html#module-numbers" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numbers</span></code></a> module. All Python numbers are instances of
+<a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Number</span></code></a> so this provides a mechanism for checking whether the
+other operand is a number. We will consider <a class="reference external" href="https://docs.python.org/3/library/functions.html#isinstance" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">isinstance()</span></code></a> and
+<a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Number</span></code></a> in more detail when we look at <a class="reference internal" href="7_inheritance.html#inheritance"><span class="std std-ref">inheritance</span></a> and <a class="reference internal" href="10_further_object-oriented_features.html#abstract-base-classes"><span class="std std-ref">abstract base classes</span></a>.</p>
 <p>Putting all this together, <a class="reference internal" href="#polynomial-add"><span class="std std-numref">Listing 3.2</span></a> defines polynomial addition.</p>
 <div class="literal-block-wrapper docutils container" id="polynomial-add">
 <div class="code-block-caption"><span class="caption-number">Listing 3.2 </span><span class="caption-text">An implementation of addition for <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code>.</span><a class="headerlink" href="#polynomial-add" title="Permalink to this code">¶</a></div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-<span class="linenos"> 2</span>
-<span class="linenos"> 3</span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
-<span class="linenos"> 4</span>        <span class="k">return</span> <span class="n">Polynomial</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">other</span><span class="p">,)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos"> 2</span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
+<span class="linenos"> 3</span>        <span class="k">return</span> <span class="n">Polynomial</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">other</span><span class="p">,)</span>
+<span class="linenos"> 4</span>                          <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
 <span class="linenos"> 5</span>
 <span class="linenos"> 6</span>    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Polynomial</span><span class="p">):</span>
-<span class="linenos"> 7</span>        <span class="c1"># Work out how many coefficient places the two polynomials have in common.</span>
-<span class="linenos"> 8</span>        <span class="n">common</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">(),</span> <span class="n">other</span><span class="o">.</span><span class="n">degree</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="linenos"> 9</span>        <span class="c1"># Sum the common coefficient positions.</span>
-<span class="linenos">10</span>        <span class="n">coefs</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[:</span><span class="n">common</span><span class="p">],</span>
-<span class="linenos">11</span>                                             <span class="n">other</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[:</span><span class="n">common</span><span class="p">]))</span>
-<span class="linenos">12</span>
-<span class="linenos">13</span>        <span class="c1"># Append the high degree coefficients from the higher degree summand.</span>
-<span class="linenos">14</span>        <span class="n">coefs</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="n">common</span><span class="p">:]</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="n">common</span><span class="p">:]</span>
-<span class="linenos">15</span>
-<span class="linenos">16</span>        <span class="k">return</span> <span class="n">Polynomial</span><span class="p">(</span><span class="n">coefs</span><span class="p">)</span>
+<span class="linenos"> 7</span>        <span class="c1"># Work out how many coefficient places the two polynomials have in</span>
+<span class="linenos"> 8</span>        <span class="c1"># common.</span>
+<span class="linenos"> 9</span>        <span class="n">common</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">(),</span> <span class="n">other</span><span class="o">.</span><span class="n">degree</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="linenos">10</span>        <span class="c1"># Sum the common coefficient positions.</span>
+<span class="linenos">11</span>        <span class="n">coefs</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[:</span><span class="n">common</span><span class="p">],</span>
+<span class="linenos">12</span>                                            <span class="n">other</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[:</span><span class="n">common</span><span class="p">]))</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span>        <span class="c1"># Append the high degree coefficients from the higher degree</span>
+<span class="linenos">15</span>        <span class="c1"># summand.</span>
+<span class="linenos">16</span>        <span class="n">coefs</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="n">common</span><span class="p">:]</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="n">common</span><span class="p">:]</span>
 <span class="linenos">17</span>
-<span class="linenos">18</span>    <span class="k">else</span><span class="p">:</span>
-<span class="linenos">19</span>        <span class="k">return</span> <span class="bp">NotImplemented</span>
+<span class="linenos">18</span>        <span class="k">return</span> <span class="n">Polynomial</span><span class="p">(</span><span class="n">coefs</span><span class="p">)</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">21</span>        <span class="k">return</span> <span class="bp">NotImplemented</span>
 </pre></div>
 </div>
 </div>
@@ -672,18 +645,25 @@ each time: the sum of two polynomials is a different polynomial, it
 doesn’t modify either polynomial in place.</p>
 <p>Let’s try our new addition functionality in action:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
 <span class="gp">In [3]: </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="go">x^3 + 2x + 1</span>
+
 <span class="gp">In [4]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
 <span class="gp">In [5]: </span><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">x</span>
+
 <span class="gp">In [6]: </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
 <span class="go">x^3 + 3x + 1</span>
+
 <span class="gp">In [7]: </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <span class="go">x^3 + 2x + 2</span>
+
 <span class="gp">In [8]: </span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">a</span><span class="p">)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="n">a42ff1c9a542</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="gt">--------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">a</span><span class="p">)</span>
 
 <span class="ne">TypeError</span>: unsupported operand type(s) for +: &#39;int&#39; and &#39;Polynomial&#39;
@@ -696,23 +676,23 @@ doesn’t modify either polynomial in place.</p>
 <span class="gh">Out[9]: </span><span class="go">NotImplemented</span>
 </pre></div>
 </div>
-<p>Naturally, Python’s inbuilt <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> type knows nothing about our
+<p>Naturally, Python’s inbuilt <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> type knows nothing about our
 new <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class, so when we ask it to do the addition,
-it returns <a class="reference external" href="https://docs.python.org/3/library/constants.html#NotImplemented" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NotImplemented</span></code></a>. We could, however, tell
-<code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> how to be added to an <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, and Python
-provides a mechanism for this. If the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__add__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__()</span></code></a> of the left hand
-operand of <code class="xref py py-obj docutils literal notranslate"><span class="pre">+</span></code> returns <a class="reference external" href="https://docs.python.org/3/library/constants.html#NotImplemented" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NotImplemented</span></code></a>, then Python tries the
-reverse addition method, called <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__radd__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__radd__()</span></code></a>, on the right hand
+it returns <a class="reference external" href="https://docs.python.org/3/library/constants.html#NotImplemented" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NotImplemented</span></code></a>. We could, however, tell
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> how to be added to an <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, and Python
+provides a mechanism for this. If the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__add__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__()</span></code></a> of the left hand
+operand of <code class="xref py py-obj docutils literal notranslate"><span class="pre">+</span></code> returns <a class="reference external" href="https://docs.python.org/3/library/constants.html#NotImplemented" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NotImplemented</span></code></a>, then Python tries the
+reverse addition method, called <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__radd__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__radd__()</span></code></a>, on the right hand
 operand. Because we know that polynomial addition is commutative,
 we can define this very easily:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-
     <span class="k">return</span> <span class="bp">self</span> <span class="o">+</span> <span class="n">other</span>
 </pre></div>
 </div>
 <p>With our newly enhanced <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class, we can revisit the
 previously problematic operation:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
 <span class="gp">In [3]: </span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">a</span><span class="p">)</span>
 <span class="go">x^3 + 2x + 2</span>
 </pre></div>
@@ -725,39 +705,42 @@ these, and particularly exponentiation, would allow the user to define
 new polynomials in a particularly natural way, using Python’s
 intrinsic operators:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">x</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
 <span class="gp">In [2]: </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="go">x</span>
+
 <span class="gp">In [3]: </span><span class="n">p</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+
 <span class="gp">In [4]: </span><span class="n">p</span>
 <span class="go">Polynomial((2, 2, 0, 1))</span>
 </pre></div>
 </div>
 <p>The <a class="reference internal" href="#term-special-method"><span class="xref std std-term">special method</span></a> names for further arithmetic operators are
-given <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#numeric-types" title="(in Python v3.10)"><span class="xref std std-ref">in the Python documentation</span></a>. The
+given <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#numeric-types" title="(in Python v3.11)"><span class="xref std std-ref">in the Python documentation</span></a>. The
 implementation of multiplication, exponentiation, and subtraction for
 the <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class is left as an exercise.</p>
 </section>
 <section id="creating-objects-that-act-like-functions">
-<h3><span class="section-number">3.3.7. </span>Creating objects that act like functions<a class="headerlink" href="#creating-objects-that-act-like-functions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.7. </span>Creating objects that act like functions<a class="headerlink" href="#creating-objects-that-act-like-functions" title="Permalink to this heading">¶</a></h3>
 <p>From a mathematical perspective, a real polynomial is a function. That is
 to say, if:</p>
 <div class="math notranslate nohighlight">
 \[f = x^2 + 2x + 1\]</div>
 <p>then for any real <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(f(x)\)</span> is defined and is a real
-number. We already know from the example of <a class="reference external" href="https://docs.python.org/3/library/functions.html#abs" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">abs()</span></code></a>, above, that
-Python functions are objects. However our challenge is the converse of
+number. We already know from the example of <a class="reference external" href="https://docs.python.org/3/library/functions.html#abs" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">abs()</span></code></a>, above, that
+Python functions are objects. However, our challenge is the converse of
 this: we have <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> objects which we would like to be
 able to call like functions. The solution to our challenge is that
 calling a function is an operation on an object similar to addition,
 and Python provides another <a class="reference internal" href="#term-special-method"><span class="xref std std-term">special method</span></a> name for
 this. <code class="xref py py-obj docutils literal notranslate"><span class="pre">f(x)</span></code> is mapped to <code class="xref py py-obj docutils literal notranslate"><span class="pre">f.__call__(x)</span></code>, so any Python object with a
-<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__call__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__call__()</span></code></a> method behaves like a function, and any class
-defining a <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__call__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__call__()</span></code></a> method in effect defines a new type of
+<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__call__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__call__()</span></code></a> method behaves like a function, and any class
+defining a <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__call__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__call__()</span></code></a> method in effect defines a new type of
 function.</p>
 </section>
 </section>
 <section id="encapsulation">
-<h2><span class="section-number">3.4. </span>Encapsulation<a class="headerlink" href="#encapsulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4. </span>Encapsulation<a class="headerlink" href="#encapsulation" title="Permalink to this heading">¶</a></h2>
 <p>The property that objects have of bundling up data and methods in a
 more-or-less opaque object with which other code can interact without
 concerning itself with the internal details of the object is called
@@ -767,10 +750,62 @@ creating single objects representing high level mathematical
 abstractions whose concrete realisation in code may require many
 pieces of data and a large number of complex functions.</p>
 </section>
+<section id="assignment-and-instantiation">
+<span id="id2"></span><h2><span class="section-number">3.5. </span>Assignment and instantiation<a class="headerlink" href="#assignment-and-instantiation" title="Permalink to this heading">¶</a></h2>
+<p>One common confusion among new Python programmers concerns the distinction
+between making new objects, and assigning new names to existing objects. The
+key point to remember is that assignment in Python does not by itself create
+new objects, only new variable names. For example:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="gp">In [2]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+</pre></div>
+</div>
+<p>The right hand side of the first line <a class="reference internal" href="#term-instantiate"><span class="xref std std-term">instantiates</span></a> a new
+set, and the assignment creates the name <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code> and associates it with the same
+set. The second line is just an assignment: it associates the name <code class="xref py py-obj docutils literal notranslate"><span class="pre">b</span></code> with the
+same set. We can see the effect of this if we add an item to <code class="xref py py-obj docutils literal notranslate"><span class="pre">b</span></code> and then look
+at the contents of <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">b</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="gp">In [4]: </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">{1}</span>
+</pre></div>
+</div>
+<p>The same distinction between instantiating objects and making new references to
+them is the cause of a frequent mistake when trying to create a list of empty
+objects:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="nb">set</span><span class="p">()]</span> <span class="o">*</span> <span class="mi">5</span>
+
+<span class="gp">In [6]: </span><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="go">[set(), set(), set(), set(), set()]</span>
+</pre></div>
+</div>
+<p>The programmer almost certainly intended to create a list containing five empty
+sets. Instead, they have created a list containing five references to the same
+set:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="gp">In [8]: </span><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="go">[{2}, {2}, {2}, {2}, {2}]</span>
+</pre></div>
+</div>
+<p>The right way to create a list of five empty sets is to use a list
+comprehension. This will instantiate a different set for each entry in the
+list:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="nb">set</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+
+<span class="gp">In [10]: </span><span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="gp">In [11]: </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="go">[{2}, set(), set(), set(), set()]</span>
+</pre></div>
+</div>
+</section>
 <section id="glossary">
-<h2><span class="section-number">3.5. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.6. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading">¶</a></h2>
 <blockquote>
-<div><dl class="glossary simple">
+<div><dl class="simple glossary">
 <dt id="term-abstraction">abstraction<a class="headerlink" href="#term-abstraction" title="Permalink to this term">¶</a></dt><dd><p>A mathematical concept with a limited set of defined
 properties. For the purposes of the abstraction, any other
 properties that an object may have are disregarded.</p>
@@ -781,14 +816,14 @@ properties that an object may have are disregarded.</p>
 syntax <code class="xref py py-obj docutils literal notranslate"><span class="pre">a.b</span></code>. <a class="reference internal" href="#term-method"><span class="xref std std-term">Methods</span></a> are a special case of attributes.</p>
 </dd>
 <dt id="term-class">class<a class="headerlink" href="#term-class" title="Permalink to this term">¶</a></dt><dt id="term-type">type<a class="headerlink" href="#term-type" title="Permalink to this term">¶</a></dt><dd><p>An abstraction defined by a set of possible values, and a set
-of operators valid for objects of that type. <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">Class</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> are essentially synonymous, though
+of operators valid for objects of that type. <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">Class</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> are essentially synonymous, though
 the two words have different roles in Python code.</p>
 </dd>
-<dt id="term-concatenation">concatenation<a class="headerlink" href="#term-concatenation" title="Permalink to this term">¶</a></dt><dd><p>The combination of two <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq" title="(in Python v3.10)"><span class="xref std std-ref">sequences</span></a> by creating a new sequence containing
+<dt id="term-concatenation">concatenation<a class="headerlink" href="#term-concatenation" title="Permalink to this term">¶</a></dt><dd><p>The combination of two <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq" title="(in Python v3.11)"><span class="xref std std-ref">sequences</span></a> by creating a new sequence containing
 all of the items in the first sequence, followed by all of the items in
 the second sequence. For example <code class="xref py py-obj docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2)</span> <span class="pre">+</span> <span class="pre">(3,</span> <span class="pre">4)</span></code> is <code class="xref py py-obj docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4)</span></code>.</p>
 </dd>
-<dt id="term-constructor">constructor<a class="headerlink" href="#term-constructor" title="Permalink to this term">¶</a></dt><dd><p>The <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> method of a <a class="reference internal" href="#term-class"><span class="xref std std-term">class</span></a>. The constructor
+<dt id="term-constructor">constructor<a class="headerlink" href="#term-constructor" title="Permalink to this term">¶</a></dt><dd><p>The <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__init__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> method of a <a class="reference internal" href="#term-class"><span class="xref std std-term">class</span></a>. The constructor
 is passed the new object as its first argument (<code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>) and is
 responsible for setting up the object. The constructor modifies
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code> in place: constructors never return a value.</p>
@@ -804,7 +839,7 @@ Examples include addition, subtraction, division and multiplication.</p>
 </dd>
 <dt id="term-instance">instance<a class="headerlink" href="#term-instance" title="Permalink to this term">¶</a></dt><dd><p>An object of a particular class. <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code> is an instance of
 <code class="xref py py-class docutils literal notranslate"><span class="pre">MyClass</span></code> means that <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code> has class <code class="xref py py-obj docutils literal notranslate"><span class="pre">MyClass</span></code>. We will
-return to this concept when we learn about <a class="reference internal" href="8_inheritance.html#inheritance"><span class="std std-ref">inheritance</span></a>.</p>
+return to this concept when we learn about <a class="reference internal" href="7_inheritance.html#inheritance"><span class="std std-ref">inheritance</span></a>.</p>
 </dd>
 <dt id="term-instantiate">instantiate<a class="headerlink" href="#term-instantiate" title="Permalink to this term">¶</a></dt><dd><p>To create an <a class="reference internal" href="#term-instance"><span class="xref std std-term">instance</span></a> of a <a class="reference internal" href="#term-class"><span class="xref std std-term">class</span></a> by
 calling its <a class="reference internal" href="#term-constructor"><span class="xref std std-term">constructor</span></a>.</p>
@@ -827,18 +862,18 @@ plain text to express the algorithm in a human-readable form.</p>
 language. Special method names are used to define operations on
 a <a class="reference internal" href="#term-class"><span class="xref std std-term">class</span></a> such as arithmetic operators, indexing, or the
 class <a class="reference internal" href="#term-constructor"><span class="xref std std-term">constructor</span></a>. Special methods have names starting and ending
-with a double underscore (<code class="xref py py-obj docutils literal notranslate"><span class="pre">__</span></code>). See <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#specialnames" title="(in Python v3.10)"><span class="xref std std-ref">the Python documentation</span></a> for a technical description. Special methods
+with a double underscore (<code class="xref py py-obj docutils literal notranslate"><span class="pre">__</span></code>). See <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#specialnames" title="(in Python v3.11)"><span class="xref std std-ref">the Python documentation</span></a> for a technical description. Special methods
 are sometimes informally called “magic methods”.</p>
 </dd>
 </dl>
 </div></blockquote>
 </section>
 <section id="exercises">
-<h2><span class="section-number">3.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<p>Obtain the <a class="reference external" href="https://classroom.github.com/a/mCAM3f_B">skeleton code for these exercises from GitHub Classroom</a>.
-The skeleton code contains a <code class="xref py py-mod docutils literal notranslate"><span class="pre">polynomial</span></code> package with a version of
-the <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class.</p>
-<div class="proof proof-type-exercise" id="id4">
+<h2><span class="section-number">3.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
+<p>Using the information on the <a class="reference external" href="https://object-oriented-python.github.io/edition2/exercises.html">book website</a>
+obtain the skeleton code for these exercises. The skeleton code contains a
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">polynomial</span></code> package with a version of the <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class.</p>
+<div class="proof proof-type-exercise" id="id6">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 3.3</span>
@@ -846,37 +881,38 @@ the <code class="xref py py-class docutils literal notranslate"><span class="pre
     </div><div class="proof-content">
 <p>Implement the following operations on the <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class.</p>
 <ol class="arabic simple">
-<li><p>Subtraction (<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__sub__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__sub__()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__rsub__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rsub__()</span></code></a>).</p></li>
+<li><p>Subtraction (<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__sub__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__sub__()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__rsub__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rsub__()</span></code></a>).</p></li>
 <li><p>Multiplication by another polynomial, and by a scalar
-(<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__mul__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__mul__()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__rmul__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rmul__()</span></code></a>).</p></li>
-<li><p>Exponentiation by a positive integer power (<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__pow__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__pow__()</span></code></a>). It
+(<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__mul__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__mul__()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__rmul__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__rmul__()</span></code></a>).</p></li>
+<li><p>Exponentiation by a positive integer power (<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__pow__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__pow__()</span></code></a>). It
 may be useful to know that all integers are instances of
-<a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Integral" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Integral</span></code></a>.</p></li>
-<li><p>Polynomial evaluation at a scalar value (<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__call__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__call__()</span></code></a>).</p></li>
+<a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Integral" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Integral</span></code></a>.</p></li>
+<li><p>Polynomial evaluation at a scalar value (<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__call__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__call__()</span></code></a>).</p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Don’t forget to commit and push your changes, and make sure that the
 tests pass on GitHub!</p>
 </div>
-</div></div><div class="proof proof-type-exercise" id="id5">
+</div></div><div class="proof proof-type-exercise" id="id7">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 3.4</span>
         
     </div><div class="proof-content">
-<p>Define a function <code class="xref py py-obj docutils literal notranslate"><span class="pre">derivative</span></code> in <code class="file docutils literal notranslate"><span class="pre">polynomials.py</span></code> which takes a
-<code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> and returns a new <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> which is its
-derivative. Also define a <code class="xref py py-meth docutils literal notranslate"><span class="pre">dx()</span></code> method on the <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class
-which returns the derivative of that <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code>. Rather than
-duplicating code, you should implement the function by calling the method.</p>
-</div></div><div class="proof proof-type-exercise" id="id6">
+<p>Define a <code class="xref py py-meth docutils literal notranslate"><span class="pre">dx()</span></code> method on the <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class which returns a
+new <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> which is the derivative of that
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code>. Also define a function <code class="xref py py-obj docutils literal notranslate"><span class="pre">derivative</span></code> in
+<code class="file docutils literal notranslate"><span class="pre">polynomials.py</span></code> which takes a <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> and returns  its
+derivative. Rather than duplicating code, you should implement the function
+by calling the method.</p>
+</div></div><div class="proof proof-type-exercise" id="id8">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 3.5</span>
         
     </div><div class="proof-content">
-<p>Inside the exercise repository for this week, create a new <code class="xref py py-mod docutils literal notranslate"><span class="pre">shape</span></code>
+<p>Inside the exercise repository, create a new <code class="xref py py-mod docutils literal notranslate"><span class="pre">shape</span></code>
 package containing a <code class="xref py py-mod docutils literal notranslate"><span class="pre">circle</span></code> module.</p>
 <ol class="arabic">
 <li><p>Create a <code class="xref py py-class docutils literal notranslate"><span class="pre">Circle</span></code> class
@@ -889,10 +925,10 @@ that the following code works:</p>
 </pre></div>
 </div>
 </li>
-<li><p>Implement the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__contains__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__contains__()</span></code></a> <a class="reference internal" href="#term-special-method"><span class="xref std std-term">special method</span></a> on the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">Circle</span></code> class so that it returns <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> if a point (represented
+<li><p>Implement the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__contains__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__contains__()</span></code></a> <a class="reference internal" href="#term-special-method"><span class="xref std std-term">special method</span></a> on the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Circle</span></code> class so that it returns <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a> if a point (represented
 by a length 2 sequence of coordinates) lies inside the circle. For
-example, the following code should print <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>.</p>
+example, the following code should print <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shape</span> <span class="kn">import</span> <span class="n">Circle</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">((</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">((</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="ow">in</span> <span class="n">c</span><span class="p">)</span>
@@ -900,16 +936,23 @@ example, the following code should print <a class="reference external" href="htt
 </div>
 </li>
 </ol>
-</div></div><div class="proof proof-type-exercise" id="id7">
+</div></div><div class="proof proof-type-exercise" id="id9">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 3.6</span>
         
     </div><div class="proof-content">
 <p>Make the <code class="xref py py-mod docutils literal notranslate"><span class="pre">circle</span></code> and <code class="xref py py-mod docutils literal notranslate"><span class="pre">polynomial</span></code> packages installable. As with
-last week’s exercise, pytest can’t test this so you’ll need to push to
+last chapter’s exercise, Pytest can’t test this so you’ll need to push to
 GitHub and check that the autograding tests pass there.</p>
-</div></div></section>
+</div></div><p class="rubric">Footnotes</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="exercise-page" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://object-oriented-python.github.io/edition2/exercises.html">https://object-oriented-python.github.io/edition2/exercises.html</a></p>
+</aside>
+</aside>
+</section>
 </section>
 
 
@@ -920,8 +963,8 @@ GitHub and check that the autograding tests pass there.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019-2021, David A. Ham. Modified by Patrick E. Farrell.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2019-2023, David A. Ham.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
     </div>
   </body>
 </html>

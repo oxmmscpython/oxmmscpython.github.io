@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Preface &#8212; Object-oriented Programming  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/fenics.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/proof.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Introduction: abstraction in mathematics and programming" href="1_introduction.html" />
+    <link rel="prev" title="Object oriented programming in Python for mathematicians" href="index.html" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFVH5C4DC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0EFVH5C4DC');
+</script>
+<link rel="stylesheet" href="_static/featured.css">
+
+
+<link rel="shortcut icon" href="_static/icon.ico" />
+
+
+  </head><body>
+<div class="wrapper">
+  <a href="index.html"><img src="_static/banner.png" width="900px" alt="FInAT Project Banner" /></a>
+  <div id="access">
+    <div class="menu">
+      <ul>
+          <li class="page_item"><a href="index.html" title="Book">Book</a></li>
+          <li class="page_item"><a href="videos.html" title="Videos">Videos</a></li>
+          <li class="page_item"><a href="exercises.html"
+          title="Exercises">Exercises</a></li>
+          <li class="page_item"><a href="installation.html" title="Installation">Installation</a></li>
+
+      </ul>
+    </div><!-- .menu -->
+  </div><!-- #access -->
+</div><!-- #wrapper -->
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="preface">
+<h1>Preface<a class="headerlink" href="#preface" title="Permalink to this heading">¶</a></h1>
+<p>Computers have revolutionised mathematics and the many scientific, engineering,
+and economic fields in which mathematics is applied. In the applications of
+mathematics the role of computation has long been obvious and prominent. Now,
+the development of theorem proving software is increasing the prominence of
+computing in pure mathematics. What this means is that the ability to write
+computer programs well is an indispensable part of the toolkit of a 21st
+century mathematician and, indeed, scientist or engineer.</p>
+<p>Regrettably, university courses in mathematics and its sibling disciplines have
+often failed to reflect this revolution in the way that mathematics is
+practised. Far too often the sum total of programming education in an
+undergraduate degree is a computational methods module in which students are
+shown elementary programming constructs such as functions, loops, and perhaps
+plotting. These are introduced in the context of solving particular
+computational mathematics or statistics problems, and the programming
+constructs introduced are driven by what is needed to solve those problems.</p>
+<p>The assumptions underpinning this approach seem to be some combination of a
+belief that maths degrees should only teach maths, as well a feeling that the
+mathematical algorithms are some how the difficult part and that programming is
+a mere technical skill that students will somehow pick up along the way. The
+consequence of this approach is that many maths students and graduates end up
+without the programming, software development, and debugging skills that they
+need to make effective use of computers in their further studies or working
+careers.</p>
+<section id="what-is-this-book-for">
+<h2>What is this book for?<a class="headerlink" href="#what-is-this-book-for" title="Permalink to this heading">¶</a></h2>
+<p>This book is the result of a significant change in the mathematics curriculum
+at Imperial College London. Rather than assume that students will somehow
+acquire programming skills along the way, we have introduced first and second
+year courses with the sole objective of teaching students to programme well.
+This book is the text for the second of these courses. Named “Principles of
+Programming”, the course aims to take students with a knowledge of basic Python
+programming (functions, loops, plotting and so forth) and introduce them to
+higher level programming concepts.</p>
+<p>The objective of this course is to graduate better programmers. Material on
+new programming constructs and concepts is accompanied by chapters on good
+programming style, so that students learn how to write code that they and
+others can understand, and on errors, exceptions and debugging, so that
+students learn how to get themselves out of trouble.</p>
+<p>An underlying theme throughout this book is that programming has strong
+connections with mathematics. In particular, both mathematics and programming
+depend on building higher level, more abstract objects which encapsulate and
+hide the underlying complexity of operations. It is in taking this mathematical
+approach to programming that this book is “for mathematicians”.</p>
+<p>The examples are chosen from across mathematics. For example, it appears to be
+traditional in object oriented programming books to use a telephone directory
+as the initial example of classes. We eschew this in favour of a class
+implementing polynomials. This provides the opportunity to introduce
+encapsulation and operator overloading for a familiar mathematical object. In
+contrast to the traditional computational methods courses, the examples are
+chosen to illustrate and explain the programming concepts we study rather than
+the converse.</p>
+</section>
+<section id="who-is-this-book-for">
+<h2>Who is this book for?<a class="headerlink" href="#who-is-this-book-for" title="Permalink to this heading">¶</a></h2>
+<p>This book is for anyone with mathematical, scientific, or engineering interests
+who would like to learn to be a more capable programmer. The mathematical
+examples assume that you know how to differentiate functions of one variable,
+but very little beyond that. Where examples or exercises employ other
+mathematics, such as cellular automata in <a class="reference internal" href="4_style.html#style"><span class="std std-numref">Chapter 4</span></a> and
+groups in <a class="reference internal" href="7_inheritance.html#inheritance"><span class="std std-numref">Chapter 7</span></a>, enough of the mathematics
+will be introduced that the reader should be able to understand the programming
+concept being explained, without necessarily understanding all of the
+mathematical details of the example.</p>
+<p>This is not an introduction to basic Python: it’s assumed that the reader knows
+the sort of basic Python usually covered in a first programming or
+computational methods course. In particular the reader will be assumed to be
+familiar with writing functions, variable assignments, loops, and list
+comprehensions. The reader is also assumed to have used numeric and string data
+values, as well as dictionaries, sets, lists, and tuples.</p>
+<p>Many introductory Python courses exclusively use Jupyter notebooks, so nothing
+beyond that is assumed. Getting set up with a working Python installation is
+covered in <a class="reference internal" href="1_introduction.html#introduction"><span class="std std-numref">Chapter 1</span></a> while the Python command line
+and using a text editor to create programmes in files are introduced from
+scratch in <a class="reference internal" href="2_programs_in_files.html#programs-files"><span class="std std-numref">Chapter 2</span></a>.</p>
+</section>
+<section id="how-to-use-this-book">
+<h2>How to use this book<a class="headerlink" href="#how-to-use-this-book" title="Permalink to this heading">¶</a></h2>
+<p>You can, of course, simply sit down and read this book from cover to cover,
+or dip in to see what it has to say on particular subjects. However,
+reading a book about programming will not teach you to program. For that,
+you need to get your hands dirty writing code and debugging your mistakes.
+The videos and exercises throughout the book are designed to help you do
+this.</p>
+<section id="the-videos">
+<h3>The videos<a class="headerlink" href="#the-videos" title="Permalink to this heading">¶</a></h3>
+<p>The videos were created to accompany the course at Imperial College London.
+They’re not primarily lecture videos but are instead practical demonstrations
+of the programming concepts being introduced at the relevant point. Usually
+it’s better to watch the video <em>after</em> reading the relevant section.</p>
+</section>
+<section id="the-exercises">
+<h3>The exercises<a class="headerlink" href="#the-exercises" title="Permalink to this heading">¶</a></h3>
+<p>At the end of each chapter are exercises. These usually depend on a skeleton
+code which is available on GitHub. Sometimes you might be asked to complete a
+piece of code while on other occasions you’ll need to write a whole Python
+module from scratch. Each set of exercises will come with a matching set of
+tests. These are small programs which check whether your code produces the
+correct responses to a range of inputs. Tests like this provide immediate
+feedback and enable you to know how you are doing. Links to the skeleton code
+for each chapter are provided at:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://object-oriented-python.github.io/edition2/exercises.html">https://object-oriented-python.github.io/edition2/exercises.html</a></p>
+</div></blockquote>
+</section>
+</section>
+<section id="conventions-employed">
+<h2>Conventions employed<a class="headerlink" href="#conventions-employed" title="Permalink to this heading">¶</a></h2>
+<p>Each chapter starts by introducing new material, supported by the videos and
+exercises. At the end of each chapter is a glossary containing many of the key
+concepts introduced in that chapter. Terms to be found in a glossary are given
+<em>in italics</em> and can be looked up in the index.</p>
+<p>Python has excellent <a class="reference external" href="https://docs.python.org/3/">official online documentation</a>, and we link to that throughout the text.
+External links show up in purple while <a class="reference internal" href="1_introduction.html#introduction"><span class="std std-ref">internal links to other parts
+of the notes</span></a> are blue.</p>
+<p>The text sometimes introduces counterexamples: illustrations of code errors or
+bad implementation ideas. These will be flagged with a big red cross:</p>
+<div class="badcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="s2">&quot;Hello World&quot;</span>
+</pre></div>
+</div>
+</div>
+<p>Conversely, if it’s necessary in context to highlight which approach is the
+correct one, the code will come with a big green tick:</p>
+<div class="goodcode docutils container">
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this heading">¶</a></h2>
+<p>The course Principles of Programming, and the notes on which this book is
+based, were first delivered in spring 2020, when university teaching was
+completely online during the COVID pandemic. I’d like to thank teaching fellow
+Dr Matthew Woolway who worked tirelessly with me on the module and who put
+together many of the tests on the exercises, and the graduate teaching
+assistants Miguel Boland, Sophia Vorderwuelbecke, and Connor Ward whose
+professionalism in delivering the course in very complex circumstances was
+outstanding. Pulling out all the stops to deliver the written and video
+materials for online learning meant a lot of evenings and weekends. I am
+exceptionally grateful to my wife Gebina Ham for disproportionately picking up
+our childcare responsibilities in that period in order to make this possible.
+I’d also like to thank Dr Aaron Pereira and Reuben Nixon-Hill for their
+eagle-eyed corrections to the text.</p>
+<p>This is a textbook about programming in Python, so it would be remiss of me not
+to also thank the developers of the Python language, its CPython reference
+implementation, and all the third party packages which on which this book
+depends. In that regard, the developers of Numpy, Flake8, Pytest, PDB++ and
+IPython deserve particular mention.</p>
+<p>This book is typeset using the Sphinx documentation system. Among other things
+this facilitates generating the web, PDF, and print versions of the book from a
+single source. Thanks are due to its authors as well as those of the underlying
+LaTeX and TeX typesetting systems.</p>
+</section>
+<section id="changes-in-the-second-edition">
+<h2>Changes in the second edition<a class="headerlink" href="#changes-in-the-second-edition" title="Permalink to this heading">¶</a></h2>
+<p>The second edition is a minor update correcting numerous small issues that have
+been pointed out over the last year. A more substantive change is that the
+explanation of packaging in <a class="reference internal" href="2_programs_in_files.html#programs-files"><span class="std std-numref">Section 2</span></a> has been modernised to use
+<code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> in place of <code class="xref py py-obj docutils literal notranslate"><span class="pre">setup.py</span></code>.
+<a class="reference internal" href="3_objects.html#assignment-and-instantiation"><span class="std std-numref">Section 3.5</span></a> has been added in response to confusion
+expressed by a number of students about the distinction between instantiating
+new objects and assigning new variable names to existing objects.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019-2023, David A. Ham.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    </div>
+  </body>
+</html>

@@ -1,28 +1,27 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>6. Errors and exceptions &#8212; Object oriented programming in Python for mathematicians 2021.0 documentation</title>
+    <title>6. Errors and exceptions &#8212; Object-oriented Programming  documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/fenics.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/proof.js"></script>
     <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="7. Inheritance and composition" href="8_inheritance.html" />
+    <link rel="next" title="7. Inheritance and composition" href="7_inheritance.html" />
     <link rel="prev" title="5. Abstract data types" href="5_abstract_data_types.html" />
 <!--[if lte IE 6]>
 <link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
@@ -44,10 +43,16 @@
 
   </head><body>
 <div class="wrapper">
+  <a href="index.html"><img src="_static/banner.png" width="900px" alt="FInAT Project Banner" /></a>
   <div id="access">
     <div class="menu">
       <ul>
-          <li class="page_item"><a href="https://github.com/oxmmscpython/object-oriented-programming" title="GitHub">GitHub</a></li>
+          <li class="page_item"><a href="index.html" title="Book">Book</a></li>
+          <li class="page_item"><a href="videos.html" title="Videos">Videos</a></li>
+          <li class="page_item"><a href="exercises.html"
+          title="Exercises">Exercises</a></li>
+          <li class="page_item"><a href="installation.html" title="Installation">Installation</a></li>
+
       </ul>
     </div><!-- .menu -->
   </div><!-- #access -->
@@ -60,26 +65,18 @@
           <div class="body" role="main">
             
   <section id="errors-and-exceptions">
-<span id="id1"></span><h1><span class="section-number">6. </span>Errors and exceptions<a class="headerlink" href="#errors-and-exceptions" title="Permalink to this headline">¶</a></h1>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Video: errors and exceptions.<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="vimeo docutils container">
-<iframe src="https://player.vimeo.com/video/509280820"
-frameborder="0" allow="autoplay; fullscreen"
-allowfullscreen></iframe></div>
-</div>
-</details><p>It is a sight familiar to every programmer: instead of producing the
+<span id="id1"></span><h1><span class="section-number">6. </span>Errors and exceptions<a class="headerlink" href="#errors-and-exceptions" title="Permalink to this heading">¶</a></h1>
+<details>
+<summary>
+Video: errors and exceptions.</summary><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/509280820" style="border: 0; height: 345px; width: 560px">
+</iframe></div></details><p>It is a sight familiar to every programmer: instead of producing the
 desired result, the screen is filled with seemingly unintelligible
 garbage because an error has occurred. Producing errors is an
 unavoidable part of programming, so learning to understand and correct
 them is an essential part of learning to program.</p>
 <section id="what-is-an-error">
-<h2><span class="section-number">6.1. </span>What is an error?<a class="headerlink" href="#what-is-an-error" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1. </span>What is an error?<a class="headerlink" href="#what-is-an-error" title="Permalink to this heading">¶</a></h2>
 <p>In mathematics, we are used to the idea that an expression might not
 be defined. For example, in the absence of further information,
 <span class="math notranslate nohighlight">\(0/0\)</span> does not have a well-defined value. Similarly, the string
@@ -90,15 +87,15 @@ meaning, or which just don’t amount to a meaningful statement within
 the rules of the language. A mathematician confronting an undefined
 mathematical expression can do little else than throw up their hands
 and ask the author what they meant. The <a class="reference internal" href="2_programs_in_files.html#term-Python-interpreter"><span class="xref std std-term">Python interpreter</span></a>, upon
-encountering code which has no defined meaning, responds similarly,
+encountering code which has no defined meaning, responds similarly;
 though rather than raising its non-existent hands, it raises an
 <a class="reference internal" href="#term-exception"><span class="xref std std-term">exception</span></a>. It is then up to the programmer to divine what to do next.</p>
 <p>Let’s take a look at what Python does in response to a simple
 error:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="mf">0.</span><span class="o">/</span><span class="mf">0.</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mf">4e5</span><span class="n">c12397e23</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="gt">--------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="mf">0.</span><span class="o">/</span><span class="mf">0.</span>
 
 <span class="ne">ZeroDivisionError</span>: float division by zero
@@ -107,41 +104,38 @@ error:</p>
 <p>An important rule in interpreting Python errors, the reasons for which we will
 return to, is to always read the error message from the bottom up. In
 this case, the last line contains the name of the exception which has
-been raised <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a>, followed by a colon, followed by
+been raised, <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a>, followed by a colon, followed by
 a descriptive string providing more information about what has gone
 wrong. In this case, that more or less says the same as the exception
 name, but that won’t be the case for all exceptions. The four lines
-above the exception are called a traceback. We’ll return to
+above the exception are called a <a class="reference internal" href="#term-traceback"><span class="xref std std-term">traceback</span></a>. We’ll return to
 interpreting tracebacks presently. In this case the error is easy to interpret
-and understand: the code divided the <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> value <code class="xref py py-obj docutils literal notranslate"><span class="pre">0.</span></code> by another zero,
+and understand: the code divided the <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> value <code class="xref py py-obj docutils literal notranslate"><span class="pre">0.</span></code> by another zero,
 and this does not have a well-defined result in Python’s arithmetic system.</p>
 <section id="syntax-errors">
-<h3><span class="section-number">6.1.1. </span>Syntax errors<a class="headerlink" href="#syntax-errors" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.1. </span>Syntax errors<a class="headerlink" href="#syntax-errors" title="Permalink to this heading">¶</a></h3>
 <p>Now consider the case of an expression that doesn’t make mathematical sense:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="mi">3</span> <span class="o">*</span> <span class="o">%</span>
-<span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-5-442f22cdc61f&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
-<span class="g g-Whitespace">    </span><span class="mi">3</span> <span class="o">*</span> <span class="o">%</span>
-        <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
+<span class="go">Cell In [5], line 1</span>
+<span class="go">    3 * %</span>
+<span class="go">        ^</span>
+<span class="go">SyntaxError: invalid syntax</span>
 </pre></div>
 </div>
-<p>This creates a syntax error, signified by a <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#SyntaxError" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SyntaxError</span></code></a>
-exception. In programming languages, as with human languages, the
-syntax is the set of rules which defines which expressions are
-well-formed. Notice that the earlier lines of a syntax error appear
-somewhat different to those of the previous exception. Almost all
-exceptions occur because the <a class="reference internal" href="2_programs_in_files.html#term-Python-interpreter"><span class="xref std std-term">Python interpreter</span></a> attempts to evaluate a
-statement or expression and encounters a problem. Syntax errors are a
-special case: when a syntax error occurs, the interpreter can’t even
-get as far as attempting to evaluate because the sequence of
-characters it has been asked to execute do not make sense in
-Python. This does, however, have one advantage, which is that the
-error message shows the precise point in the line at which the Python
-interpreter found a problem. This is indicated by the caret symbol
-(<code class="xref py py-obj docutils literal notranslate"><span class="pre">^</span></code>). In this case, the reason that the expression doesn’t make any
-sense is that the modulo operator (<code class="xref py py-obj docutils literal notranslate"><span class="pre">%</span></code>) is not a permissible second
-operand to multiplication (<code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code>), so the Python interpreter places the
-caret under the modulo operator.</p>
+<p>This creates a syntax error, signified by a <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#SyntaxError" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SyntaxError</span></code></a> exception. In
+programming languages, as with human languages, the syntax is the set of rules
+which defines which expressions are well-formed. Notice that the earlier lines
+of a syntax error appear somewhat different to those of the previous exception.
+Almost all exceptions occur because the <a class="reference internal" href="2_programs_in_files.html#term-Python-interpreter"><span class="xref std std-term">Python interpreter</span></a> attempts to
+evaluate a statement or expression and encounters a problem. Syntax errors are
+a special case: when a syntax error occurs, the interpreter can’t even get as
+far as attempting to evaluate because the sequence of characters it has been
+asked to execute do not make sense in Python. This time, the error message
+shows the precise point in the line at which the Python interpreter found a
+problem. This is indicated by the caret symbol (<code class="xref py py-obj docutils literal notranslate"><span class="pre">^</span></code>). In this case, the reason
+that the expression doesn’t make any sense is that the modulo operator (<code class="xref py py-obj docutils literal notranslate"><span class="pre">%</span></code>) is
+not a permissible second operand to multiplication (<code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code>), so the Python
+interpreter places the caret under the modulo operator.</p>
 <p>Even though the Python interpreter will highlight the point at which
 the syntax doesn’t make sense, this might not quite actually be the
 point at which you made the mistake. In particular, failing to finish
@@ -164,7 +158,7 @@ the error message which the <a class="reference internal" href="2_programs_in_fi
 <p>To understand why Python reports the error on the line following the
 actual problem, we need to understand that the missing closing bracket
 was not by itself an error. The user could, after all, validly
-continue the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> constructor on the next line. For example,
+continue the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> constructor on the next line. For example,
 the following code would be completely valid:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
      <span class="p">)</span>
@@ -172,8 +166,8 @@ the following code would be completely valid:</p>
 </pre></div>
 </div>
 <p>This means that the <a class="reference internal" href="2_programs_in_files.html#term-Python-interpreter"><span class="xref std std-term">Python interpreter</span></a> can only know that something is
-wrong when it sees <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print</span></code></a>, because <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print</span></code></a> cannot follow <code class="xref py py-obj docutils literal notranslate"><span class="pre">2</span></code> in a
-tuple constructor. The interpreter, therefore, reports that the <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print</span></code></a>
+wrong when it sees <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print</span></code></a>, because <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print</span></code></a> cannot follow <code class="xref py py-obj docutils literal notranslate"><span class="pre">2</span></code> in a
+tuple constructor. The interpreter, therefore, reports that the <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print</span></code></a>
 is a syntax error.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -184,7 +178,7 @@ line.</p>
 </section>
 </section>
 <section id="exceptions">
-<h2><span class="section-number">6.2. </span>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2. </span>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this heading">¶</a></h2>
 <p>Aside from syntax errors, which are handled directly by the
 interpreter, errors occur when Python code is executed and something
 goes wrong. In these cases the Python code in which the problem is
@@ -197,11 +191,11 @@ cease and an error message will result.</p>
 <p>Because there are many things that can go wrong, Python has many types
 of exception built in. For example, if we attempt to access the number
 2 position in a tuple with only two entries, then an
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#IndexError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IndexError</span></code></a> exception occurs:</p>
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#IndexError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IndexError</span></code></a> exception occurs:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">def0bb43ba85</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="gt">--------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
 
 <span class="ne">IndexError</span>: tuple index out of range
@@ -209,32 +203,26 @@ of exception built in. For example, if we attempt to access the number
 </div>
 <p>The exception type provides some indication as
 to what has gone wrong, and there is usually also an error message and
-sometimes more data to help diagnose the problem. The <a class="reference external" href="https://docs.python.org/3/library/exceptions.html" title="(in Python v3.10)"><span class="xref std std-doc">full list
+sometimes more data to help diagnose the problem. The <a class="reference external" href="https://docs.python.org/3/library/exceptions.html" title="(in Python v3.11)"><span class="xref std std-doc">full list
 of built-in exceptions</span></a> is available in the
 Python documentation. Python developers can define their own
-exceptions so there are many more defined in third-party packages.</p>
+exceptions so there are many more defined in third-party packages. We will
+turn to the subject of defining new exception classes in
+<a class="reference internal" href="7_inheritance.html#defining-exceptions"><span class="std std-numref">Section 7.4</span></a>.</p>
 </section>
 <section id="tracebacks-finding-errors">
-<h2><span class="section-number">6.3. </span>Tracebacks: finding errors<a class="headerlink" href="#tracebacks-finding-errors" title="Permalink to this headline">¶</a></h2>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Video: tracebacks.<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="vimeo docutils container">
-<iframe src="https://player.vimeo.com/video/509280880"
-frameborder="0" allow="autoplay; fullscreen"
-allowfullscreen></iframe></div>
-</div>
-</details><p>The errors we have looked at so far have all been located in the top
+<h2><span class="section-number">6.3. </span>Tracebacks: finding errors<a class="headerlink" href="#tracebacks-finding-errors" title="Permalink to this heading">¶</a></h2>
+<details>
+<summary>
+Video: tracebacks.</summary><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/509280880" style="border: 0; height: 345px; width: 560px">
+</iframe></div></details><p>The errors we have looked at so far have all been located in the top
 level of code either typed directly into iPython or executed in a
 script. However, what happens if an error occurs in a function call or
 even several functions down? Consider the following code, which uses
 the <code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code> class from
-<a class="reference internal" href="3_objects.html#objects"><span class="std std-numref">chapter 3</span></a>:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">polynomial</span> <span class="kn">import</span> <span class="n">Polynomial</span>
+<a class="reference internal" href="3_objects.html#objects"><span class="std std-numref">Chapter 3</span></a>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.polynomial</span> <span class="kn">import</span> <span class="n">Polynomial</span>
 
 <span class="gp">In [2]: </span><span class="n">p</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">((</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">))</span>
 
@@ -242,34 +230,36 @@ the <code class="xref py py-class docutils literal notranslate"><span class="pre
 <span class="go">bx + a</span>
 </pre></div>
 </div>
-<p>So, perhaps surprisingly, we are able to define a polynomial whose
-coefficients are letters, and we can even print the resulting
-object. However, if we attempt to add this polynomial to the number 1,
-we are in trouble:</p>
+<p>Perhaps surprisingly, it turns out that we are able to define a polynomial
+whose coefficients are letters, and we can even print the resulting object.
+However, if we attempt to add this polynomial to the number 1, we are in
+trouble:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">p</span><span class="p">)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">141816221609</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="gt">--------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">p</span><span class="p">)</span>
 
-<span class="nn">~/docs/object-oriented-programming/src/polynomial.py</span> in <span class="ni">__radd__</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="k">def</span> <span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span>
-<span class="ne">---&gt; </span><span class="mi">59</span>         <span class="k">return</span> <span class="bp">self</span> <span class="o">+</span> <span class="n">other</span>
+<span class="nn">File ~/docs/principles_of_programming/object-oriented-programming/example_code/polynomial.py:59,</span> in <span class="ni">Polynomial.__radd__</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">    </span><span class="mi">58</span> <span class="k">def</span> <span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">59</span>     <span class="k">return</span> <span class="bp">self</span> <span class="o">+</span> <span class="n">other</span>
 
-<span class="nn">~/docs/object-oriented-programming/src/polynomial.py</span> in <span class="ni">__add__</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">40</span>             <span class="k">return</span> <span class="n">Polynomial</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">other</span><span class="p">,)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Polynomial</span><span class="p">):</span>
+<span class="nn">File ~/docs/principles_of_programming/object-oriented-programming/example_code/polynomial.py:38,</span> in <span class="ni">Polynomial.__add__</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">    </span><span class="mi">36</span> <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">37</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">38</span>         <span class="k">return</span> <span class="n">Polynomial</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">other</span><span class="p">,)</span>
+<span class="g g-Whitespace">    </span><span class="mi">39</span>                           <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="g g-Whitespace">    </span><span class="mi">41</span>     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Polynomial</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">42</span>         <span class="c1"># Work out how many coefficient places the two polynomials have in</span>
+<span class="g g-Whitespace">    </span><span class="mi">43</span>         <span class="c1"># common.</span>
+<span class="g g-Whitespace">    </span><span class="mi">44</span>         <span class="n">common</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">(),</span> <span class="n">other</span><span class="o">.</span><span class="n">degree</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span>
 
 <span class="ne">TypeError</span>: can only concatenate str (not &quot;int&quot;) to str
 </pre></div>
 </div>
 <p>This is a much larger error message than those we have previously
 encountered, however, the same principles apply. We start by reading
-the last line. This tells us that the error was a <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeError</span></code></a>
+the last line. This tells us that the error was a <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeError</span></code></a>
 caused by attempting to <a class="reference internal" href="3_objects.html#term-concatenation"><span class="xref std std-term">concatenate</span></a> (add) an integer to a
 string. Where did this error occur? This is a more involved question
 than it may first appear, and the rest of the error message above is
@@ -279,22 +269,14 @@ suggests. In order to understand this message, we need to understand a
 little about how a Python program is executed, and in particular about
 the call stack.</p>
 <section id="the-call-stack">
-<h3><span class="section-number">6.3.1. </span>The call stack<a class="headerlink" href="#the-call-stack" title="Permalink to this headline">¶</a></h3>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Video: the call stack.<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="vimeo docutils container">
-<iframe src="https://player.vimeo.com/video/509281576"
-frameborder="0" allow="autoplay; fullscreen"
-allowfullscreen></iframe></div>
-</div>
-</details><p>A Python program is a sequence of Python statements, which are
+<span id="call-stack"></span><h3><span class="section-number">6.3.1. </span>The call stack<a class="headerlink" href="#the-call-stack" title="Permalink to this heading">¶</a></h3>
+<details>
+<summary>
+Video: the call stack.</summary><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/509281576" style="border: 0; height: 345px; width: 560px">
+</iframe></div></details><p>A Python program is a sequence of Python statements, which are
 executed in a sequence determined by the flow control logic of the
-program itself. Each statement contains zero or more function calls <a class="footnote-reference brackets" href="#function" id="id2">1</a>,
+program itself. Each statement contains zero or more function calls <a class="footnote-reference brackets" href="#function" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>,
 which are executed in the course of evaluating that statement.</p>
 <p>One of the most basic features of a function call is that the contents
 of the function execute, and then the code which called the function
@@ -325,25 +307,27 @@ sequence, there can be a number of stack frames in existence at any
 time.</p>
 </section>
 <section id="interpreting-tracebacks">
-<h3><span class="section-number">6.3.2. </span>Interpreting tracebacks<a class="headerlink" href="#interpreting-tracebacks" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.2. </span>Interpreting tracebacks<a class="headerlink" href="#interpreting-tracebacks" title="Permalink to this heading">¶</a></h3>
 <p>Let’s return to the traceback for our erroneous polynomial addition:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">p</span><span class="p">)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">141816221609</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="gt">--------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">p</span><span class="p">)</span>
 
-<span class="nn">~/docs/object-oriented-programming/src/polynomial.py</span> in <span class="ni">__radd__</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="k">def</span> <span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span>
-<span class="ne">---&gt; </span><span class="mi">59</span>         <span class="k">return</span> <span class="bp">self</span> <span class="o">+</span> <span class="n">other</span>
+<span class="nn">File ~/docs/principles_of_programming/object-oriented-programming/example_code/polynomial.py:59,</span> in <span class="ni">Polynomial.__radd__</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">    </span><span class="mi">58</span> <span class="k">def</span> <span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">59</span>     <span class="k">return</span> <span class="bp">self</span> <span class="o">+</span> <span class="n">other</span>
 
-<span class="nn">~/docs/object-oriented-programming/src/polynomial.py</span> in <span class="ni">__add__</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">40</span>             <span class="k">return</span> <span class="n">Polynomial</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">other</span><span class="p">,)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Polynomial</span><span class="p">):</span>
+<span class="nn">File ~/docs/principles_of_programming/object-oriented-programming/example_code/polynomial.py:38,</span> in <span class="ni">Polynomial.__add__</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">    </span><span class="mi">36</span> <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">37</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">38</span>         <span class="k">return</span> <span class="n">Polynomial</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">other</span><span class="p">,)</span>
+<span class="g g-Whitespace">    </span><span class="mi">39</span>                           <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="g g-Whitespace">    </span><span class="mi">41</span>     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Polynomial</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">42</span>         <span class="c1"># Work out how many coefficient places the two polynomials have in</span>
+<span class="g g-Whitespace">    </span><span class="mi">43</span>         <span class="c1"># common.</span>
+<span class="g g-Whitespace">    </span><span class="mi">44</span>         <span class="n">common</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">degree</span><span class="p">(),</span> <span class="n">other</span><span class="o">.</span><span class="n">degree</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span>
 
 <span class="ne">TypeError</span>: can only concatenate str (not &quot;int&quot;) to str
 </pre></div>
@@ -352,33 +336,31 @@ time.</p>
 <a class="reference internal" href="#term-stack-frame"><span class="xref std std-term">stack frames</span></a>. Look first at the bottom-most
 frame, which corresponds to the function in which the exception
 occurred. The traceback for this frame starts:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">~/</span><span class="n">docs</span><span class="o">/</span><span class="nb">object</span><span class="o">-</span><span class="n">oriented</span><span class="o">-</span><span class="n">programming</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">polynomial</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">File</span> <span class="o">~/</span><span class="n">docs</span><span class="o">/</span><span class="n">principles_of_programming</span><span class="o">/</span><span class="nb">object</span><span class="o">-</span><span class="n">oriented</span><span class="o">-</span><span class="n">programming</span><span class="o">/</span><span class="n">example_code</span><span class="o">/</span><span class="n">polynomial</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">38</span><span class="p">,</span> <span class="ow">in</span> <span class="n">Polynomial</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This indicates that the frame describes code in the file
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">polynomial.py</span></code> (which on the author’s computer is located in the
-folder <code class="xref py py-obj docutils literal notranslate"><span class="pre">~/docs/object-oriented-programming/src/</span></code>). Specifically, the
-stack frame describes the execution of the <code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__()</span></code> method,
-which is the <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special method</span></a> responsible for polynomial
-addition. The lines below this show the line on which execution
-stopped (line 40, in this case) and a couple of lines on either side,
-for context.</p>
-<p>The stack frame above this shows the function from which the
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__()</span></code> method was called. In this case, this is the reverse
-addition <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special method</span></a>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">__radd__()</span></code>. On line 59 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__radd__()</span></code> calls
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__()</span></code> through the addition of <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">other</span></code>.</p>
-<p>Finally, the top stack frame corresponds to the command that the user
-typed in iPython. This stack frame looks a little different from the
-others. For starters, instead of the file name there is the string
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;ipython-input-5-141816221609&gt;</span></code>. This is simply the <a class="reference internal" href="2_programs_in_files.html#term-Python-interpreter"><span class="xref std std-term">Python
-interpreter</span></a>’s internal name for a notional “file” containing one line
-of iPython input. Similarly, because the line the user typed is not in
-any function, the interpreter treats it as code written in the top
-level of an unnamed module called <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;module&gt;</span></code>. Finally, because the
-interpreter treats every line of input as a separate file, the call to
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">__radd__()</span></code> implementing the reverse addition of the number 1 to
-the polynomial <code class="xref py py-obj docutils literal notranslate"><span class="pre">p</span></code> occurs on line 1 even though we are on the fourth
-line of the iPython session.</p>
+<p>This indicates that the frame describes code in the file <code class="xref py py-obj docutils literal notranslate"><span class="pre">polynomial.py</span></code>
+(which, on the author’s computer, is located in the folder
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">~/principles_of_programming/object-oriented-programming/example_code/</span></code>).
+Specifically, the stack frame describes the execution of the <code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__()</span></code>
+method, which is the <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special method</span></a> responsible for polynomial
+addition. The lines below this show the line on which execution stopped (line
+38, in this case) and a couple of lines on either side, for context.</p>
+<p>The stack frame above this shows the function from which the <code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__()</span></code>
+method was called. In this case, this is the reverse addition <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special
+method</span></a>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">__radd__()</span></code>. On line 59 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__radd__()</span></code> calls <code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__()</span></code>
+through the addition of <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">other</span></code>.</p>
+<p>Finally, the top stack frame corresponds to the command that the user typed in
+iPython. This stack frame looks a little different from the others. Instead of
+a file name there and a function name there is <code class="xref py py-obj docutils literal notranslate"><span class="pre">Cell</span> <span class="pre">In</span> <span class="pre">[4],</span> <span class="pre">line</span> <span class="pre">1</span></code>. This
+indicates that the exception was raised on line 1 of the IPython cell <code class="xref py py-obj docutils literal notranslate"><span class="pre">In</span> <span class="pre">[4]</span></code>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Older versions of Python display less helpful location information for the
+top stack frame, so in that case you might see something like
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;ipython-input-2-c3aeb16193d4&gt;</span> <span class="pre">in</span></code> rather than
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">Cell</span> <span class="pre">In</span> <span class="pre">[4],</span> <span class="pre">line</span> <span class="pre">1</span></code>.</p>
+</div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>The proximate cause of the error will be in the last <a class="reference internal" href="#term-stack-frame"><span class="xref std std-term">stack
@@ -390,75 +372,72 @@ bottom frame!</p>
 </section>
 </section>
 <section id="raising-exceptions">
-<span id="id3"></span><h2><span class="section-number">6.4. </span>Raising exceptions<a class="headerlink" href="#raising-exceptions" title="Permalink to this headline">¶</a></h2>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Video: raising an exception.<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="vimeo docutils container">
-<iframe src="https://player.vimeo.com/video/509492490"
-frameborder="0" allow="autoplay; fullscreen"
-allowfullscreen></iframe></div>
-</div>
-</details><p>Thus far we’ve noticed that an exception occurs when something goes
+<span id="id3"></span><h2><span class="section-number">6.4. </span>Raising exceptions<a class="headerlink" href="#raising-exceptions" title="Permalink to this heading">¶</a></h2>
+<details>
+<summary>
+Video: raising an exception.</summary><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/509492490" style="border: 0; height: 345px; width: 560px">
+</iframe></div></details><p>Thus far we’ve noticed that an exception occurs when something goes
 wrong in a program, and that the <a class="reference internal" href="2_programs_in_files.html#term-Python-interpreter"><span class="xref std std-term">Python interpreter</span></a> will stop
 at that point and print out a <a class="reference internal" href="#term-traceback"><span class="xref std std-term">traceback</span></a>. We’ll now examine the
 process by which an exception occurs.</p>
-<p>An exception is triggered using the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#raise" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">raise</span></code></a> keyword. For
+<p>An exception is triggered using the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#raise" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">raise</span></code></a> keyword. For
 example, suppose we want to ensure that the input to our Fibonacci
-function is an integer. All Python integers are <a class="reference internal" href="3_objects.html#term-instance"><span class="xref std std-term">instances</span></a> of <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Integral" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Integral</span></code></a>, so we can check this. If we
+function is an integer. All Python integers are <a class="reference internal" href="3_objects.html#term-instance"><span class="xref std std-term">instances</span></a> of <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Integral" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Integral</span></code></a>, so we can check this. If we
 find a non-integer type then the consequence should be a
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeError</span></code></a>. This is achieved by <em>raising</em> the appropriate
-exception, using the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#raise" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">raise</span></code></a> statement. The keyword
-<a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#raise" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">raise</span></code></a> is followed by the exception. Almost all exceptions
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeError</span></code></a>. This is achieved by <em>raising</em> the appropriate
+exception, using the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#raise" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">raise</span></code></a> statement. The keyword
+<a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#raise" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">raise</span></code></a> is followed by the exception. Almost all exceptions
 take a string argument, which is the error message to be printed. In
 <a class="reference internal" href="#typesafe-fib"><span class="std std-numref">Listing 6.1</span></a>, we inform the user that we were expecting an
 integer rather than the type actually provided.</p>
-<div class="literal-block-wrapper docutils container" id="id5">
+<div class="literal-block-wrapper docutils container" id="id6">
 <span id="typesafe-fib"></span><div class="code-block-caption"><span class="caption-number">Listing 6.1 </span><span class="caption-text">A version of the Fibonacci function which raises an
 exception if a non-integer type is passed as the
-argument.</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+argument.</span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Integral</span>
 <span class="linenos"> 2</span>
-<span class="linenos"> 3</span><span class="k">def</span> <span class="nf">typesafe_fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="linenos"> 4</span>    <span class="sd">&quot;&quot;&quot;Return the n-th Fibonacci number, raising an exception if a</span>
-<span class="linenos"> 5</span><span class="sd">    non-integer is passed as n.&quot;&quot;&quot;</span>
-<span class="hll"><span class="linenos"> 6</span>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">Integral</span><span class="p">):</span>
-</span><span class="hll"><span class="linenos"> 7</span>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-</span><span class="hll"><span class="linenos"> 8</span>                    <span class="sa">f</span><span class="s2">&quot;fib expects an integer, not a </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span class="linenos"> 9</span>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="linenos">10</span>        <span class="k">return</span> <span class="mi">0</span>
-<span class="linenos">11</span>    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<span class="linenos">12</span>        <span class="k">return</span> <span class="mi">1</span>
-<span class="linenos">13</span>    <span class="k">else</span><span class="p">:</span>
-<span class="linenos">14</span>        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span> <span class="nf">typesafe_fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the n-th Fibonacci number, raising an exception if a</span>
+<span class="linenos"> 6</span><span class="sd">    non-integer is passed as n.&quot;&quot;&quot;</span>
+<span class="linenos"> 7</span>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">Integral</span><span class="p">):</span>
+<span class="hll"><span class="linenos"> 8</span>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+</span><span class="hll"><span class="linenos"> 9</span>                <span class="sa">f</span><span class="s2">&quot;fib expects an integer, not a </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class="hll"><span class="linenos">10</span>            <span class="p">)</span>
+</span><span class="linenos">11</span>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">12</span>        <span class="k">return</span> <span class="mi">0</span>
+<span class="linenos">13</span>    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos">14</span>        <span class="k">return</span> <span class="mi">1</span>
+<span class="linenos">15</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">16</span>        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <p>If we now pass a non-integer value to this function, we observe the following:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">fibonacci</span> <span class="kn">import</span> <span class="n">typesafe_fib</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">fibonacci.typesafe_fibonacci</span> <span class="kn">import</span> <span class="n">typesafe_fib</span>
 <span class="gp">In [2]: </span><span class="n">typesafe_fib</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">c3aeb16193d4</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="gt">--------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">typesafe_fib</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
 
-<span class="nn">~/docs/object-oriented-programming/fibonacci/fibonacci.py</span> in <span class="ni">typesafe_fib</span><span class="nt">(n)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>        <span class="n">non</span><span class="o">-</span><span class="n">integer</span> <span class="ow">is</span> <span class="n">passed</span> <span class="k">as</span> <span class="n">n</span><span class="o">.</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span><span class="s2">        if not isinstance(n, Integral):</span>
-<span class="ne">---&gt; </span><span class="mi">16</span><span class="s2">               raise TypeError(</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span><span class="s2">                      f&quot;fib expects an integer, not a {type(n).__name__}&quot;)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span><span class="s2">        if n == 0:</span>
+<span class="nn">File ~/docs/principles_of_programming/object-oriented-programming/fibonacci/typesafe_fibonacci.py:8,</span> in <span class="ni">typesafe_fib</span><span class="nt">(n)</span>
+<span class="g g-Whitespace">    </span><span class="mi">5</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Return the n-th Fibonacci number, raising an exception if a</span>
+<span class="g g-Whitespace">    </span><span class="mi">6</span><span class="sd"> non-integer is passed as n.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">7</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">Integral</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">8</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">9</span>         <span class="sa">f</span><span class="s2">&quot;fib expects an integer, not a </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">10</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">11</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">12</span>     <span class="k">return</span> <span class="mi">0</span>
 
 <span class="ne">TypeError</span>: fib expects an integer, not a float
 </pre></div>
 </div>
 <p>This is exactly what we have come to expect: execution has stopped and
 we see a <a class="reference internal" href="#term-traceback"><span class="xref std std-term">traceback</span></a>. Notice that the final line is the error
-message that we passed to <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeError</span></code></a>. The only difference
+message that we passed to <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeError</span></code></a>. The only difference
 between this and the previous errors we have seen is that the bottom
 <a class="reference internal" href="#term-stack-frame"><span class="xref std std-term">stack frame</span></a> explicitly shows the exception being raised, while
 previously the stack showed a piece of code where an error had
@@ -482,35 +461,26 @@ trying to work with exceptions is to write:</p>
 </div>
 </div>
 <p>This mistake is the result of a confusion about what
-<a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#return" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">return</span></code></a> and <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#raise" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">raise</span></code></a> do. <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#return" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">return</span></code></a> means
-“the function is finished, here is the result”. <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#raise" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">raise</span></code></a>
+<a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#return" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">return</span></code></a> and <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#raise" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">raise</span></code></a> do. <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#return" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">return</span></code></a> means
+“the function is finished, here is the result”. <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#raise" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">raise</span></code></a>
 means “something exceptional happened, execution is stopping
 without a result”.</p>
 </div>
 </section>
 <section id="handling-exceptions">
-<span id="id4"></span><h2><span class="section-number">6.5. </span>Handling exceptions<a class="headerlink" href="#handling-exceptions" title="Permalink to this headline">¶</a></h2>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Video: handling exceptions.<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="vimeo docutils container">
-<iframe src="https://player.vimeo.com/video/509492495"
-frameborder="0" allow="autoplay; fullscreen"
-allowfullscreen></iframe></div>
-</div>
-</details><p>So far we have seen several different sorts of exception, how to raise
-them, and how to understand the resulting <a class="reference internal" href="#term-traceback"><span class="xref std std-term">traceback</span></a>. The
-<a class="reference internal" href="#term-traceback"><span class="xref std std-term">traceback</span></a> is very helpful if the exception was caused by a bug
-in our code, so that we need to understand and correct the
-error. However, sometimes an exception is a valid result of a valid
-input, and we just need the program to do something out of the
-ordinary to deal with the situation. For example, Euclid’s algorithm
-for finding the greatest common divisor of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> can
-very nearly be written recursively as:</p>
+<span id="id4"></span><h2><span class="section-number">6.5. </span>Handling exceptions<a class="headerlink" href="#handling-exceptions" title="Permalink to this heading">¶</a></h2>
+<details>
+<summary>
+Video: handling exceptions.</summary><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/509492495" style="border: 0; height: 345px; width: 560px">
+</iframe></div></details><p>So far we have seen several different sorts of exception, how to raise them,
+and how to understand the resulting <a class="reference internal" href="#term-traceback"><span class="xref std std-term">traceback</span></a>. The <a class="reference internal" href="#term-traceback"><span class="xref std std-term">traceback</span></a> is
+very helpful if the exception was caused by a bug in our code, as it is a rich
+source of the information needed to understand and correct the error. However,
+sometimes an exception is a valid result of a valid input, and we just need the
+program to do something out of the ordinary to deal with the situation. For
+example, Euclid’s algorithm for finding the greatest common divisor of
+<span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> can very nearly be written recursively as:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
@@ -518,42 +488,41 @@ very nearly be written recursively as:</p>
 <p>This works right up to the point where <code class="xref py py-obj docutils literal notranslate"><span class="pre">b</span></code> becomes zero, at which
 point we should stop the recursion and return <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code>. What actually
 happens if we run this code? Let’s try:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go">   In [5]: gcd(10, 12)</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="n">d0750d9f2658</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="n">gcd</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="gt">--------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">gcd</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
 
-<span class="nn">&lt;ipython-input-4-1ab7512041a6&gt;</span> in <span class="ni">gcd</span><span class="nt">(a, b)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="nn">Cell In[1], line 2,</span> in <span class="ni">gcd</span><span class="nt">(a, b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
 
-<span class="nn">&lt;ipython-input-4-1ab7512041a6&gt;</span> in <span class="ni">gcd</span><span class="nt">(a, b)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="nn">Cell In[1], line 2,</span> in <span class="ni">gcd</span><span class="nt">(a, b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
 
-<span class="nn">&lt;ipython-input-4-1ab7512041a6&gt;</span> in <span class="ni">gcd</span><span class="nt">(a, b)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">similar</span> <span class="n">frames</span><span class="p">:</span> <span class="n">gcd</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">2</span> <span class="p">(</span><span class="mi">1</span> <span class="n">times</span><span class="p">)]</span>
+
+<span class="nn">Cell In[1], line 2,</span> in <span class="ni">gcd</span><span class="nt">(a, b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
 
-<span class="nn">&lt;ipython-input-4-1ab7512041a6&gt;</span> in <span class="ni">gcd</span><span class="nt">(a, b)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
-
-<span class="ne">ZeroDivisionError</span>: integer division or modulo by zero
+<span class="ne">ZeroDivisionError</span>: integer modulo by zero
 </pre></div>
 </div>
 <p>Notice how the recursive call to <code class="xref py py-func docutils literal notranslate"><span class="pre">gcd()</span></code> causes several
-<a class="reference internal" href="#term-stack-frame"><span class="xref std std-term">stack frames</span></a> that look the same. That makes
+<a class="reference internal" href="#term-stack-frame"><span class="xref std std-term">stack frames</span></a> that look the same. Indeed, the Python
+interpreter even notices the similarity and skips over one. That makes
 sense: <code class="xref py py-func docutils literal notranslate"><span class="pre">gcd()</span></code> calls itself until <code class="xref py py-obj docutils literal notranslate"><span class="pre">b</span></code> is zero, and then we get a
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a> because modulo zero is undefined. To
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a> because modulo zero is undefined. To
 complete this function, what we need to do is to tell Python to stop
-at the <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a> and return <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code>
+at the <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a> and return <code class="xref py py-obj docutils literal notranslate"><span class="pre">a</span></code>
 instead. <a class="reference internal" href="#gcd"><span class="std std-numref">Listing 6.2</span></a> illustrates how this can be achieved.</p>
-<div class="literal-block-wrapper docutils container" id="id6">
+<div class="literal-block-wrapper docutils container" id="id7">
 <span id="gcd"></span><div class="code-block-caption"><span class="caption-number">Listing 6.2 </span><span class="caption-text">A recursive implementation of Euclid’s algorithm which
-catches the <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a> to implement the
-base case.</span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+catches the <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a> to implement the
+base case.</span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="hll"><span class="linenos">2</span>    <span class="k">try</span><span class="p">:</span>
 </span><span class="linenos">3</span>        <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
@@ -562,15 +531,15 @@ base case.</span><a class="headerlink" href="#id6" title="Permalink to this code
 </span></pre></div>
 </div>
 </div>
-<p>The new structure here is the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a>… <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a>
-block. The <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> keyword defines a block of code, in this
-case just containing <code class="xref py py-obj docutils literal notranslate"><span class="pre">return</span> <span class="pre">gcd(b,</span> <span class="pre">a</span> <span class="pre">%</span> <span class="pre">b)</span></code>. The <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> is
+<p>The new structure here is the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a>… <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a>
+block. The <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> keyword defines a block of code, in this
+case just containing <code class="xref py py-obj docutils literal notranslate"><span class="pre">return</span> <span class="pre">gcd(b,</span> <span class="pre">a</span> <span class="pre">%</span> <span class="pre">b)</span></code>. The <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> is
 optionally followed by an exception class, or a tuple of exception
-classes. This case, the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> is only followed by the
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a> class. What this means is that if a
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a> is raised by any of the code inside the
-<a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block then, instead of execution halting and a
-<a class="reference internal" href="#term-traceback"><span class="xref std std-term">traceback</span></a> being printed, the code inside the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a>
+classes. This case, the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> is only followed by the
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a> class. What this means is that if a
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a> is raised by any of the code inside the
+<a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block then, instead of execution halting and a
+<a class="reference internal" href="#term-traceback"><span class="xref std std-term">traceback</span></a> being printed, the code inside the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a>
 block is run.</p>
 <p>In the example here, this means that once <code class="xref py py-obj docutils literal notranslate"><span class="pre">b</span></code> is zero, instead of
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">gcd</span></code> being called a further time, a is returned. If we run this
@@ -580,25 +549,17 @@ version of <code class="xref py py-func docutils literal notranslate"><span clas
 </pre></div>
 </div>
 <section id="except-clauses">
-<h3><span class="section-number">6.5.1. </span>Except clauses<a class="headerlink" href="#except-clauses" title="Permalink to this headline">¶</a></h3>
-<details class="sphinx-bs dropdown card mb-3">
-<summary class="summary-title card-header">
-Video: further exception handling.<div class="summary-down docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="summary-up docutils">
-<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="summary-content card-body docutils">
-<div class="vimeo docutils container">
-<iframe src="https://player.vimeo.com/video/509492496"
-frameborder="0" allow="autoplay; fullscreen"
-allowfullscreen></iframe></div>
-</div>
-</details><p>Let’s look in a little more detail at how <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> works. The full
+<h3><span class="section-number">6.5.1. </span>Except clauses<a class="headerlink" href="#except-clauses" title="Permalink to this heading">¶</a></h3>
+<details>
+<summary>
+Video: further exception handling.</summary><div class="video_wrapper" style="">
+<iframe allowfullscreen="true" src="https://player.vimeo.com/video/509492496" style="border: 0; height: 345px; width: 560px">
+</iframe></div></details><p>Let’s look in a little more detail at how <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> works. The full
 version of the except statement takes a tuple of exception classes. If an
 exception is raised matching any of the exceptions in that tuple then the code
 in the except block is executed.</p>
-<p>It’s also possible to have more than one <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> block following a
-single <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> statement. In this case, the first except block for which
+<p>It’s also possible to have more than one <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> block following a
+single <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> statement. In this case, the first except block for which
 the exception matches the list of exceptions is executed. For example:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="k">try</span><span class="p">:</span>
 <span class="go">    ...:     0./0</span>
@@ -610,22 +571,34 @@ the exception matches the list of exceptions is executed. For example:</p>
 <span class="go">Zero division error</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is also possible to omit the list of exceptions after <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a>.
+In this case, the except block will match any exception which is raised in
+the corresponding try block. Using unconstrained except blocks like this is
+a somewhat dangerous strategy. Usually, the except block will be designed
+to deal with a particular type of exceptional circumstance. However, an
+except block that catches any exception may well be triggered by a completely
+different exception, in which case it will just make the error more
+confusing by obscuring where the issue actually occurred.</p>
+</div>
 </section>
 <section id="else-and-finally">
-<h3><span class="section-number">6.5.2. </span>Else and finally<a class="headerlink" href="#else-and-finally" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.5.2. </span>Else and finally<a class="headerlink" href="#else-and-finally" title="Permalink to this heading">¶</a></h3>
 <p>It can also be useful to execute some code only if an exception is not raised.
-This can be achieved using an <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">else</span></code></a> clause. An <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">else</span></code></a> clause after a
-<a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block is caused only if no exception was raised.</p>
+This can be achieved using an <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">else</span></code></a> clause. An <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">else</span></code></a> clause after a <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block is caused only if no exception was
+raised.</p>
 <p>It is also sometimes useful to be able to execute some code no matter what
-happened in the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block. If there is a <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#finally" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">finally</span></code></a> clause
-then this code will be executed whether or not an exception was raised. This
-plethora of variants on the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block can get a little confusing, so
+happened in the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block. If there is a <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#finally" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">finally</span></code></a> clause
+then the code it contains will be executed if either an exception is raised and
+handled by an <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> block, or no exception occurred. This
+plethora of variants on the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block can get a little confusing, so
 a practical example may help. <a class="reference internal" href="#except-demo"><span class="std std-numref">Listing 6.3</span></a> prints out a different
 message for each type of clause.</p>
-<div class="literal-block-wrapper docutils container" id="id7">
-<span id="except-demo"></span><div class="code-block-caption"><span class="caption-number">Listing 6.3 </span><span class="caption-text">A demonstration of all the clauses of the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block.</span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<span id="except-demo"></span><div class="code-block-caption"><span class="caption-number">Listing 6.3 </span><span class="caption-text">A demonstration of all the clauses of the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block.</span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">except_demo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="linenos"> 2</span>    <span class="sd">&quot;&quot;&quot;A simple demonstration of all the clauses of a :keyword:`try` block.&quot;&quot;&quot;</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Demonstrate all the clauses of a `try` block.&quot;&quot;&quot;</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempting division by </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="linenos"> 5</span>    <span class="k">try</span><span class="p">:</span>
@@ -642,7 +615,7 @@ message for each type of clause.</p>
 </div>
 </div>
 <p>If we execute <a class="reference internal" href="example_code.html#example_code.try_except.except_demo" title="example_code.try_except.except_demo"><code class="xref py py-func docutils literal notranslate"><span class="pre">except_demo()</span></code></a> for a variety of
-arguments, we can observe this complete <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block in action. First,
+arguments, we can observe this complete <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block in action. First,
 we provide an input which is a valid divisor:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.try_except</span> <span class="kn">import</span> <span class="n">except_demo</span>
 <span class="gp">In [2]: </span><span class="n">except_demo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -652,18 +625,18 @@ we provide an input which is a valid divisor:</p>
 <span class="go">Finishing up.</span>
 </pre></div>
 </div>
-<p>Here we can see the output of the division, the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">else</span></code></a> block, and
-the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#finally" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">finally</span></code></a> block. Next we divide by zero:</p>
+<p>Here we can see the output of the division, the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">else</span></code></a> block, and
+the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#finally" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">finally</span></code></a> block. Next we divide by zero:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">except_demo</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">Attempting division by 0</span>
 <span class="go">Zero division</span>
 <span class="go">Finishing up.</span>
 </pre></div>
 </div>
-<p>This caused a <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a>, which was caught by the first
-<a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> clause. Since an exception was raised, the the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">else</span></code></a> block is not executed, but the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#finally" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">finally</span></code></a> block still executes.
+<p>This caused a <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a>, which was caught by the first
+<a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> clause. Since an exception was raised, the the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">else</span></code></a> block is not executed, but the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#finally" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">finally</span></code></a> block still executes.
 Similarly, if we attempt to divide by a string, we are caught by the second
-<a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> clause:</p>
+<a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> clause:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">except_demo</span><span class="p">(</span><span class="s2">&quot;frog&quot;</span><span class="p">)</span>
 <span class="go">Attempting division by frog</span>
 <span class="go">Can&#39;t divide by a str.</span>
@@ -672,18 +645,23 @@ Similarly, if we attempt to divide by a string, we are caught by the second
 </div>
 </section>
 <section id="exception-handling-and-the-call-stack">
-<h3><span class="section-number">6.5.3. </span>Exception handling and the call stack<a class="headerlink" href="#exception-handling-and-the-call-stack" title="Permalink to this headline">¶</a></h3>
-<p>An <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> block will handle any matching exception raised in the
-preceding <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block. The <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block can, of
+<h3><span class="section-number">6.5.3. </span>Exception handling and the call stack<a class="headerlink" href="#exception-handling-and-the-call-stack" title="Permalink to this heading">¶</a></h3>
+<p>An <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> block will handle any matching exception raised in the
+preceding <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block. The <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> block can, of
 course, contain any code at all. In particular it might contain
 function calls which themselves may well call further functions. This
-means that an exception might occur several <a class="reference internal" href="#term-stack-frame"><span class="xref std std-term">stack frames</span></a> down the <a class="reference internal" href="#term-call-stack"><span class="xref std std-term">call stack</span></a> from the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a>
+means that an exception might occur several <a class="reference internal" href="#term-stack-frame"><span class="xref std std-term">stack frames</span></a> down the <a class="reference internal" href="#term-call-stack"><span class="xref std std-term">call stack</span></a> from the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a>
 clause. Indeed, some of the functions called might themselves contain
-<a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> blocks with the result that an exception is raised at a
-point which is ultimately inside several <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.10)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> blocks.</p>
-<p>The <a class="reference internal" href="2_programs_in_files.html#term-Python-interpreter"><span class="xref std std-term">Python interpreter</span></a> deals with this situation by starting
-from the current <a class="reference internal" href="#term-stack-frame"><span class="xref std std-term">stack frame</span></a> and working upwards, a process
-known as <em>unwinding the stack</em>. In pseudocode, the algorithm is:</p>
+<a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> blocks with the result that an exception is raised at a
+point which is ultimately inside several <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> blocks.</p>
+<p>The <a class="reference internal" href="2_programs_in_files.html#term-Python-interpreter"><span class="xref std std-term">Python interpreter</span></a> deals with this situation by starting from the
+current <a class="reference internal" href="#term-stack-frame"><span class="xref std std-term">stack frame</span></a> and working upwards, a process known as <em>unwinding
+the stack</em>. <a class="reference internal" href="#unwind"><span class="std std-numref">Listing 6.4</span></a> shows pseudocode for this process.</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<span id="unwind"></span><div class="code-block-caption"><span class="caption-number">Listing 6.4 </span><span class="caption-text">Pseudocode for the process of <em>unwinding the stack</em>, in which the
+interpreter successively looks through higher stack frames to search
+for an <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> clause matching the exception that has just
+been raised.</span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">call</span> <span class="n">stack</span> <span class="ow">not</span> <span class="n">empty</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">current</span> <span class="n">execution</span> <span class="n">point</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">a</span> <span class="k">try</span> <span class="n">block</span> \
             <span class="k">with</span> <span class="n">an</span> <span class="k">except</span> <span class="n">matching</span> <span class="n">the</span> <span class="n">current</span> <span class="n">exception</span><span class="p">:</span>
@@ -695,10 +673,11 @@ known as <em>unwinding the stack</em>. In pseudocode, the algorithm is:</p>
 <span class="nb">print</span> <span class="n">traceback</span> <span class="ow">and</span> <span class="n">exit</span>
 </pre></div>
 </div>
+</div>
 </section>
 </section>
 <section id="exceptions-are-not-always-errors">
-<h2><span class="section-number">6.6. </span>Exceptions are not always errors<a class="headerlink" href="#exceptions-are-not-always-errors" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.6. </span>Exceptions are not always errors<a class="headerlink" href="#exceptions-are-not-always-errors" title="Permalink to this heading">¶</a></h2>
 <p>This chapter is called “Errors and exceptions”, so it is appropriate
 to finish by drawing attention to the distinction between these two
 concepts. While user errors and bugs in programs typically result in
@@ -706,18 +685,18 @@ an exception being raised, it is not the case that all exceptions
 result from errors. The name “exception” means what it says, it is an
 event whose occurrence requires an exception to the normal sequence of
 execution.</p>
-<p>The <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#StopIteration" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">StopIteration</span></code></a> exception which we encountered in
+<p>The <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#StopIteration" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">StopIteration</span></code></a> exception which we encountered in
 <a class="reference internal" href="5_abstract_data_types.html#iterator-protocol"><span class="std std-numref">Section 5.6</span></a> is a good example of an <a class="reference internal" href="#term-exception"><span class="xref std std-term">exception</span></a>
 which does not indicate an error. The end of the set of things to be
 iterated over does not indicate that something has gone wrong, but it
-is an exception to the usual behaviour of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a>,
+is an exception to the usual behaviour of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator.__next__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a>,
 which Python needs to handle in a different way from simply returning
 the next item.</p>
 </section>
 <section id="glossary">
-<h2><span class="section-number">6.7. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.7. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading">¶</a></h2>
 <blockquote>
-<div><dl class="glossary simple">
+<div><dl class="simple glossary">
 <dt id="term-call-stack">call stack<a class="headerlink" href="#term-call-stack" title="Permalink to this term">¶</a></dt><dt id="term-execution-stack">execution stack<a class="headerlink" href="#term-execution-stack" title="Permalink to this term">¶</a></dt><dt id="term-interpreter-stack">interpreter stack<a class="headerlink" href="#term-interpreter-stack" title="Permalink to this term">¶</a></dt><dd><p>The <a class="reference internal" href="5_abstract_data_types.html#term-stack"><span class="xref std std-term">stack</span></a> of <a class="reference internal" href="#term-stack-frame"><span class="xref std std-term">stack frames</span></a> in existence. The
 current item on the stack is the currently executing function,
 while the deepest item is the stack frame corresponding to the
@@ -756,9 +735,10 @@ bottom and the outermost frame at the top.</p>
 </div></blockquote>
 </section>
 <section id="exercises">
-<h2><span class="section-number">6.8. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<p>Obtain the <a class="reference external" href="https://classroom.github.com/a/7vIFHsIm">skeleton code for these exercises from GitHub classroom</a>.</p>
-<div class="proof proof-type-exercise" id="id8">
+<h2><span class="section-number">6.8. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
+<p>Using the information on the <a class="reference external" href="https://object-oriented-python.github.io/edition2/exercises.html">book website</a>
+obtain the skeleton code for these exercises.</p>
+<div class="proof proof-type-exercise" id="id10">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 6.1</span>
@@ -774,7 +754,7 @@ user-specified tolerance <span class="math notranslate nohighlight">\(\epsilon&g
 to converge for all combinations of function and starting point, so the
 iteration should fail if <span class="math notranslate nohighlight">\(n\)</span> exceeds a user-specified number of
 iterations.</p>
-<p>The skeleton code for this week contains a function
+<p>The skeleton code for this chapter contains a function
 <code class="xref py py-func docutils literal notranslate"><span class="pre">nonlinear_solvers.solvers.newton_raphson()</span></code> which takes as arguments a
 function, its derivative and a starting point for the iteration. It can also
 optionally be passed a value for <span class="math notranslate nohighlight">\(\epsilon\)</span> and a maximum number of
@@ -784,7 +764,7 @@ then the last iterate, <span class="math notranslate nohighlight">\(x_{n+1}\)</s
 <code class="xref py py-class docutils literal notranslate"><span class="pre">ConvergenceError</span></code>. If the Newton-Raphson iteration exceeds the
 number of iterations allowed then this exception should be raised, with an
 appropriate error message.</p>
-</div></div><div class="proof proof-type-exercise" id="id9">
+</div></div><div class="proof proof-type-exercise" id="id11">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 6.2</span>
@@ -803,8 +783,8 @@ iteration succeeds then return the last value of <span class="math notranslate n
 number of iterations is exceeded, raise <code class="xref py py-class docutils literal notranslate"><span class="pre">ConvergenceError</span></code> with a
 suitable error message. The bisection method has a further failure mode. If
 <span class="math notranslate nohighlight">\(f(x_0)\)</span> and <span class="math notranslate nohighlight">\(f(x_1)\)</span> do not differ in sign then your code
-should raise <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a> with a suitable message.</p>
-</div></div><div class="proof proof-type-exercise" id="id10">
+should raise <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a> with a suitable message.</p>
+</div></div><div class="proof proof-type-exercise" id="id12">
 
     <div class="proof-title">
         <span class="proof-type">Exercise 6.3</span>
@@ -815,12 +795,17 @@ should first attempt to solve <span class="math notranslate nohighlight">\(f(x)=
 function. If that fails it should catch the exception and instead try using
 your bisection function.</p>
 </div></div><p class="rubric">Footnotes</p>
-<dl class="footnote brackets">
-<dt class="label" id="function"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
-<dd><p>“Function call” here includes <a class="reference internal" href="3_objects.html#term-method"><span class="xref std std-term">method</span></a> calls and
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="function" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p>“Function call” here includes <a class="reference internal" href="3_objects.html#term-method"><span class="xref std std-term">method</span></a> calls and
 operations implemented using a <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special method</span></a>.</p>
-</dd>
-</dl>
+</aside>
+<aside class="footnote brackets" id="exercise-page" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">2</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://object-oriented-python.github.io/edition2/exercises.html">https://object-oriented-python.github.io/edition2/exercises.html</a></p>
+</aside>
+</aside>
 </section>
 </section>
 
@@ -832,8 +817,8 @@ operations implemented using a <a class="reference internal" href="3_objects.htm
       <div class="clearer"></div>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019-2021, David A. Ham. Modified by Patrick E. Farrell.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2019-2023, David A. Ham.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
     </div>
   </body>
 </html>

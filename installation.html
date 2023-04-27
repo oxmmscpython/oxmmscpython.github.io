@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Installing the necessary software &#8212; Object-oriented Programming  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/fenics.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/proof.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFVH5C4DC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0EFVH5C4DC');
+</script>
+<link rel="stylesheet" href="_static/featured.css">
+
+
+<link rel="shortcut icon" href="_static/icon.ico" />
+
+
+  </head><body>
+<div class="wrapper">
+  <a href="index.html"><img src="_static/banner.png" width="900px" alt="FInAT Project Banner" /></a>
+  <div id="access">
+    <div class="menu">
+      <ul>
+          <li class="page_item"><a href="index.html" title="Book">Book</a></li>
+          <li class="page_item"><a href="videos.html" title="Videos">Videos</a></li>
+          <li class="page_item"><a href="exercises.html"
+          title="Exercises">Exercises</a></li>
+          <li class="page_item"><a href="#" title="Installation">Installation</a></li>
+
+      </ul>
+    </div><!-- .menu -->
+  </div><!-- #access -->
+</div><!-- #wrapper -->
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="installing-the-necessary-software">
+<h1>Installing the necessary software<a class="headerlink" href="#installing-the-necessary-software" title="Permalink to this heading">¶</a></h1>
+<p>In order to do the exercises in this book, you will need Python, Git, and a
+suitable text editor or <a class="reference internal" href="1_introduction.html#term-integrated-development-environment"><span class="xref std std-term">Integrated Development Environment</span></a>. Visual
+Studio Code is recommended as the <a class="reference internal" href="1_introduction.html#term-IDE"><span class="xref std std-term">IDE</span></a>.</p>
+<p>Instructions are provided here for Windows, MacOS, and Linux. Chromebook users
+can follow the Linux instructions if they first <a class="reference external" href="https://support.google.com/chromebook/answer/9145439">activate Linux on their
+Chromebook</a>.</p>
+<section id="homebrew-for-mac">
+<h2>Homebrew for Mac<a class="headerlink" href="#homebrew-for-mac" title="Permalink to this heading">¶</a></h2>
+<p>The easiest way to install additional programming software on a Mac is to first
+install the Homebrew package manager. Open a terminal (press <kbd class="kbd docutils literal notranslate">⌘</kbd> +
+<kbd class="kbd docutils literal notranslate">space</kbd> to open Spotlight Search and then type <code class="xref py py-obj docutils literal notranslate"><span class="pre">terminal</span></code> in the search
+window) and run the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/master/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>Don’t type the <kbd class="kbd docutils literal notranslate">$</kbd>. That’s the terminal prompt (it might appear as another
+symbol such as <kbd class="kbd docutils literal notranslate">%</kbd> for you).</p>
+<p>This will start the install process, and ask you for confirmation before
+installing Homebrew.</p>
+<p>Further documentation about Homebrew and its dependencies is available on the
+<a class="reference external" href="https://brew.sh">Homebrew website</a>.</p>
+</section>
+<section id="python">
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this heading">¶</a></h2>
+<p>There are a number of different ways of obtaining Python, depending a little on
+which operating system your computer runs. The routes suggested here are ones
+that have been easiest for students taking the course at Imperial, however any
+sufficiently recent Python should be sufficient.</p>
+<section id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this heading">¶</a></h3>
+<p>Install <a class="reference external" href="https://www.microsoft.com/en-us/p/python-310/9pjpw5ldxlz5">Python from the Microsoft Store</a>.</p>
+</section>
+<section id="macos">
+<h3>MacOS<a class="headerlink" href="#macos" title="Permalink to this heading">¶</a></h3>
+<p>MacOS comes with Python 3, but it’s a cut down version not suitable for our
+purposes. Instead, install Python from Homebrew:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>brew<span class="w"> </span>install<span class="w"> </span>python
+</pre></div>
+</div>
+</section>
+<section id="linux">
+<h3>Linux<a class="headerlink" href="#linux" title="Permalink to this heading">¶</a></h3>
+<p>Every Linux distribution ships with Python 3 by default. However, they don’t
+always have the Python package manager Pip installed by default. We will need
+that so you’ll need to use your distribution’s package manager to install it.
+For example on Ubuntu or Debian you would run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-pip
+</pre></div>
+</div>
+<p>while on Fedora and related distributions you would run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>python-pip
+</pre></div>
+</div>
+</section>
+</section>
+<section id="git">
+<h2>Git<a class="headerlink" href="#git" title="Permalink to this heading">¶</a></h2>
+<p>Git is a revision control system. Revision control systems enable you to keep
+track of the different versions of a piece of code as you work on them, and to
+have these versions on different computers as well as backed up in the cloud. We
+will use Git and GitHub classroom as a mechanism for distributing, working with
+and submitting code exercises.</p>
+<section id="id1">
+<h3>Windows<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<p>Download and install the <a class="reference external" href="https://git-scm.com/download/win">Git package</a>.</p>
+</section>
+<section id="id2">
+<h3>MacOS<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<p>MacOS comes with a perfectly acceptable Git installation. However you can also
+install a more recent version from Homebrew:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>brew<span class="w"> </span>install<span class="w"> </span>git
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h3>Linux<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<p>Use your distribution package manager to install Git. For example on Ubuntu or
+Debian:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt install git-all
+</pre></div>
+</div>
+<p>On Fedora:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt install git-all
+</pre></div>
+</div>
+</section>
+</section>
+<section id="visual-studio-code">
+<h2>Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permalink to this heading">¶</a></h2>
+<p>Visual Studio Code is a Python-aware Integrated Development Environment (IDE).
+This means that it incorporates editing files with other programming features
+such as <a class="reference internal" href="8_debugging.html#debugging"><span class="std std-ref">Debugging and testing</span></a>, Git support, and built-in terminal.</p>
+<section id="id4">
+<h3>Windows<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://code.visualstudio.com/download">Download and install the package</a>.</p>
+</section>
+<section id="id5">
+<h3>MacOS<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<p>Use Homebrew to install Visual Studio Code:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>brew<span class="w"> </span>install<span class="w"> </span>visual-studio-code
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h3>Linux<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://code.visualstudio.com/download">Download the package</a> and then use
+your package manager to install it <a class="reference external" href="https://code.visualstudio.com/docs/setup/linux">following these instructions</a>.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019-2023, David A. Ham.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    </div>
+  </body>
+</html>

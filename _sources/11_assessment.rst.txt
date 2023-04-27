@@ -3,7 +3,7 @@
 Assessment
 ==========
 
-For those taking this course for credit, an assessment is required.
+For those taking this course for credit in Oxford, an assessment is required.
 This will take the form of a report, since that is how MMSC special
 topics are assessed.
 
@@ -34,6 +34,7 @@ topics are assessed.
     to interesting problems.
 
     Of course, it may be of interest to you to consider other kinds of
-    problems (previous submissions implemented various graph algorithms,
-    for example). If you'd like to do something different to that described
-    above, please contact the course lecturer to discuss your proposal.
+    problems than PDEs (previous submissions implemented various graph algorithms
+    in open source libraries, for example). The course lecturer is absolutely open
+    to other ideas; If you'd like to do something different to that described
+    above, please contact `Patrick E. Farrell <mailto:patrick.farrell@maths.ox.ac.uk>`.
