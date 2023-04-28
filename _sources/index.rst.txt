@@ -33,9 +33,7 @@
    generous assistance in this matter. The videos recorded by Dr Ham sometimes refer to Imperial-specific
    matters such as assessments; please ignore these.
    
-   The Imperial term is longer than the Oxford one (which is only 8 weeks long).
-   Oxford students should therefore read the chapters and do the exercises
-   in the following weeks:
+   A suggested timetable for Oxford students might be the following:
    
    .. list-table:: Chapters per week
       :widths: 50 50
@@ -60,13 +58,14 @@
       * - Week 8
         - Chapter 9
 
-   Please read the introductory chapter for more information on how to
-   go about doing the course.
+   but of course you can go through the course at your own pace, as suits your other assignments.
 
    This website builds on the book Object-oriented Programming in Python
    for Mathematicians, written by Dr Ham. Here you'll find the full hyperlinked book text, as well
-   as consolidated lists of the accompanying :doc:`videos <videos>` and
-   :doc:`exercise repositories <exercises>`.
+   as consolidated lists of the accompanying :doc:`videos <videos>`.
+
+   To do the exercises, find the GitHub Classroom links on the
+   :doc:`index of exercises <exercises>`.
 
    .. image:: images/cover.png
       :width: 10em
