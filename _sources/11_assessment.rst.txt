@@ -34,10 +34,15 @@ topics are assessed.
     aims to solve, briefly describe the algorithms that attempt to solve
     them, and discuss the Python code written for the project. The
     report should persuade the reader that the code is implemented
-    correctly, is well-tested, and is reasonably efficient. (Continuing
+    correctly, is well-tested, and is reasonably efficient. Continuing
     the example of Krylov methods, if the code employed dense matrix
     formats to represent sparse matrices, it would be orders of
-    magnitude slower, and hence would not be reasonably efficient.)
+    magnitude slower, and hence would not be reasonably efficient. For
+    demonstrating correctness, consider a code for solving differential
+    equations. The code should employ the method of manufactured
+    solutions to construct a test case for which an analytical solution
+    is known, so that the order of convergence achieved by the code (in
+    some norm) matches that expected theoretically.
 
     A typical report will include selected code snippets, to demonstrate
     how the code is used, and to illustrate the main ideas in how it is
@@ -45,6 +50,10 @@ topics are assessed.
     include the entire code. You will submit a .zip archive of your code
     alongside the report, so that the assessors can execute and evaluate
     it.
+
+    Please ensure that the code submitted in the .zip installs cleanly
+    in a clean virtual environment with `pip install -e .`, which should
+    also install any dependencies necessary to run the tests and examples.
 
     Many students develop ideas for their Python projects from their MSc
     dissertations. If you can develop code that will be useful for your

@@ -352,14 +352,14 @@ are to be used frequently or in the middle of expressions: you probably
 don’t really want to write <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.sin()</span></code></a> in every trig formula you
 ever write. One alternative is to rename the module on import. This is
 achieved using the keyword <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">as</span></code></a> in an import statement. For example,
-it is usual to import the numerical Python module <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.24)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> in the
+it is usual to import the numerical Python module <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.25)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> in the
 following way:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
-<p>This creates the local name <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.24)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">np</span></code></a> instead of <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.24)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>,
+<p>This creates the local name <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.25)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">np</span></code></a> instead of <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.25)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>,
 so that the function for creating an evenly spaced sequence of values
-between to end points is now accessible as <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="(in NumPy v1.24)"><code class="xref py py-func docutils literal notranslate"><span class="pre">np.linspace</span></code></a>.</p>
+between to end points is now accessible as <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="(in NumPy v1.25)"><code class="xref py py-func docutils literal notranslate"><span class="pre">np.linspace</span></code></a>.</p>
 <p>A second option is to import particular names from a module directly
 into the current namespace. For example, if we planned to use the
 functions <a class="reference external" href="https://docs.python.org/3/library/math.html#math.sin" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.sin()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/math.html#math.cos" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">math.cos()</span></code></a> a lot in our script, we
@@ -624,10 +624,10 @@ installed. The <code class="xref py py-obj docutils literal notranslate"><span c
 packages on which the current package depends. Pip will install any of these
 packages that are not already available before installing the package itself.
 <a class="reference internal" href="#dependency-pyproject-toml"><span class="std std-numref">Listing 2.3</span></a> illustrates this by adding a dependency on
-<a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.24)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>.</p>
+<a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.25)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>.</p>
 <div class="literal-block-wrapper docutils container" id="id10">
 <span id="dependency-pyproject-toml"></span><div class="code-block-caption"><span class="caption-number">Listing 2.3 </span><span class="caption-text">An extension to the <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> from
-<a class="reference internal" href="#minimal-pyproject-toml"><span class="std std-numref">Listing 2.2</span></a> to require that <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.24)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> is installed.</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<a class="reference internal" href="#minimal-pyproject-toml"><span class="std std-numref">Listing 2.2</span></a> to require that <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.25)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> is installed.</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">build</span><span class="o">-</span><span class="n">system</span><span class="p">]</span>
 <span class="n">requires</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hatchling&quot;</span><span class="p">]</span>
 <span class="n">build</span><span class="o">-</span><span class="n">backend</span> <span class="o">=</span> <span class="s2">&quot;hatchling.build&quot;</span>
@@ -671,7 +671,7 @@ need to test the code we write, so we will cover the practical details of
 including tests in your code here.</p>
 <p>There are a number of Python packages which support code testing. The concepts
 are largely similar so rather than get bogged down in the details of multiple
-frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v7.4.0.dev132+gb7a142f4b)"><span class="xref std std-doc">Pytest</span></a>, which is one of the
+frameworks, we will introduce <a class="reference external" href="https://docs.pytest.org/en/latest/index.html" title="(in pytest v8.0.0.dev129+gf2b6040e9)"><span class="xref std std-doc">Pytest</span></a>, which is one of the
 most widely used. Pytest is simply a Python package, so you can install it into
 your current environment using:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(PoP_venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pytest
