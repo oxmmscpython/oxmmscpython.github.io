@@ -54,6 +54,8 @@ topics are assessed.
     Please ensure that the code submitted in the .zip installs cleanly
     in a clean virtual environment with `pip install -e .`, which should
     also install any dependencies necessary to run the tests and examples.
+    Please do not include Jupyter notebooks; examples should be presented
+    in documented .py files alone.
 
     Many students develop ideas for their Python projects from their MSc
     dissertations. If you can develop code that will be useful for your
@@ -85,3 +87,25 @@ topics are assessed.
 
     For any questions, please contact `the course lecturer
     <mailto:patrick.farrell@maths.ox.ac.uk>`_.
+
+Tips
+----
+
+Some tips:
+
+- When citing results in the literature, please cite specific theorems. For example, to cite a proof that a particular problem is well-posed, or that we should expect a given convergence rate in a given norm, you might write `\\cite[Theorem 8.4]{StandardReference}`.
+
+- When describing the algorithms you are implementing, a good report will offer mathematical commentary: this algorithm computes approximations that are expected to converge at this rate, or this algorithm has this computational complexity, or this algorithm will fail in these circumstances.
+
+- If your code uses matrices, think carefully about whether they are sparse or dense, and use appropriate data structures (e.g. `scipy.sparse`).
+
+- If your code repeatedly solves linear systems with a matrix factorisation, compute the matrix factorisation only once (e.g. `scipy.linalg.lu_factor`, `scipy.sparse.linalg.splu`).
+
+- The best type of test for code that solves differential equations is to check the order of convergence of the approximation to a known exact solution. The error should be calculated in a norm for which the expected order of convergence is known theoretically. If you don't know an exact solution, make one with the method of manufactured solutions.
+
+- The tests should run automatically without any intervention (such as to close plots). Your code should almost certainly depend on pytest.
+
+- Spell check your report before submission (e.g. with `aspell --mode=tex check report.tex` in the terminal).
+
+- Make a clean venv before submission. Check that you can install the package in this venv, and that all tests and examples run without errors or warnings.
+

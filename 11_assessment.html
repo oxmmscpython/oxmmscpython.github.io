@@ -111,7 +111,9 @@ alongside the report, so that the assessors can execute and evaluate
 it.</p>
 <p>Please ensure that the code submitted in the .zip installs cleanly
 in a clean virtual environment with <code class="xref py py-obj docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code>, which should
-also install any dependencies necessary to run the tests and examples.</p>
+also install any dependencies necessary to run the tests and examples.
+Please do not include Jupyter notebooks; examples should be presented
+in documented .py files alone.</p>
 <p>Many students develop ideas for their Python projects from their MSc
 dissertations. If you can develop code that will be useful for your
 MSc research, this is valued and encouraged. However, due regard
@@ -138,7 +140,21 @@ correctness of the code. Other factors under consideration will
 include the mathematical interest of the class of problems solved,
 and the application of the code to interesting problems.</p>
 <p>For any questions, please contact <a class="reference external" href="mailto:patrick&#46;farrell&#37;&#52;&#48;maths&#46;ox&#46;ac&#46;uk">the course lecturer</a>.</p>
-</div></div></section>
+</div></div><section id="tips">
+<h2><span class="section-number">10.1. </span>Tips<a class="headerlink" href="#tips" title="Permalink to this heading">¶</a></h2>
+<p>Some tips:</p>
+<ul class="simple">
+<li><p>When citing results in the literature, please cite specific theorems. For example, to cite a proof that a particular problem is well-posed, or that we should expect a given convergence rate in a given norm, you might write <code class="xref py py-obj docutils literal notranslate"><span class="pre">\cite[Theorem</span> <span class="pre">8.4]{StandardReference}</span></code>.</p></li>
+<li><p>When describing the algorithms you are implementing, a good report will offer mathematical commentary: this algorithm computes approximations that are expected to converge at this rate, or this algorithm has this computational complexity, or this algorithm will fail in these circumstances.</p></li>
+<li><p>If your code uses matrices, think carefully about whether they are sparse or dense, and use appropriate data structures (e.g. <a class="reference external" href="https://scipy.github.io/devdocs/reference/sparse.html#module-scipy.sparse" title="(in SciPy v1.12.0.dev)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.sparse</span></code></a>).</p></li>
+<li><p>If your code repeatedly solves linear systems with a matrix factorisation, compute the matrix factorisation only once (e.g. <a class="reference external" href="https://scipy.github.io/devdocs/reference/generated/scipy.linalg.lu_factor.html#scipy.linalg.lu_factor" title="(in SciPy v1.12.0.dev)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.linalg.lu_factor</span></code></a>, <a class="reference external" href="https://scipy.github.io/devdocs/reference/generated/scipy.sparse.linalg.splu.html#scipy.sparse.linalg.splu" title="(in SciPy v1.12.0.dev)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.sparse.linalg.splu</span></code></a>).</p></li>
+<li><p>The best type of test for code that solves differential equations is to check the order of convergence of the approximation to a known exact solution. The error should be calculated in a norm for which the expected order of convergence is known theoretically. If you don’t know an exact solution, make one with the method of manufactured solutions.</p></li>
+<li><p>The tests should run automatically without any intervention (such as to close plots). Your code should almost certainly depend on pytest.</p></li>
+<li><p>Spell check your report before submission (e.g. with <code class="xref py py-obj docutils literal notranslate"><span class="pre">aspell</span> <span class="pre">--mode=tex</span> <span class="pre">check</span> <span class="pre">report.tex</span></code> in the terminal).</p></li>
+<li><p>Make a clean venv before submission. Check that you can install the package in this venv, and that all tests and examples run without errors or warnings.</p></li>
+</ul>
+</section>
+</section>
 
 
             <div class="clearer"></div>
