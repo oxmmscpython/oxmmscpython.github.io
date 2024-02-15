@@ -1,22 +1,21 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>1. Introduction: abstraction in mathematics and programming &#8212; Object-oriented Programming  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/fenics.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/fenics.css?v=4fb2f5d3" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css?v=45cf7dbc" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css?v=2a6c4383" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css?v=d290406d" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/proof.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -64,7 +63,7 @@
           <div class="body" role="main">
             
   <section id="introduction-abstraction-in-mathematics-and-programming">
-<span id="introduction"></span><h1><span class="section-number">1. </span>Introduction: abstraction in mathematics and programming<a class="headerlink" href="#introduction-abstraction-in-mathematics-and-programming" title="Permalink to this heading">¶</a></h1>
+<span id="introduction"></span><h1><span class="section-number">1. </span>Introduction: abstraction in mathematics and programming<a class="headerlink" href="#introduction-abstraction-in-mathematics-and-programming" title="Link to this heading">¶</a></h1>
 <p>A core tool of mathematics is to define abstract objects and the
 operations which apply to them. This approach defines all the basic
 building blocks which enable us to reason mathematically and perform
@@ -114,7 +113,7 @@ abstraction in mathematics, abstraction in coding is a form of
 constructive laziness: it simultaneously allows the mathematician to
 achieve more and do less work.</p>
 <section id="obtaining-the-right-software-tools">
-<span id="tools"></span><h2><span class="section-number">1.1. </span>Obtaining the right software tools<a class="headerlink" href="#obtaining-the-right-software-tools" title="Permalink to this heading">¶</a></h2>
+<span id="tools"></span><h2><span class="section-number">1.1. </span>Obtaining the right software tools<a class="headerlink" href="#obtaining-the-right-software-tools" title="Link to this heading">¶</a></h2>
 <p>In order to do the exercises in this book, you’ll need some core software
 tools. At various points you’ll also need install several more Python packages,
 but you don’t need to install those right now. The core tools you will need
@@ -135,7 +134,7 @@ will be needed in order to work with the examples. <a class="reference internal"
 provides an elementary introduction to these tools for readers not already
 familiar with them.</p>
 <section id="python-versions">
-<h3><span class="section-number">1.1.1. </span>Python versions<a class="headerlink" href="#python-versions" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">1.1.1. </span>Python versions<a class="headerlink" href="#python-versions" title="Link to this heading">¶</a></h3>
 <p>Python is a living language which regularly releases new versions. One very big
 transition, which took over a decade, was the switch from version 2 to version
 3 of the language. For many years both versions were in widespread use and
@@ -153,7 +152,7 @@ Python you use.</p>
 </section>
 </section>
 <section id="setting-up-a-python-virtual-environment">
-<span id="create-venv"></span><h2><span class="section-number">1.2. </span>Setting up a Python virtual environment<a class="headerlink" href="#setting-up-a-python-virtual-environment" title="Permalink to this heading">¶</a></h2>
+<span id="create-venv"></span><h2><span class="section-number">1.2. </span>Setting up a Python virtual environment<a class="headerlink" href="#setting-up-a-python-virtual-environment" title="Link to this heading">¶</a></h2>
 <details>
 <summary>
 Video: setting up your virtual environment.</summary><div class="video_wrapper" style="">
@@ -171,7 +170,7 @@ virtual environments behave like separate Python installations for most
 purposes, but are fast to install and take very little space because they share
 most of their files with the already installed Python.</p>
 <section id="creating-a-working-folder">
-<h3><span class="section-number">1.2.1. </span>Creating a working folder<a class="headerlink" href="#creating-a-working-folder" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">1.2.1. </span>Creating a working folder<a class="headerlink" href="#creating-a-working-folder" title="Link to this heading">¶</a></h3>
 <p>Start by creating a completely fresh folder for your work on this book. You can
 call this anything you like. On my computer this is called
 <code class="file docutils literal notranslate"><span class="pre">principles_of_programming</span></code>. You can create this folder using the
@@ -195,7 +194,7 @@ instead to separate words with underscores (<code class="file docutils literal n
 </div>
 </section>
 <section id="creating-the-venv">
-<h3><span class="section-number">1.2.2. </span>Creating the venv<a class="headerlink" href="#creating-the-venv" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">1.2.2. </span>Creating the venv<a class="headerlink" href="#creating-the-venv" title="Link to this heading">¶</a></h3>
 <p>Now that we have our working folder, we will switch to doing everything in our
 <a class="reference internal" href="#term-IDE"><span class="xref std std-term">IDE</span></a>, so launch Visual Studio Code. Click on <code class="xref py py-obj docutils literal notranslate"><span class="pre">Open...</span></code> in
 the main window or in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">File</span></code> menu and select the folder you just created.
@@ -204,7 +203,7 @@ be able to see a terminal window at the bottom of the screen. If it’s not
 there then open the <code class="xref py py-obj docutils literal notranslate"><span class="pre">View</span></code> menu and select <code class="xref py py-obj docutils literal notranslate"><span class="pre">Terminal</span></code> to make it appear.</p>
 <p>The most straightforward way to create a venv is on the terminal
 command line, not from within Python itself. This is accomplished
-using Python’s <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> package. The venv has to be given a name. You will
+using Python’s <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> package. The venv has to be given a name. You will
 want this to be short, but distinctive enough that you know which venv you are
 using. For example, to create a venv
 called <code class="xref py py-obj docutils literal notranslate"><span class="pre">PoP_venv</span></code> on Windows, you would type:</p>
@@ -247,7 +246,7 @@ Be very careful about what you delete.</p>
 </div>
 </section>
 <section id="using-a-venv">
-<span id="activate-venv"></span><h3><span class="section-number">1.2.3. </span>Using a venv<a class="headerlink" href="#using-a-venv" title="Permalink to this heading">¶</a></h3>
+<span id="activate-venv"></span><h3><span class="section-number">1.2.3. </span>Using a venv<a class="headerlink" href="#using-a-venv" title="Link to this heading">¶</a></h3>
 <p>If you run Python from the terminal, then the simplest way to use the
 venv is to source its activate script. If using bash or zsh on Mac or
 Linux you would type:</p>
@@ -271,7 +270,7 @@ that you are now using the venv. It might look something like:</p>
 <p>Any subsequent invocations of Python commands such as <code class="xref py py-obj docutils literal notranslate"><span class="pre">python3</span></code> will
 now use the version from the venv, with access to whatever packages
 you have installed in that venv. If you are using a terminal shell
-other than bash or zsh, then see the <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> package documentation
+other than bash or zsh, then see the <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> package documentation
 for the correct activation command.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -280,7 +279,7 @@ to run the activation script. This can be fixed by running:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</span>
 </pre></div>
 </div>
-<p>For further information, see <a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(in Python v3.11)"><span class="xref std std-doc">the official Python venv documentation</span></a>.</p>
+<p>For further information, see <a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(in Python v3.12)"><span class="xref std std-doc">the official Python venv documentation</span></a>.</p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -293,22 +292,22 @@ check is whether you remembered to activate the venv.</p>
 </section>
 </section>
 <section id="installing-python-packages">
-<h2><span class="section-number">1.3. </span>Installing Python packages<a class="headerlink" href="#installing-python-packages" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">1.3. </span>Installing Python packages<a class="headerlink" href="#installing-python-packages" title="Link to this heading">¶</a></h2>
 <p>Suppose we’ve created and activated a venv, and now there’s a Python package
 we’d like to have access to. Installation of Python packages is handled by the
-Python package <a class="reference external" href="https://pip.pypa.io/en/stable/" title="(in pip v23.2)"><span class="xref std std-doc">Pip</span></a>, which you will usually find
+Python package <a class="reference external" href="https://pip.pypa.io/en/stable/" title="(in pip v24.0)"><span class="xref std std-doc">Pip</span></a>, which you will usually find
 pre-installed in your Python installation. Pip has many usage options, which
 enable a large number of different installation configurations. However, for
 most users most of the time, a few simple pip commands suffice. As with
 venv creation, package installation is best accomplished from the
 terminal and not from within Python itself. Don’t forget to activate the venv!</p>
 <section id="installing-packages-from-pypi">
-<span id="install-from-pypi"></span><h3><span class="section-number">1.3.1. </span>Installing packages from PyPI<a class="headerlink" href="#installing-packages-from-pypi" title="Permalink to this heading">¶</a></h3>
+<span id="install-from-pypi"></span><h3><span class="section-number">1.3.1. </span>Installing packages from PyPI<a class="headerlink" href="#installing-packages-from-pypi" title="Link to this heading">¶</a></h3>
 <p><a class="reference external" href="https://pypi.org">PyPI</a> is the Python Package Index. It is the
 official download location for publicly released Python packages which
-aren’t themselves a part of the built-in <a class="reference external" href="https://docs.python.org/3/library/index.html" title="(in Python v3.11)"><span class="xref std std-doc">Python Standard Library</span></a>. Many important mathematical packages
-including <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.25)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://www.sympy.org">sympy</a> are
-distributed from PyPI. Suppose your venv doesn’t have <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.25)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>
+aren’t themselves a part of the built-in <a class="reference external" href="https://docs.python.org/3/library/index.html" title="(in Python v3.12)"><span class="xref std std-doc">Python Standard Library</span></a>. Many important mathematical packages
+including <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.26)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://www.sympy.org">sympy</a> are
+distributed from PyPI. Suppose your venv doesn’t have <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.26)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>
 installed and you need it. You would install it with the following
 terminal command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(PoP_venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>numpy
@@ -327,14 +326,14 @@ asked for. This is necessary if those packages are to actually work.</p>
 </section>
 </section>
 <section id="glossary">
-<h2><span class="section-number">1.4. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">1.4. </span>Glossary<a class="headerlink" href="#glossary" title="Link to this heading">¶</a></h2>
 <dl class="simple glossary">
-<dt id="term-IDE">IDE<a class="headerlink" href="#term-IDE" title="Permalink to this term">¶</a></dt><dt id="term-integrated-development-environment">integrated development environment<a class="headerlink" href="#term-integrated-development-environment" title="Permalink to this term">¶</a></dt><dd><p>A program designed to help a software developer write code. An IDE
+<dt id="term-IDE">IDE<a class="headerlink" href="#term-IDE" title="Link to this term">¶</a></dt><dt id="term-integrated-development-environment">integrated development environment<a class="headerlink" href="#term-integrated-development-environment" title="Link to this term">¶</a></dt><dd><p>A program designed to help a software developer write code. An IDE
 combines a text editor with features such as syntax highlighting and
 checking, debugging capabilities, revision control interfaces and
 inbuilt terminal windows.</p>
 </dd>
-<dt id="term-venv">venv<a class="headerlink" href="#term-venv" title="Permalink to this term">¶</a></dt><dt id="term-virtual-environment">virtual environment<a class="headerlink" href="#term-virtual-environment" title="Permalink to this term">¶</a></dt><dd><p>A lightweight private Python installation with its own set of
+<dt id="term-venv">venv<a class="headerlink" href="#term-venv" title="Link to this term">¶</a></dt><dt id="term-virtual-environment">virtual environment<a class="headerlink" href="#term-virtual-environment" title="Link to this term">¶</a></dt><dd><p>A lightweight private Python installation with its own set of
 Python packages installed.</p>
 </dd>
 </dl>
@@ -349,8 +348,8 @@ Python packages installed.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019-2023, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2019-2023, David A. Ham.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>

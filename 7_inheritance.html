@@ -1,22 +1,21 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>7. Inheritance and composition &#8212; Object-oriented Programming  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/fenics.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/fenics.css?v=4fb2f5d3" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css?v=45cf7dbc" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css?v=2a6c4383" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css?v=d290406d" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/proof.js"></script>
     <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -65,7 +64,7 @@
           <div class="body" role="main">
             
   <section id="inheritance-and-composition">
-<span id="inheritance"></span><h1><span class="section-number">7. </span>Inheritance and composition<a class="headerlink" href="#inheritance-and-composition" title="Permalink to this heading">¶</a></h1>
+<span id="inheritance"></span><h1><span class="section-number">7. </span>Inheritance and composition<a class="headerlink" href="#inheritance-and-composition" title="Link to this heading">¶</a></h1>
 <details>
 <summary>
 Video: inheritance and composition.</summary><div class="video_wrapper" style="">
@@ -75,20 +74,20 @@ ability to make a complex object or operation out of several components. We can
 compose objects by simply making one object an <a class="reference internal" href="3_objects.html#term-attribute"><span class="xref std std-term">attribute</span></a> of another
 object. This combines objects in a <em>has a</em> relationship. For example the
 <a class="reference internal" href="example_code.html#example_code.polynomial.Polynomial" title="example_code.polynomial.Polynomial"><code class="xref py py-class docutils literal notranslate"><span class="pre">Polynomial</span></code></a> class introduced in
-<a class="reference internal" href="3_objects.html#objects"><span class="std std-numref">Chapter 3</span></a> <em>has a</em> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of coefficients. Object
+<a class="reference internal" href="3_objects.html#objects"><span class="std std-numref">Chapter 3</span></a> <em>has a</em> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of coefficients. Object
 composition of this sort is a core part of <a class="reference internal" href="3_objects.html#term-encapsulation"><span class="xref std std-term">encapsulation</span></a>.</p>
 <p>Another way of composing abstractions is to make a new <a class="reference internal" href="3_objects.html#term-class"><span class="xref std std-term">class</span></a>
 by modifying another class. Typically this is employed to make a more
 specialised <a class="reference internal" href="3_objects.html#term-class"><span class="xref std std-term">class</span></a> from a more general one. In fact, we have
 already seen this in the case of number classes. Recall that all
-numbers are instances of <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>:</p>
+numbers are instances of <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Number</span>
 
 <span class="gp">In [2]: </span><span class="nb">isinstance</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Number</span><span class="p">)</span>
 <span class="gh">Out[2]: </span><span class="go">True</span>
 </pre></div>
 </div>
-<p>Hang on, though. <code class="xref py py-obj docutils literal notranslate"><span class="pre">1</span></code> is actually an instance of <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>:</p>
+<p>Hang on, though. <code class="xref py py-obj docutils literal notranslate"><span class="pre">1</span></code> is actually an instance of <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="nb">type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="gh">Out[3]: </span><span class="go">int</span>
 
@@ -96,21 +95,21 @@ numbers are instances of <a class="reference external" href="https://docs.python
 <span class="gh">Out[4]: </span><span class="go">True</span>
 </pre></div>
 </div>
-<p>So <code class="xref py py-obj docutils literal notranslate"><span class="pre">1</span></code>, it turns out, has <a class="reference internal" href="3_objects.html#term-type"><span class="xref std std-term">type</span></a> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, and so is an
-instance of <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, but is also somehow an instance of
-<a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>. Mathematically, the answer is obvious:
+<p>So <code class="xref py py-obj docutils literal notranslate"><span class="pre">1</span></code>, it turns out, has <a class="reference internal" href="3_objects.html#term-type"><span class="xref std std-term">type</span></a> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, and so is an
+instance of <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, but is also somehow an instance of
+<a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>. Mathematically, the answer is obvious:
 integers form a subset of all of the numbers. Object inheritance works
-in much the same way: we say that <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> is a <a class="reference internal" href="#term-subclass"><span class="xref std std-term">subclass</span></a>
-of <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>. Just as <a class="reference external" href="https://docs.python.org/3/library/functions.html#isinstance" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">isinstance()</span></code></a> provides a
+in much the same way: we say that <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> is a <a class="reference internal" href="#term-subclass"><span class="xref std std-term">subclass</span></a>
+of <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Number" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>. Just as <a class="reference external" href="https://docs.python.org/3/library/functions.html#isinstance" title="(in Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">isinstance()</span></code></a> provides a
 mechanism for determining whether an object is an <a class="reference internal" href="3_objects.html#term-instance"><span class="xref std std-term">instance</span></a> of
-a <a class="reference internal" href="3_objects.html#term-class"><span class="xref std std-term">class</span></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#issubclass" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">issubclass()</span></code></a> will tell us when one
+a <a class="reference internal" href="3_objects.html#term-class"><span class="xref std std-term">class</span></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#issubclass" title="(in Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">issubclass()</span></code></a> will tell us when one
 <a class="reference internal" href="3_objects.html#term-class"><span class="xref std std-term">class</span></a> is a <a class="reference internal" href="#term-subclass"><span class="xref std std-term">subclass</span></a> of another:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">Number</span><span class="p">)</span>
 <span class="gh">Out[5]: </span><span class="go">True</span>
 </pre></div>
 </div>
 <p>In fact, there is a whole hierarchy of
-numeric types in <a class="reference external" href="https://docs.python.org/3/library/numbers.html#module-numbers" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numbers</span></code></a>:</p>
+numeric types in <a class="reference external" href="https://docs.python.org/3/library/numbers.html#module-numbers" title="(in Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numbers</span></code></a>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="kn">import</span> <span class="nn">numbers</span>
 
 <span class="gp">In [7]: </span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">)</span>
@@ -126,7 +125,7 @@ numeric types in <a class="reference external" href="https://docs.python.org/3/l
 <span class="gh">Out[10]: </span><span class="go">True</span>
 </pre></div>
 </div>
-<p>It turns out that <a class="reference external" href="https://docs.python.org/3/library/functions.html#issubclass" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">issubclass()</span></code></a> is reflexive (classes are subclasses of themselves):</p>
+<p>It turns out that <a class="reference external" href="https://docs.python.org/3/library/functions.html#issubclass" title="(in Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">issubclass()</span></code></a> is reflexive (classes are subclasses of themselves):</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="nb">issubclass</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Real</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Real</span><span class="p">)</span>
 <span class="gh">Out[11]: </span><span class="go">True</span>
 </pre></div>
@@ -138,7 +137,7 @@ class from existing classes: <a class="reference internal" href="#term-inheritan
 another then we say that it inherits from that class. Where composition defines
 a <em>has a</em> relationship, inheritance defines an <em>is a</em> relationship.</p>
 <section id="an-example-from-group-theory">
-<h2><span class="section-number">7.1. </span>An example from group theory<a class="headerlink" href="#an-example-from-group-theory" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">7.1. </span>An example from group theory<a class="headerlink" href="#an-example-from-group-theory" title="Link to this heading">¶</a></h2>
 <details>
 <summary>
 Video: an example from group theory.</summary><div class="video_wrapper" style="">
@@ -151,7 +150,7 @@ representing groups, and objects representing elements. We’ll lay out one
 possible configuration, which helpfully involves both inheritance and
 composition, as well as parametrisation of objects and delegation of methods.</p>
 <section id="cyclic-groups">
-<h3><span class="section-number">7.1.1. </span>Cyclic groups<a class="headerlink" href="#cyclic-groups" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">7.1.1. </span>Cyclic groups<a class="headerlink" href="#cyclic-groups" title="Link to this heading">¶</a></h3>
 <p>Let’s start with the cyclic groups of order <span class="math notranslate nohighlight">\(n\)</span>. These are isomorphic to
 the integers under addition modulo <span class="math notranslate nohighlight">\(n\)</span>, a property which we can use to
 create our implementation. We’re going to eventually want to make different
@@ -174,7 +173,7 @@ we would much prefer to only add one class in order to add a new family of
 groups.</p></li>
 </ol>
 <p>Instead, we can make a single generic element type, and pass the group as an
-<a class="reference external" href="https://docs.python.org/3/glossary.html#term-argument" title="(in Python v3.11)"><span class="xref std std-term">argument</span></a> when instantiating the element. This is an example of
+<a class="reference external" href="https://docs.python.org/3/glossary.html#term-argument" title="(in Python v3.12)"><span class="xref std std-term">argument</span></a> when instantiating the element. This is an example of
 <a class="reference internal" href="#term-composition"><span class="xref std std-term">composition</span></a>: each element <em>has a</em> group. The group will then implement
 methods which check that element values are allowed for that group, and a method
 which implements the group operation. Element objects will then <a class="reference internal" href="#term-delegation"><span class="xref std std-term">delegate</span></a> validation and the group operation back to the group object.</p>
@@ -188,7 +187,7 @@ develop an understanding of class relations, rather than of algebra, so this
 minimal characterisation of a group will suffice.</p>
 <div class="literal-block-wrapper docutils container" id="cyclic-group">
 <div class="code-block-caption"><span class="caption-number">Listing 7.1 </span><span class="caption-text">A simple implementation of a cyclic group class, and a generic
-group element.</span><a class="headerlink" href="#cyclic-group" title="Permalink to this code">¶</a></div>
+group element.</span><a class="headerlink" href="#cyclic-group" title="Link to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 7</span><span class="k">class</span> <span class="nc">Element</span><span class="p">:</span>
 <span class="linenos"> 8</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;An element of the specified group.</span>
 <span class="linenos"> 9</span>
@@ -262,11 +261,11 @@ the concrete effects of the classes:</p>
 </pre></div>
 </div>
 <p>We observe that we are able to create the cyclic group of order 5. Due to the
-definition of the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__call__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__call__()</span></code></a> <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special method</span></a> at line 49,
+definition of the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__call__" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__call__()</span></code></a> <a class="reference internal" href="3_objects.html#term-special-method"><span class="xref std std-term">special method</span></a> at line 49,
 we are then able to create elements of the group by calling the group object.
 The group operation then has the expected effect:</p>
 <div class="math notranslate nohighlight" id="equation-7-inheritance-0">
-<span class="eqno">(7.1)<a class="headerlink" href="#equation-7-inheritance-0" title="Permalink to this equation">¶</a></span>\[\begin{split}3_{C_5} \cdot 4_{C_5} &amp;\equiv (3 + 4) \operatorname{mod} 5\\
+<span class="eqno">(7.1)<a class="headerlink" href="#equation-7-inheritance-0" title="Link to this equation">¶</a></span>\[\begin{split}3_{C_5} \cdot 4_{C_5} &amp;\equiv (3 + 4) \operatorname{mod} 5\\
 &amp;= 2\\
 &amp;\equiv 2_{C_5}\end{split}\]</div>
 <p>Finally, if we attempt to make a group element with a value which is not an
@@ -313,7 +312,7 @@ Instead, at line 18, validation is delegated to the group by calling
 operation is delegated to the group by calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">self.group.operation()</span></code>.</p>
 </section>
 <section id="general-linear-groups">
-<h3><span class="section-number">7.1.2. </span>General linear groups<a class="headerlink" href="#general-linear-groups" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">7.1.2. </span>General linear groups<a class="headerlink" href="#general-linear-groups" title="Link to this heading">¶</a></h3>
 <details>
 <summary>
 Video: inheritance.</summary><div class="video_wrapper" style="">
@@ -327,7 +326,7 @@ real numbers can be represented on a computer, we can implement this group as
 follows:</p>
 <div class="literal-block-wrapper docutils container" id="general-linear-group">
 <div class="code-block-caption"><span class="caption-number">Listing 7.2 </span><span class="caption-text">A basic implementation of the general linear group of a given
-degree.</span><a class="headerlink" href="#general-linear-group" title="Permalink to this code">¶</a></div>
+degree.</span><a class="headerlink" href="#general-linear-group" title="Link to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span> <span class="nc">GeneralLinearGroup</span><span class="p">:</span>
 <span class="linenos"> 2</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;The general linear group represented by degree square matrices.&quot;&quot;&quot;</span>
 <span class="linenos"> 3</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degree</span><span class="p">):</span>
@@ -363,7 +362,7 @@ degree.</span><a class="headerlink" href="#general-linear-group" title="Permalin
 </div>
 </div>
 <p>We won’t illustrate the operation of this class, though the reader is welcome to
-<a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> the <a class="reference internal" href="example_code.html#module-example_code.groups_basic" title="example_code.groups_basic"><code class="xref py py-mod docutils literal notranslate"><span class="pre">example_code.groups_basic</span></code></a> module and experiment.
+<a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.12)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> the <a class="reference internal" href="example_code.html#module-example_code.groups_basic" title="example_code.groups_basic"><code class="xref py py-mod docutils literal notranslate"><span class="pre">example_code.groups_basic</span></code></a> module and experiment.
 Instead, we simply note that this code is very, very similar to the
 implementation of <a class="reference internal" href="example_code.html#example_code.groups_basic.CyclicGroup" title="example_code.groups_basic.CyclicGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">CyclicGroup</span></code></a> in
 <a class="reference internal" href="#cyclic-group"><span class="std std-numref">Listing 7.1</span></a>. The only functionally important differences are the
@@ -375,7 +374,7 @@ code repetition between classes. For the reasons we touched on in
 </section>
 </section>
 <section id="id1">
-<h2><span class="section-number">7.2. </span>Inheritance<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">7.2. </span>Inheritance<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <p>Suppose, instead of copying much of the same code, we had a prototype
 <code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code> class, and <code class="xref py py-class docutils literal notranslate"><span class="pre">CyclicGroup</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">GeneralLinearGroup</span></code>
 simply specified the ways in which they differ from the prototype. This would
@@ -385,7 +384,7 @@ does.</p>
 <div class="literal-block-wrapper docutils container" id="groups-inheritance">
 <div class="code-block-caption"><span class="caption-number">Listing 7.3 </span><span class="caption-text">Implementation of a base class for a generic group, and
 subclasses for the cyclic groups and general linear groups. This code
-is available in the book repository in <code class="file docutils literal notranslate"><span class="pre">example_code/groups.py</span></code></span><a class="headerlink" href="#groups-inheritance" title="Permalink to this code">¶</a></div>
+is available in the book repository in <code class="file docutils literal notranslate"><span class="pre">example_code/groups.py</span></code></span><a class="headerlink" href="#groups-inheritance" title="Link to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span> <span class="nc">Group</span><span class="p">:</span>
 <span class="linenos"> 2</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;A base class containing methods common to many groups.</span>
 <span class="linenos"> 3</span>
@@ -462,7 +461,7 @@ common to both families of groups is instead placed in the
 <a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a> class. In the following sections we will
 highlight the features of this code which make this work.</p>
 <section id="inheritance-syntax">
-<h3><span class="section-number">7.2.1. </span>Inheritance syntax<a class="headerlink" href="#inheritance-syntax" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">7.2.1. </span>Inheritance syntax<a class="headerlink" href="#inheritance-syntax" title="Link to this heading">¶</a></h3>
 <p>Look again at the definition of <a class="reference internal" href="example_code.html#example_code.groups.CyclicGroup" title="example_code.groups.CyclicGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">CyclicGroup</span></code></a> on
 line 28:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">28</span><span class="k">class</span> <span class="nc">CyclicGroup</span><span class="p">(</span><span class="n">Group</span><span class="p">):</span>
@@ -486,7 +485,7 @@ could also define another class which inherited from
 groups.</p>
 </section>
 <section id="class-attributes">
-<h3><span class="section-number">7.2.2. </span>Class attributes<a class="headerlink" href="#class-attributes" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">7.2.2. </span>Class attributes<a class="headerlink" href="#class-attributes" title="Link to this heading">¶</a></h3>
 <p>At line 30 of <a class="reference internal" href="#groups-inheritance"><span class="std std-numref">Listing 7.3</span></a>, the name <code class="xref py py-attr docutils literal notranslate"><span class="pre">symbol</span></code> is
 assigned to:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">30</span><span class="n">symbol</span> <span class="o">=</span> <span class="s2">&quot;C&quot;</span>
@@ -504,7 +503,7 @@ single attribute that is common to all objects of this class. This is called a
 <a class="reference internal" href="#term-class-attribute"><span class="xref std std-term">class attribute</span></a>.</p>
 </section>
 <section id="attributes-resolve-at-runtime">
-<span id="runtime-attributes"></span><h3><span class="section-number">7.2.3. </span>Attributes resolve at runtime<a class="headerlink" href="#attributes-resolve-at-runtime" title="Permalink to this heading">¶</a></h3>
+<span id="runtime-attributes"></span><h3><span class="section-number">7.2.3. </span>Attributes resolve at runtime<a class="headerlink" href="#attributes-resolve-at-runtime" title="Link to this heading">¶</a></h3>
 <p>Consider the <code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code> method of <a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a>:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">19</span><span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">20</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a string in the form symbol then group parameter.&quot;&quot;&quot;</span>
@@ -513,7 +512,7 @@ single attribute that is common to all objects of this class. This is called a
 </div>
 <p>This code uses <code class="xref py py-obj docutils literal notranslate"><span class="pre">self.symbol</span></code>, but this attribute isn’t defined anywhere on
 <a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a>. Why doesn’t this cause an
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#AttributeError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributeError</span></code></a> to be raised? One answer is that it indeed would if we
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#AttributeError" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributeError</span></code></a> to be raised? One answer is that it indeed would if we
 were to instantiate <code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code> itself:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">example_code.groups</span> <span class="kn">import</span> <span class="n">Group</span>
 
@@ -556,7 +555,7 @@ the attributes that are defined for it. In this case, even though
 value <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;C&quot;</span></code>.</p>
 </section>
 <section id="parametrising-over-class">
-<h3><span class="section-number">7.2.4. </span>Parametrising over class<a class="headerlink" href="#parametrising-over-class" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">7.2.4. </span>Parametrising over class<a class="headerlink" href="#parametrising-over-class" title="Link to this heading">¶</a></h3>
 <p>When we create a class, there is always the possibility that someone will come
 along later and create a subclass of it. It is therefore an important design
 principle to avoid doing anything which might cause a problem in a subclass.
@@ -566,7 +565,7 @@ reason, it is almost always a bad idea to explicitly use the name of the
 current class inside its definition. Instead, we should use the fact that
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">type(self)</span></code> returns the type (i.e. class) of the current object. It is for
 this reason that we typically use the formula <code class="xref py py-obj docutils literal notranslate"><span class="pre">type(self).__name__</span></code> in the
-<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__repr__" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a> method of an object. A similar procedure applies if we
+<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__repr__" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a> method of an object. A similar procedure applies if we
 need to create another object of the same class as the current object. For
 example, one might create the next larger <a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">Group</span></code></a>
 than the current one with:</p>
@@ -578,9 +577,9 @@ it by calling it.</p>
 </section>
 </section>
 <section id="calling-parent-class-methods">
-<h2><span class="section-number">7.3. </span>Calling parent class methods<a class="headerlink" href="#calling-parent-class-methods" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">7.3. </span>Calling parent class methods<a class="headerlink" href="#calling-parent-class-methods" title="Link to this heading">¶</a></h2>
 <div class="literal-block-wrapper docutils container" id="id3">
-<span id="rectangle-class"></span><div class="code-block-caption"><span class="caption-number">Listing 7.4 </span><span class="caption-text">The elementary rectangle class from <a class="reference internal" href="example_code.html#module-example_code.shapes" title="example_code.shapes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">example_code.shapes</span></code></a>.</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<span id="rectangle-class"></span><div class="code-block-caption"><span class="caption-number">Listing 7.4 </span><span class="caption-text">The elementary rectangle class from <a class="reference internal" href="example_code.html#module-example_code.shapes" title="example_code.shapes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">example_code.shapes</span></code></a>.</span><a class="headerlink" href="#id3" title="Link to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span> <span class="nc">Rectangle</span><span class="p">:</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
@@ -619,7 +618,7 @@ the <code class="xref py py-func docutils literal notranslate"><span class="pre"
 <div class="literal-block-wrapper docutils container" id="id4">
 <span id="square-class"></span><div class="code-block-caption"><span class="caption-number">Listing 7.5 </span><span class="caption-text"><a class="reference internal" href="example_code.html#example_code.shapes.Square" title="example_code.shapes.Square"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.shapes.Square</span></code></a> inherits from
 <a class="reference internal" href="example_code.html#example_code.shapes.Rectangle" title="example_code.shapes.Rectangle"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rectangle</span></code></a> and calls the latter’s
-<a class="reference internal" href="3_objects.html#term-constructor"><span class="xref std std-term">constructor</span></a> using <code class="xref py py-func docutils literal notranslate"><span class="pre">super()</span></code>.</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<a class="reference internal" href="3_objects.html#term-constructor"><span class="xref std std-term">constructor</span></a> using <code class="xref py py-func docutils literal notranslate"><span class="pre">super()</span></code>.</span><a class="headerlink" href="#id4" title="Link to this code">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">class</span> <span class="nc">Square</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">):</span>
 <span class="linenos">2</span>
 <span class="linenos">3</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
@@ -640,10 +639,10 @@ if someone later comes back and rewrites the inheritance relationships of the
 classes involved.</p>
 </section>
 <section id="creating-new-exception-classes">
-<span id="defining-exceptions"></span><h2><span class="section-number">7.4. </span>Creating new exception classes<a class="headerlink" href="#creating-new-exception-classes" title="Permalink to this heading">¶</a></h2>
+<span id="defining-exceptions"></span><h2><span class="section-number">7.4. </span>Creating new exception classes<a class="headerlink" href="#creating-new-exception-classes" title="Link to this heading">¶</a></h2>
 <p>Python provides a wide range of <a class="reference internal" href="6_exceptions.html#term-exception"><span class="xref std std-term">exceptions</span></a>, and usually the
 right thing to do when writing code that might need to raise an exception is to
-peruse the <a class="reference external" href="https://docs.python.org/3/library/exceptions.html" title="(in Python v3.11)"><span class="xref std std-doc">list of built-in exceptions</span></a> and choose
+peruse the <a class="reference external" href="https://docs.python.org/3/library/exceptions.html" title="(in Python v3.12)"><span class="xref std std-doc">list of built-in exceptions</span></a> and choose
 the one which best matches the circumstances. However, sometimes there is no
 good match, or it might be that the programmer wants user code to be able to
 catch exactly this exception without the risk that some other operation will
@@ -651,60 +650,60 @@ raise the same exception and be caught by mistake. In this case, it is necessary
 to create a new type of exception.</p>
 <p>A new exception will be a new <a class="reference internal" href="3_objects.html#term-class"><span class="xref std std-term">class</span></a> which inherits from another
 exception class. In most cases, the only argument that the exception
-<a class="reference internal" href="3_objects.html#term-constructor"><span class="xref std std-term">constructor</span></a> takes is an error message, and the base <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a>
+<a class="reference internal" href="3_objects.html#term-constructor"><span class="xref std std-term">constructor</span></a> takes is an error message, and the base <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a>
 class already takes this. This means that the subclass definition may only need
 to define the new class. Now, a class definition is a Python block and, as a
 matter of <a class="reference internal" href="6_exceptions.html#term-syntax"><span class="xref std std-term">syntax</span></a>, a block cannot be empty. Fortunately, the Python
-language caters for this situation with the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#pass" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">pass</span></code></a> statement, which
+language caters for this situation with the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#pass" title="(in Python v3.12)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">pass</span></code></a> statement, which
 simply does nothing. For example, suppose we need to be able to distinguish the
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a> which occurs in entity validation from other occurrences of
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a>. For example it might be advantageous to enable a user to
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a> which occurs in entity validation from other occurrences of
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a>. For example it might be advantageous to enable a user to
 catch exactly these errors. In this case, we’re still talking about some form
 of value error, so we’ll want our new error class to inherit from
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a>. We could achieve this as follows:</p>
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a>. We could achieve this as follows:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GroupValidationError</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
 </section>
 <section id="glossary">
-<h2><span class="section-number">7.5. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">7.5. </span>Glossary<a class="headerlink" href="#glossary" title="Link to this heading">¶</a></h2>
 <dl class="simple glossary">
-<dt id="term-child-class">child class<a class="headerlink" href="#term-child-class" title="Permalink to this term">¶</a></dt><dd><p>A class which <a class="reference internal" href="#term-inheritance"><span class="xref std std-term">inherits</span></a> directly from one or more
+<dt id="term-child-class">child class<a class="headerlink" href="#term-child-class" title="Link to this term">¶</a></dt><dd><p>A class which <a class="reference internal" href="#term-inheritance"><span class="xref std std-term">inherits</span></a> directly from one or more
 <a class="reference internal" href="#term-parent-class"><span class="xref std std-term">parent classes</span></a>. The child class automatically has
 all of the <a class="reference internal" href="3_objects.html#term-method"><span class="xref std std-term">methods</span></a> of the parent classes, unless it
 declares its own methods with the same names.</p>
 </dd>
-<dt id="term-class-attribute">class attribute<a class="headerlink" href="#term-class-attribute" title="Permalink to this term">¶</a></dt><dd><p>An <a class="reference internal" href="3_objects.html#term-attribute"><span class="xref std std-term">attribute</span></a> which is declared directly on a <a class="reference internal" href="3_objects.html#term-class"><span class="xref std std-term">class</span></a>.
+<dt id="term-class-attribute">class attribute<a class="headerlink" href="#term-class-attribute" title="Link to this term">¶</a></dt><dd><p>An <a class="reference internal" href="3_objects.html#term-attribute"><span class="xref std std-term">attribute</span></a> which is declared directly on a <a class="reference internal" href="3_objects.html#term-class"><span class="xref std std-term">class</span></a>.
 All instances of a class see the same value of a class attribute.</p>
 </dd>
-<dt id="term-composition">composition<a class="headerlink" href="#term-composition" title="Permalink to this term">¶</a></dt><dd><p>The process of making a more complex object from other objects by
+<dt id="term-composition">composition<a class="headerlink" href="#term-composition" title="Link to this term">¶</a></dt><dd><p>The process of making a more complex object from other objects by
 including the constituent objects as attributes of the more composite
 object. Composition can be characterised as a <em>has a</em> relationship, in
 contrast to <a class="reference internal" href="#term-inheritance"><span class="xref std std-term">inheritance</span></a>, which embodies an <em>is a</em> relationship.</p>
 </dd>
-<dt id="term-delegation">delegation<a class="headerlink" href="#term-delegation" title="Permalink to this term">¶</a></dt><dd><p>A design pattern in which an object avoids implementing a
+<dt id="term-delegation">delegation<a class="headerlink" href="#term-delegation" title="Link to this term">¶</a></dt><dd><p>A design pattern in which an object avoids implementing a
 <a class="reference internal" href="3_objects.html#term-method"><span class="xref std std-term">method</span></a> by instead calling a method on another object.</p>
 </dd>
-<dt id="term-inheritance">inheritance<a class="headerlink" href="#term-inheritance" title="Permalink to this term">¶</a></dt><dd><p>The process of making a new class by extending or modifying one or more existing
+<dt id="term-inheritance">inheritance<a class="headerlink" href="#term-inheritance" title="Link to this term">¶</a></dt><dd><p>The process of making a new class by extending or modifying one or more existing
 classes.</p>
 </dd>
-<dt id="term-parent-class">parent class<a class="headerlink" href="#term-parent-class" title="Permalink to this term">¶</a></dt><dd><p>A class from which another class, referred to as a <a class="reference internal" href="#term-child-class"><span class="xref std std-term">child class</span></a>,
+<dt id="term-parent-class">parent class<a class="headerlink" href="#term-parent-class" title="Link to this term">¶</a></dt><dd><p>A class from which another class, referred to as a <a class="reference internal" href="#term-child-class"><span class="xref std std-term">child class</span></a>,
 inherits. Inheritance can be characterised as an <em>is a</em> relationship, in
 contrast to <a class="reference internal" href="#term-composition"><span class="xref std std-term">composition</span></a>, which embodies an <em>has a</em> relationship.</p>
 </dd>
-<dt id="term-subclass">subclass<a class="headerlink" href="#term-subclass" title="Permalink to this term">¶</a></dt><dd><p>A class <code class="xref py py-obj docutils literal notranslate"><span class="pre">A</span></code> is a subclass of the class <code class="xref py py-obj docutils literal notranslate"><span class="pre">B</span></code> if <code class="xref py py-obj docutils literal notranslate"><span class="pre">A</span></code> inherits from <code class="xref py py-obj docutils literal notranslate"><span class="pre">B</span></code> either
+<dt id="term-subclass">subclass<a class="headerlink" href="#term-subclass" title="Link to this term">¶</a></dt><dd><p>A class <code class="xref py py-obj docutils literal notranslate"><span class="pre">A</span></code> is a subclass of the class <code class="xref py py-obj docutils literal notranslate"><span class="pre">B</span></code> if <code class="xref py py-obj docutils literal notranslate"><span class="pre">A</span></code> inherits from <code class="xref py py-obj docutils literal notranslate"><span class="pre">B</span></code> either
 directly or indirectly. That is, if <code class="xref py py-obj docutils literal notranslate"><span class="pre">B</span></code> is a <a class="reference internal" href="#term-parent-class"><span class="xref std std-term">parent</span></a>,
 grandparent, great grandparent or further ancestor of <code class="xref py py-obj docutils literal notranslate"><span class="pre">A</span></code>. Contrast
 <a class="reference internal" href="#term-superclass"><span class="xref std std-term">superclass</span></a>.</p>
 </dd>
-<dt id="term-superclass">superclass<a class="headerlink" href="#term-superclass" title="Permalink to this term">¶</a></dt><dd><p>A class <code class="xref py py-obj docutils literal notranslate"><span class="pre">A</span></code> is a superclass of the class <code class="xref py py-obj docutils literal notranslate"><span class="pre">B</span></code> if <code class="xref py py-obj docutils literal notranslate"><span class="pre">B</span></code> inherits from <code class="xref py py-obj docutils literal notranslate"><span class="pre">A</span></code> either
+<dt id="term-superclass">superclass<a class="headerlink" href="#term-superclass" title="Link to this term">¶</a></dt><dd><p>A class <code class="xref py py-obj docutils literal notranslate"><span class="pre">A</span></code> is a superclass of the class <code class="xref py py-obj docutils literal notranslate"><span class="pre">B</span></code> if <code class="xref py py-obj docutils literal notranslate"><span class="pre">B</span></code> inherits from <code class="xref py py-obj docutils literal notranslate"><span class="pre">A</span></code> either
 directly or indirectly. That is, if <code class="xref py py-obj docutils literal notranslate"><span class="pre">B</span></code> is a <a class="reference internal" href="#term-subclass"><span class="xref std std-term">subclass</span></a> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">A</span></code>.</p>
 </dd>
 </dl>
 </section>
 <section id="exercises">
-<h2><span class="section-number">7.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">7.6. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
 <p>Using the information on the <a class="reference external" href="https://oxmmscpython.github.io/exercises.html">book website</a>
 obtain the skeleton code for these exercises.</p>
 <div class="proof proof-type-exercise" id="id5">
@@ -724,14 +723,14 @@ order <code class="xref py py-obj docutils literal notranslate"><span class="pre
 validation of group element values. Group elements can be represented by
 sequences containing permutations of the integers from 0 to <code class="xref py py-obj docutils literal notranslate"><span class="pre">n-1</span></code>. You will
 find it advantageous to represent these permutations as
-<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> because the indexing rules for that type mean that
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> because the indexing rules for that type mean that
 the group operation can simply be implemented by indexing the first
 permutation with the second: <code class="xref py py-obj docutils literal notranslate"><span class="pre">a[b]</span></code>.</p>
 <p>You will also need to set the <a class="reference internal" href="#term-class-attribute"><span class="xref std std-term">class attribute</span></a> <code class="xref py py-attr docutils literal notranslate"><span class="pre">symbol</span></code>. For this
 group, this should take the value <code class="xref py py-obj docutils literal notranslate"><span class="pre">S</span></code>.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>You will need to <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> <a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.groups.Group</span></code></a>
+<p>You will need to <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.12)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> <a class="reference internal" href="example_code.html#example_code.groups.Group" title="example_code.groups.Group"><code class="xref py py-class docutils literal notranslate"><span class="pre">example_code.groups.Group</span></code></a>
 from the <code class="xref py py-obj docutils literal notranslate"><span class="pre">object_oriented_programming</span></code> repository that you installed in
 <a class="reference internal" href="2_programs_in_files.html#programs-in-files-exercises"><span class="std std-numref">Section 2.8</span></a>. You should also <code class="xref py py-obj docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> in
 that repository in order to get any changes that have happened in the
@@ -739,7 +738,7 @@ intervening period.</p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>In implementing element validation, the builtin function <a class="reference external" href="https://docs.python.org/3/library/functions.html#sorted" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sorted()</span></code></a>
+<p>In implementing element validation, the builtin function <a class="reference external" href="https://docs.python.org/3/library/functions.html#sorted" title="(in Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sorted()</span></code></a>
 is likely to be useful.</p>
 </div>
 </div></div><div class="proof proof-type-exercise" id="id6">
@@ -749,44 +748,44 @@ is likely to be useful.</p>
         
     </div><div class="proof-content">
 <p>The objective of this exercise is to create subclasses of the built-in
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> class which are only valid for values which pass a certain
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> class which are only valid for values which pass a certain
 test. For example, one might have a set which can only contain integers.</p>
 <ol class="arabic simple">
 <li><p>In the exercise repository, create a package called <code class="xref py py-mod docutils literal notranslate"><span class="pre">sets</span></code> containing a
-module <code class="xref py py-obj docutils literal notranslate"><span class="pre">verified_sets</span></code>. Create a subclass of the inbuilt <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a>,
+module <code class="xref py py-obj docutils literal notranslate"><span class="pre">verified_sets</span></code>. Create a subclass of the inbuilt <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a>,
 <code class="xref py py-class docutils literal notranslate"><span class="pre">sets.verified_sets.VerifiedSet</span></code>. <code class="xref py py-class docutils literal notranslate"><span class="pre">VerifiedSet</span></code> will itself
 be the parent of other classes which have particular verification rules.</p></li>
 <li><p>Give <code class="xref py py-class docutils literal notranslate"><span class="pre">VerifiedSet</span></code> a method <code class="xref py py-meth docutils literal notranslate"><span class="pre">_verify()</span></code> which takes a single
 value. In the case of <code class="xref py py-class docutils literal notranslate"><span class="pre">VerifiedSet</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">_verify()</span></code> should
-unconditionally raise <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#NotImplementedError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a>. Subclasses of
+unconditionally raise <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#NotImplementedError" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a>. Subclasses of
 <code class="xref py py-class docutils literal notranslate"><span class="pre">VerifiedSet</span></code> will override this method to do something more useful.</p></li>
-<li><p>For each <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> method which adds items to the set,
+<li><p>For each <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> method which adds items to the set,
 <code class="xref py py-class docutils literal notranslate"><span class="pre">VerifiedSet</span></code> will need to have its own version which calls
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">_verify()</span></code> on each item, before calling the appropriate superclass
 method in order to actually insert the value(s). The methods which add
-items to a set are <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.add" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add()</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.update" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">update()</span></code></a>, and
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.symmetric_difference_update" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">symmetric_difference_update()</span></code></a>.</p></li>
+items to a set are <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.add" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add()</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.update" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">update()</span></code></a>, and
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.symmetric_difference_update" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">symmetric_difference_update()</span></code></a>.</p></li>
 <li><p>For those methods which create a new set, <code class="xref py py-class docutils literal notranslate"><span class="pre">VerifiedSet</span></code> will also
 need to <a class="reference internal" href="3_objects.html#term-instantiate"><span class="xref std std-term">instantiate</span></a> a new object, so that the method returns a subclass of
-<code class="xref py py-class docutils literal notranslate"><span class="pre">VerifiedSet</span></code> instead of a plain <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a>.  The methods to which
-this applies are <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.union" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">union()</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.intersection" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">intersection()</span></code></a>,
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.difference" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">difference()</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.symmetric_difference" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">symmetric_difference()</span></code></a>, and
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.copy" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">copy()</span></code></a>.</p></li>
+<code class="xref py py-class docutils literal notranslate"><span class="pre">VerifiedSet</span></code> instead of a plain <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a>.  The methods to which
+this applies are <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.union" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">union()</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.intersection" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">intersection()</span></code></a>,
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.difference" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">difference()</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.symmetric_difference" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">symmetric_difference()</span></code></a>, and
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.copy" title="(in Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">copy()</span></code></a>.</p></li>
 <li><p>Create a subclass of <code class="xref py py-class docutils literal notranslate"><span class="pre">VerifiedSet</span></code> called <code class="xref py py-class docutils literal notranslate"><span class="pre">IntSet</span></code> in which
-only integers (i.e. instances of <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Integral" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Integral</span></code></a>) are allowed.
+only integers (i.e. instances of <a class="reference external" href="https://docs.python.org/3/library/numbers.html#numbers.Integral" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Integral</span></code></a>) are allowed.
 On encountering a non-integer <code class="xref py py-meth docutils literal notranslate"><span class="pre">IntSet._verify()</span></code> should raise
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeError</span></code></a> with an error message of the following form. For example
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeError</span></code></a> with an error message of the following form. For example
 if an attempt were made to add a string to the set, the message would be
 “IntSet expected an integer, got a str.”.</p></li>
 <li><p>Create a subclass of <code class="xref py py-class docutils literal notranslate"><span class="pre">VerifiedSet</span></code> called <code class="xref py py-class docutils literal notranslate"><span class="pre">UniqueSet</span></code> into
 which values can only be added if they are not already in the set. You
 should create a new exception <code class="xref py py-class docutils literal notranslate"><span class="pre">UniquenessError</span></code>, a subclass of
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">KeyError</span></code></a>. <code class="xref py py-class docutils literal notranslate"><span class="pre">UniqueSet._verify</span></code> should raise this if an
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">KeyError</span></code></a>. <code class="xref py py-class docutils literal notranslate"><span class="pre">UniqueSet._verify</span></code> should raise this if an
 operation would add a duplicate value to the <code class="xref py py-class docutils literal notranslate"><span class="pre">UniqueSet</span></code>.</p></li>
 </ol>
 </div></div><p class="rubric">Footnotes</p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="exercise-page" role="note">
+<aside class="footnote brackets" id="exercise-page" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://oxmmscpython.github.io/exercises.html">https://oxmmscpython.github.io/exercises.html</a></p>
 </aside>
@@ -802,8 +801,8 @@ operation would add a duplicate value to the <code class="xref py py-class docut
       <div class="clearer"></div>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019-2023, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2019-2023, David A. Ham.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>

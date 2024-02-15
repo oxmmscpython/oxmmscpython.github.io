@@ -1,22 +1,21 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>2. Just enough Git to get by &#8212; Object-oriented Programming  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/fenics.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/fenics.css?v=4fb2f5d3" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css?v=45cf7dbc" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css?v=2a6c4383" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css?v=d290406d" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/proof.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -64,7 +63,7 @@
           <div class="body" role="main">
             
   <section id="just-enough-git-to-get-by">
-<span id="git"></span><h1><span class="section-number">2. </span>Just enough Git to get by<a class="headerlink" href="#just-enough-git-to-get-by" title="Permalink to this heading">¶</a></h1>
+<span id="git"></span><h1><span class="section-number">2. </span>Just enough Git to get by<a class="headerlink" href="#just-enough-git-to-get-by" title="Link to this heading">¶</a></h1>
 <p>The exercises in this book are all based on <a class="reference external" href="https://git-scm.com">Git</a>
 repositories hosted on <a class="reference external" href="https://github.com">GitHub</a>. This is a deliberate
 choice, because learning to use a revision control system such as Git is an
@@ -81,7 +80,7 @@ For a more in-depth introduction to Git and GitHub, you are encouraged to
 work through the excellent <a class="reference external" href="http://swcarpentry.github.io/git-novice/">Git tutorial provided by the Software Carpentry
 project</a>.</p>
 <section id="what-is-git">
-<h2><span class="section-number">2.1. </span>What is Git?<a class="headerlink" href="#what-is-git" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">2.1. </span>What is Git?<a class="headerlink" href="#what-is-git" title="Link to this heading">¶</a></h2>
 <p>When we’re writing code, we typically don’t just type it out, notice that it
 works, and stop. Instead, the usual cycle looks a bit more like this:</p>
 <ol class="arabic simple">
@@ -118,7 +117,7 @@ project - or even when you edit the same file on two different computers.</p>
 widely used currently available.</p>
 </section>
 <section id="what-is-github">
-<h2><span class="section-number">2.2. </span>What is GitHub?<a class="headerlink" href="#what-is-github" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">2.2. </span>What is GitHub?<a class="headerlink" href="#what-is-github" title="Link to this heading">¶</a></h2>
 <p>Git keeps track of a collection of files stored in a project folder called a
 repository which is kept on your computer. That’s great but what if you want to
 do any of the following?</p>
@@ -137,7 +136,7 @@ also use some of these extra features of GitHub, but we will mostly focus on how
 to use the core feature of storing a copy of your repository online.</p>
 </section>
 <section id="what-is-github-classroom">
-<h2><span class="section-number">2.3. </span>What is GitHub Classroom?<a class="headerlink" href="#what-is-github-classroom" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">2.3. </span>What is GitHub Classroom?<a class="headerlink" href="#what-is-github-classroom" title="Link to this heading">¶</a></h2>
 <p>All of the collaborative features of Git and GitHub might sound like overkill
 when all you need to do is complete coding assignments that only you work on.
 However in software development terms, you always have at least one
@@ -152,7 +151,7 @@ prepopulated with the lecturer’s skeleton code and ready to work with. As we�
 see below, this makes it really easy to obtain the exercise and work with it.</p>
 </section>
 <section id="configuring-git">
-<span id="configure-git"></span><h2><span class="section-number">2.4. </span>Configuring Git<a class="headerlink" href="#configuring-git" title="Permalink to this heading">¶</a></h2>
+<span id="configure-git"></span><h2><span class="section-number">2.4. </span>Configuring Git<a class="headerlink" href="#configuring-git" title="Link to this heading">¶</a></h2>
 <p>Git needs a little bit of configuration to work smoothly. This configuration
 belongs to the computer you’re running Git on, so you don’t have to do this for
 each project, but you do have to do it for each computer you log into. If
@@ -164,7 +163,7 @@ computers.</p>
 working Git installation using the instructions on the book web page:
 <a class="reference external" href="https://object-oriented-python.github.io/installation.html">https://object-oriented-python.github.io/installation.html</a></p>
 <section id="your-details">
-<h3><span class="section-number">2.4.1. </span>Your details<a class="headerlink" href="#your-details" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.4.1. </span>Your details<a class="headerlink" href="#your-details" title="Link to this heading">¶</a></h3>
 <p>First you need to tell Git about your name and email address. This has nothing
 directly to do with the information you provided to GitHub, instead it will
 just be used by Git to label you as the author of the code that you write. To
@@ -178,7 +177,7 @@ following commands, replacing your name as appropriate:</p>
 </div>
 </section>
 <section id="line-endings">
-<h3><span class="section-number">2.4.2. </span>Line endings<a class="headerlink" href="#line-endings" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.4.2. </span>Line endings<a class="headerlink" href="#line-endings" title="Link to this heading">¶</a></h3>
 <p>When a text file, such as a program source file, contains a line break, this is
 represented by a special invisible character. Unfortunately, it’s not the same
 character on different operating systems, which can make a bit of a mess when a
@@ -186,14 +185,14 @@ file is created on one operating system, and then edited on another - such as
 might happen if your lecturer uses a different operating system for you. We can
 set up Git to automatically clean up this mess in most cases.</p>
 <section id="windows">
-<h4><span class="section-number">2.4.2.1. </span>Windows<a class="headerlink" href="#windows" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">2.4.2.1. </span>Windows<a class="headerlink" href="#windows" title="Link to this heading">¶</a></h4>
 <p>Run the following command in the <a class="reference external" href="https://imperial-fons-computing.github.io/terminal.html#terminal" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">Git Bash terminal</span></a>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.autocrlf<span class="w"> </span><span class="nb">true</span>
 </pre></div>
 </div>
 </section>
 <section id="macos-or-linux">
-<h4><span class="section-number">2.4.2.2. </span>MacOS or Linux<a class="headerlink" href="#macos-or-linux" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">2.4.2.2. </span>MacOS or Linux<a class="headerlink" href="#macos-or-linux" title="Link to this heading">¶</a></h4>
 <p>Run the following command in the <a class="reference external" href="https://imperial-fons-computing.github.io/terminal.html#terminal" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">terminal</span></a>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.autocrlf<span class="w"> </span>input
 </pre></div>
@@ -201,7 +200,7 @@ set up Git to automatically clean up this mess in most cases.</p>
 </section>
 </section>
 <section id="text-editor">
-<h3><span class="section-number">2.4.3. </span>Text editor<a class="headerlink" href="#text-editor" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.4.3. </span>Text editor<a class="headerlink" href="#text-editor" title="Link to this heading">¶</a></h3>
 <p>Git sometimes needs you to write a text comment. When this is the case, it will
 launch a text editor to enable you to type the comment in. If you don’t have
 strong preferences for a particular editor, then <code class="xref py py-obj docutils literal notranslate"><span class="pre">nano</span></code> is a good choice, so run
@@ -228,7 +227,7 @@ editor:</p>
 <a class="reference external" href="https://swcarpentry.github.io/git-novice/02-setup/index.html">Software Carpentry instructions</a>.</p>
 </section>
 <section id="default-pull-behaviour">
-<h3><span class="section-number">2.4.4. </span>Default pull behaviour<a class="headerlink" href="#default-pull-behaviour" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.4.4. </span>Default pull behaviour<a class="headerlink" href="#default-pull-behaviour" title="Link to this heading">¶</a></h3>
 <p>Once we start using Git to interact with GitHub, there are some very technical
 choices to be made about the precise behaviour of Git when two users have
 edited the same repository. We needn’t go into the details of this here, but we
@@ -239,7 +238,7 @@ do need to make a choice of this configuration, and the following one will do:</
 </section>
 </section>
 <section id="signing-up-to-github">
-<span id="github-signup"></span><h2><span class="section-number">2.5. </span>Signing up to GitHub<a class="headerlink" href="#signing-up-to-github" title="Permalink to this heading">¶</a></h2>
+<span id="github-signup"></span><h2><span class="section-number">2.5. </span>Signing up to GitHub<a class="headerlink" href="#signing-up-to-github" title="Link to this heading">¶</a></h2>
 <p>You will need your own GitHub account. This is completely
 separate from any computer account you might have, so you need to sign up
 separately. If you’ve already got a GitHub account then you don’t need another
@@ -266,7 +265,7 @@ for example at a university.</p>
 frameborder="0" allow="autoplay; fullscreen"
 allowfullscreen></iframe></div>
 <section id="enabling-two-factor-authentication">
-<h3><span class="section-number">2.5.1. </span>Enabling two-factor authentication<a class="headerlink" href="#enabling-two-factor-authentication" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.5.1. </span>Enabling two-factor authentication<a class="headerlink" href="#enabling-two-factor-authentication" title="Link to this heading">¶</a></h3>
 <p>Your GitHub account will store code that you spent valuable time writing. You
 will therefore really want to avoid losing that work through some nasty person
 gaining unauthorised access to your GitHub account and exploiting it for their
@@ -276,7 +275,7 @@ online accounts). Navigate to <a class="reference external" href="https://docs.g
 account with two-factor authentication (2FA)” to find out how to do this.</p>
 </section>
 <section id="obtaining-github-education-benefits">
-<h3><span class="section-number">2.5.2. </span>Obtaining GitHub Education benefits<a class="headerlink" href="#obtaining-github-education-benefits" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.5.2. </span>Obtaining GitHub Education benefits<a class="headerlink" href="#obtaining-github-education-benefits" title="Link to this heading">¶</a></h3>
 <p>GitHub provide upgraded “pro” accounts and a bundle of other online tools for
 free to students and staff of educational institutions. You don’t strictly need
 this in order to do the exercises in this book, but some of it
@@ -285,7 +284,7 @@ register for these benefits at <a class="reference external" href="https://educa
 </section>
 </section>
 <section id="doing-exercises-using-github-or-github-classroom">
-<span id="github-classroom-exercise"></span><h2><span class="section-number">2.6. </span>Doing exercises using GitHub or GitHub Classroom<a class="headerlink" href="#doing-exercises-using-github-or-github-classroom" title="Permalink to this heading">¶</a></h2>
+<span id="github-classroom-exercise"></span><h2><span class="section-number">2.6. </span>Doing exercises using GitHub or GitHub Classroom<a class="headerlink" href="#doing-exercises-using-github-or-github-classroom" title="Link to this heading">¶</a></h2>
 <p>The exercises in this book are available as GitHub repositories, including
 skeleton code and automated testing. For the Oxford course we will access
 these repositories through Github Classroom, as described in <a class="reference internal" href="#accept-classroom"><span class="std std-numref">Section 2.6.1</span></a>.</p>
@@ -294,7 +293,7 @@ these repositories through Github Classroom, as described in <a class="reference
 frameborder="0" allow="autoplay; fullscreen"
 allowfullscreen></iframe></div>
 <section id="accepting-the-assignment-on-github-classroom">
-<span id="accept-classroom"></span><h3><span class="section-number">2.6.1. </span>Accepting the assignment on GitHub Classroom<a class="headerlink" href="#accepting-the-assignment-on-github-classroom" title="Permalink to this heading">¶</a></h3>
+<span id="accept-classroom"></span><h3><span class="section-number">2.6.1. </span>Accepting the assignment on GitHub Classroom<a class="headerlink" href="#accepting-the-assignment-on-github-classroom" title="Link to this heading">¶</a></h3>
 <p>For each exercise, on <a class="reference external" href="exercises">the exercises page</a> you will find a link that you can use
 to accept the corresponding GitHub classroom assignment.</p>
 <p>When you click on the assignment, if you’re not already logged into your <a class="reference external" href="https://GitHub.com">GitHub</a> account then you will be prompted to do so. If this is
@@ -307,7 +306,7 @@ to your new GitHub repository. You will also receive an email inviting you to
 this repository.</p>
 </section>
 <section id="the-exercise-instructions">
-<span id="exercise-instructions"></span><h3><span class="section-number">2.6.2. </span>The exercise instructions<a class="headerlink" href="#the-exercise-instructions" title="Permalink to this heading">¶</a></h3>
+<span id="exercise-instructions"></span><h3><span class="section-number">2.6.2. </span>The exercise instructions<a class="headerlink" href="#the-exercise-instructions" title="Link to this heading">¶</a></h3>
 <p>We now have an exercise repository. If
 we scroll down on the front page of the GitHub repository website, we see the
 README file for this repository. In this case, this gives us the instructions
@@ -327,7 +326,7 @@ this:</p>
 we’ll need to clone the repository to our computer.</p>
 </section>
 <section id="cloning-the-repository">
-<h3><span class="section-number">2.6.3. </span>Cloning the repository<a class="headerlink" href="#cloning-the-repository" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.6.3. </span>Cloning the repository<a class="headerlink" href="#cloning-the-repository" title="Link to this heading">¶</a></h3>
 <p>Your new repository currently exists only on <a class="reference external" href="https://github.com">GitHub</a>, but
 you need a local copy on your machine (or on a remote machine that you’re logged
 into) in order to work on it. This is called cloning the repository. Here
@@ -364,7 +363,7 @@ folder is <code class="xref py py-obj docutils literal notranslate"><span class=
 </pre></div>
 </div>
 <p>We can now check that we’re in the folder we think we’re in by running the
-command <a class="reference external" href="https://docs.python.org/3/library/pwd.html#module-pwd" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pwd</span></code></a> (“print working directory”):</p>
+command <a class="reference external" href="https://docs.python.org/3/library/pwd.html#module-pwd" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pwd</span></code></a> (“print working directory”):</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">pwd</span>
 <span class="gp">$ </span>/Users/dham/hello
 </pre></div>
@@ -387,7 +386,7 @@ you did in a graphical interface.</p>
 </div>
 </section>
 <section id="editing-exercise-txt">
-<h3><span class="section-number">2.6.4. </span>Editing <code class="xref py py-obj docutils literal notranslate"><span class="pre">exercise.txt</span></code><a class="headerlink" href="#editing-exercise-txt" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.6.4. </span>Editing <code class="xref py py-obj docutils literal notranslate"><span class="pre">exercise.txt</span></code><a class="headerlink" href="#editing-exercise-txt" title="Link to this heading">¶</a></h3>
 <p>I can now check out what’s in
 this folder with the <code class="xref py py-obj docutils literal notranslate"><span class="pre">ls</span></code> command (for “list”):</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ls
@@ -420,7 +419,7 @@ save to the same file:</p>
 <p>Next we quit nano by typing <kbd class="kbd docutils literal notranslate">control</kbd> + <kbd class="kbd docutils literal notranslate">X</kbd>.</p>
 </section>
 <section id="committing-our-changes">
-<span id="commit-push"></span><h3><span class="section-number">2.6.5. </span>Committing our changes<a class="headerlink" href="#committing-our-changes" title="Permalink to this heading">¶</a></h3>
+<span id="commit-push"></span><h3><span class="section-number">2.6.5. </span>Committing our changes<a class="headerlink" href="#committing-our-changes" title="Link to this heading">¶</a></h3>
 <p>Now that we’ve changed <code class="xref py py-obj docutils literal notranslate"><span class="pre">exercise.txt</span></code>, we need to tell Git to record this
 change. Each change (to one or many files) that we tell Git about is called a
 “commit” and the process is called “committing”. First, we take a look at what
@@ -463,7 +462,7 @@ particular, older repositories often have a default branch called <code class="x
 It doesn’t matter what the default branch is called.</p>
 </div>
 <section id="staging-files-for-commit">
-<h4><span class="section-number">2.6.5.1. </span>Staging files for commit<a class="headerlink" href="#staging-files-for-commit" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">2.6.5.1. </span>Staging files for commit<a class="headerlink" href="#staging-files-for-commit" title="Link to this heading">¶</a></h4>
 <p>We want to commit our changes to <code class="xref py py-obj docutils literal notranslate"><span class="pre">exercise.txt</span></code>, so we tell Git to add it to the
 list of files to be committed:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git add exercise.txt</span>
@@ -503,7 +502,7 @@ another machine. Don’t use <code class="xref py py-obj docutils literal notran
 </div>
 </section>
 <section id="the-actual-commit">
-<h4><span class="section-number">2.6.5.2. </span>The actual commit<a class="headerlink" href="#the-actual-commit" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">2.6.5.2. </span>The actual commit<a class="headerlink" href="#the-actual-commit" title="Link to this heading">¶</a></h4>
 <p>Having staged the file(s) for commit, we need to actually make the commit. We do
 this with the following command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Changed World to Mars&quot;</span>
@@ -536,7 +535,7 @@ changes we made, we’re also informed that there is nothing more to commit.</p>
 quicker way to stage and commit changes in a single command.</p>
 </section>
 <section id="stage-and-commit-in-a-single-command">
-<h4><span class="section-number">2.6.5.3. </span>Stage and commit in a single command<a class="headerlink" href="#stage-and-commit-in-a-single-command" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">2.6.5.3. </span>Stage and commit in a single command<a class="headerlink" href="#stage-and-commit-in-a-single-command" title="Link to this heading">¶</a></h4>
 <p>Most of the time, you will make changes to one or more files that Git already
 knows about. In these circumstances, there’s a shortcut command, and it’s one
 that Git already hinted to us about. Instead of separately running <code class="xref py py-obj docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>
@@ -559,7 +558,7 @@ when we type the two commands separately:</p>
 </div>
 </section>
 <section id="pushing-changes-to-github">
-<h4><span class="section-number">2.6.5.4. </span>Pushing changes to GitHub<a class="headerlink" href="#pushing-changes-to-github" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">2.6.5.4. </span>Pushing changes to GitHub<a class="headerlink" href="#pushing-changes-to-github" title="Link to this heading">¶</a></h4>
 <p>The final stage in the commit process is to push the changes we have made up to
 GitHub:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>push
@@ -602,7 +601,7 @@ click on the title of the commit that we just made, then we find:</p>
 </section>
 </section>
 <section id="reporting-the-commit-hash">
-<span id="git-hash"></span><h3><span class="section-number">2.6.6. </span>Reporting the commit hash<a class="headerlink" href="#reporting-the-commit-hash" title="Permalink to this heading">¶</a></h3>
+<span id="git-hash"></span><h3><span class="section-number">2.6.6. </span>Reporting the commit hash<a class="headerlink" href="#reporting-the-commit-hash" title="Link to this heading">¶</a></h3>
 <p>Sometimes you might need to identify a particular commit, for example to submit
 a piece of coursework, or to identify the particular code about which you are
 asking for help. Git associates a unique string of characters with each commit.
@@ -621,7 +620,7 @@ commit has his the 40 character hexadecimal number on the right: in this case
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">316a22cedb8627940aee7f1744297708324102f1</span></code>.</p>
 </section>
 <section id="autograding-with-github-actions">
-<h3><span class="section-number">2.6.7. </span>Autograding with GitHub Actions<a class="headerlink" href="#autograding-with-github-actions" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.6.7. </span>Autograding with GitHub Actions<a class="headerlink" href="#autograding-with-github-actions" title="Link to this heading">¶</a></h3>
 <p>Notice in the commit list above that the final (top) commit has a green tick
 mark next to it, while the previous commit has a red cross. These marks appear
 because GitHub has been configured to automatically run tests on each commit to
@@ -645,15 +644,15 @@ attempt to provide useful feedback on what has gone wrong when a test is
 failed.</p>
 <p class="rubric">Footnotes</p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="swcarpentry" role="note">
+<aside class="footnote brackets" id="swcarpentry" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="http://swcarpentry.github.io/git-novice/">http://swcarpentry.github.io/git-novice</a></p>
 </aside>
-<aside class="footnote brackets" id="swcarpentry-editor" role="note">
+<aside class="footnote brackets" id="swcarpentry-editor" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p><code class="xref py py-obj docutils literal notranslate"><span class="pre">https://swcarpentry.github.io/git-novice/02-setup/</span></code></p>
 </aside>
-<aside class="footnote brackets" id="chrome" role="note">
+<aside class="footnote brackets" id="chrome" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
 <p>To use these installation instructions for Chrome OS you first
 need to <a class="reference external" href="https://imperial-fons-computing.github.io/linux.html#linux-chrome" title="(in Installation instructions for FoNS v2020.0)"><span class="xref std std-ref">set up Linux on your Chromebook</span></a>.</p>
@@ -671,8 +670,8 @@ need to <a class="reference external" href="https://imperial-fons-computing.gith
       <div class="clearer"></div>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019-2023, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2019-2023, David A. Ham.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>

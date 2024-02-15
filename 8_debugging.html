@@ -1,22 +1,21 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>8. Debugging and testing &#8212; Object-oriented Programming  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/fenics.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/fenics.css?v=4fb2f5d3" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css?v=45cf7dbc" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css?v=2a6c4383" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css?v=d290406d" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/proof.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -64,7 +63,7 @@
           <div class="body" role="main">
             
   <section id="debugging-and-testing">
-<span id="debugging"></span><h1><span class="section-number">8. </span>Debugging and testing<a class="headerlink" href="#debugging-and-testing" title="Permalink to this heading">¶</a></h1>
+<span id="debugging"></span><h1><span class="section-number">8. </span>Debugging and testing<a class="headerlink" href="#debugging-and-testing" title="Link to this heading">¶</a></h1>
 <p>In <a class="reference internal" href="6_exceptions.html#errors-and-exceptions"><span class="std std-numref">Chapter 6</span></a> we learned about
 <a class="reference internal" href="6_exceptions.html#term-exception"><span class="xref std std-term">exceptions</span></a> and how to read the <a class="reference internal" href="6_exceptions.html#term-traceback"><span class="xref std std-term">traceback</span></a> that is
 printed when an unhandled exception is raised. In this chapter we will look at other
@@ -73,7 +72,7 @@ of code, and therefore how to fix it. Before we do that, we’ll divert just
 briefly to introduce an important Python module that we’ll use in a lot of the
 debugging examples.</p>
 <section id="pandas">
-<h2><span class="section-number">8.1. </span>Pandas<a class="headerlink" href="#pandas" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">8.1. </span>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">¶</a></h2>
 <p>If you have just excitedly turned to this section hoping for
 some material on cute furry animals from China then, regrettably, you are in
 for a disappointment. <a class="reference external" href="https://pandas.pydata.org">Pandas</a> is a Python
@@ -81,17 +80,17 @@ package which supports data analysis in Python. It’s introduced here partly
 because it’s a very useful tool for applied mathematicians and statisticians
 who need to work with real data, and partly because it’s a convenient somewhat
 larger library on which to practice tools and techniques for debugging.</p>
-<p>At the core of Pandas is the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.0.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> class, which is
+<p>At the core of Pandas is the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> class, which is
 a two-dimensional dataset somewhat analogous to a spreadsheet. Unlike, for
-example, a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.0.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> is not indexed
+example, a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> is not indexed
 by a pair of numbers, but is instead organised as a collection of named
-one-dimensional <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v2.0.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> of data. One can think of a
-<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v2.0.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> as a column of data with a title. This perhaps best
+one-dimensional <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v2.2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> of data. One can think of a
+<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v2.2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> as a column of data with a title. This perhaps best
 illustrated with an example.</p>
 <span id="student-data"></span><table class="docutils align-default" id="id6" style="width: 70%">
 <caption><span class="caption-number">Table 8.1 </span><span class="caption-text">Extract from some fictional student records. The full records
 are in the <a class="reference external" href="https://github.com/object-oriented-python/object-oriented-programming">course repository</a>
-in <code class="file docutils literal notranslate"><span class="pre">data/students.csv</span></code>.</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+in <code class="file docutils literal notranslate"><span class="pre">data/students.csv</span></code>.</span><a class="headerlink" href="#id6" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>FirstName</p></th>
 <th class="head"><p>Surname</p></th>
@@ -151,9 +150,9 @@ Having installed Pandas:</p>
 <span class="gh">Out[6]: </span><span class="go">pandas.core.series.Series</span>
 </pre></div>
 </div>
-<p>Observe that the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.0.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> acts as a dictionary of
-one-dimensional data <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v2.0.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></a>. A <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v2.0.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> can be
-indexed and sliced like any other Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq" title="(in Python v3.11)"><span class="xref std std-ref">sequence type</span></a>. This
+<p>Observe that the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> acts as a dictionary of
+one-dimensional data <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v2.2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></a>. A <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v2.2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> can be
+indexed and sliced like any other Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq" title="(in Python v3.12)"><span class="xref std std-ref">sequence type</span></a>. This
 very high level introduction is all we’ll need to use pandas in demonstrations
 in this chapter. Much more documentation is available on the <a class="reference external" href="https://pandas.pydata.org/docs/">Pandas website</a>.</p>
 <div class="admonition note">
@@ -166,7 +165,7 @@ beyond those used here.</p>
 </div>
 </section>
 <section id="debuggers">
-<h2><span class="section-number">8.2. </span>Debuggers<a class="headerlink" href="#debuggers" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">8.2. </span>Debuggers<a class="headerlink" href="#debuggers" title="Link to this heading">¶</a></h2>
 <p>The <a class="reference internal" href="6_exceptions.html#term-traceback"><span class="xref std std-term">traceback</span></a> that the Python interpreter prints when it encounters an
 untrapped exception provides a lot of information about an exception which has
 occurred, but it’s not all the information available, and it might not be
@@ -176,13 +175,13 @@ to stop and examine a running, or just crashed, program. A debugger enables us
 to look at or set variables in any of the <a class="reference internal" href="6_exceptions.html#term-stack-frame"><span class="xref std std-term">frames</span></a> on the
 <a class="reference internal" href="6_exceptions.html#term-call-stack"><span class="xref std std-term">call stack</span></a>, or even type and run Python code. This is exceptionally
 useful in determining the source of errors.</p>
-<p>Python has an inbuilt debugger, <a class="reference external" href="https://docs.python.org/3/library/pdb.html#module-pdb" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a>, which is part of the Python
+<p>Python has an inbuilt debugger, <a class="reference external" href="https://docs.python.org/3/library/pdb.html#module-pdb" title="(in Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a>, which is part of the Python
 standard library. This is a highly capable debugger, however its command line
 interface is essentially that of the default Python shell, with all the
 limitations that brings. Just as <a class="reference external" href="https://ipython.readthedocs.io">IPython</a>
 provides a more powerful Python command line including features such as colour
 syntax highlighting, tab completion, and better-formatted tracebacks, <a class="reference external" href="https://github.com/gotcha/ipdb#ipython-pdb">ipdb</a> provides a somewhat friendlier
-command line to the same set of debugger commands as <a class="reference external" href="https://docs.python.org/3/library/pdb.html#module-pdb" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a>. ipdb has the
+command line to the same set of debugger commands as <a class="reference external" href="https://docs.python.org/3/library/pdb.html#module-pdb" title="(in Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pdb</span></code></a>. ipdb has the
 advantage that integrates well with IPython. Another advanced command-line
 debugger is <a class="reference external" href="https://github.com/pdbpp/pdbpp#pdb-a-drop-in-replacement-for-pdb">pdb++</a>. The
 distinct advantage of pdb++ is that it replaces the built-in pdb. Among other
@@ -195,7 +194,7 @@ easily drop into a command-line debugger from an interactive session or from a
 failed test means that it is exceptionally useful to know how to use both kinds
 of debugger.</p>
 <section id="installing-debuggers">
-<h3><span class="section-number">8.2.1. </span>Installing debuggers<a class="headerlink" href="#installing-debuggers" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">8.2.1. </span>Installing debuggers<a class="headerlink" href="#installing-debuggers" title="Link to this heading">¶</a></h3>
 <p>Other than the built-in pdb, debuggers typically come as Python packages, so to
 install all the ones mentioned so far, run:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>ipdb<span class="w"> </span>pdbpp<span class="w"> </span>debugpy
@@ -206,7 +205,7 @@ called pdbpp.</p>
 </section>
 </section>
 <section id="using-a-graphical-debugger">
-<h2><span class="section-number">8.3. </span>Using a graphical debugger<a class="headerlink" href="#using-a-graphical-debugger" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">8.3. </span>Using a graphical debugger<a class="headerlink" href="#using-a-graphical-debugger" title="Link to this heading">¶</a></h2>
 <details>
 <summary>
 Video: using a graphical debugger.</summary><div class="video_wrapper" style="">
@@ -221,7 +220,7 @@ descriptions of graphical programs are somewhat problematic in and of
 themselves. Readers are therefore advised to watch the accompanying video
 before (and possibly instead of) reading this section.</p>
 <section id="configuring-the-visual-studio-code-debugger">
-<h3><span class="section-number">8.3.1. </span>Configuring the Visual Studio Code debugger<a class="headerlink" href="#configuring-the-visual-studio-code-debugger" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">8.3.1. </span>Configuring the Visual Studio Code debugger<a class="headerlink" href="#configuring-the-visual-studio-code-debugger" title="Link to this heading">¶</a></h3>
 <p>There is just a little configuration needed to make running the debugger as
 seamless as possible. This is a workspace level configuration, so you’ll want
 to do this in each project you work on, the first time that you need to debug a
@@ -238,12 +237,12 @@ so you can close this window.</p>
 <figure class="align-default" id="id7">
 <span id="debug-screen"></span><a class="reference internal image-reference" href="_images/debug_screen_annotated.pdf"><img alt="_images/debug_screen_annotated.pdf" src="_images/debug_screen_annotated.pdf" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8.1 </span><span class="caption-text">The Visual Studio Code debugging window with key features highlighted.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p><span class="caption-number">Fig. 8.1 </span><span class="caption-text">The Visual Studio Code debugging window with key features highlighted.</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="launching-the-visual-studio-code-debugger">
-<h3><span class="section-number">8.3.2. </span>Launching the Visual Studio Code debugger<a class="headerlink" href="#launching-the-visual-studio-code-debugger" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">8.3.2. </span>Launching the Visual Studio Code debugger<a class="headerlink" href="#launching-the-visual-studio-code-debugger" title="Link to this heading">¶</a></h3>
 <p>The debugger is effectively a modified Python interpreter with additional
 controls, so you start by opening the Python script you wish to debug in Visual
 Studio code. This is always the main script file, even if the error you wish to
@@ -255,7 +254,7 @@ appear in the visual studio code terminal. This isn’t shown in
 on the three dots in item 9 and selecting <code class="xref py py-obj docutils literal notranslate"><span class="pre">terminal</span></code>.</p>
 </section>
 <section id="breakpoints-and-exceptions">
-<h3><span class="section-number">8.3.3. </span>Breakpoints and exceptions<a class="headerlink" href="#breakpoints-and-exceptions" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">8.3.3. </span>Breakpoints and exceptions<a class="headerlink" href="#breakpoints-and-exceptions" title="Link to this heading">¶</a></h3>
 <p>The script will, by default, execute to completion immediately. This doesn’t
 provide any opportunity for debugging. In order to employ the debugger in a
 useful way, we need the program to stop at some point in the execution. The
@@ -274,13 +273,13 @@ the bright red dot, or temporarily disabled by clicking on the blue tick in the
 breakpoint list (item 8 of <a class="reference internal" href="#debug-screen"><span class="std std-numref">Fig. 8.1</span></a>).</p>
 <p>The breakpoint list also controls whether the raising of an exception should be
 treated as a breakpoint. By default, uncaught exceptions, which is to say
-exceptions not contained in a matching <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> clause are treated as
+exceptions not contained in a matching <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.12)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> clause are treated as
 breakpoints and cause execution to stop. Selecting <code class="xref py py-obj docutils literal notranslate"><span class="pre">Raised</span> <span class="pre">Exceptions</span></code> will
 treat any exception as a breakpoint, even if it is subsequently caught by an
-<a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> clause.</p>
+<a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.12)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> clause.</p>
 </section>
 <section id="examining-variables-and-the-stack">
-<h3><span class="section-number">8.3.4. </span>Examining variables and the stack<a class="headerlink" href="#examining-variables-and-the-stack" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">8.3.4. </span>Examining variables and the stack<a class="headerlink" href="#examining-variables-and-the-stack" title="Link to this heading">¶</a></h3>
 <p>Once the debugger is stopped on a breakpoint, you can look at all the local and
 global variables visible in the current scope by clicking on the entries in the
 box at top left (item 2 of <a class="reference internal" href="#debug-screen"><span class="std std-numref">Fig. 8.1</span></a>). It’s also possible to
@@ -294,7 +293,7 @@ on the three dots. The call stack is discussed in more detail in
 <a class="reference internal" href="6_exceptions.html#call-stack"><span class="std std-numref">Section 6.3.1</span></a>.</p>
 </section>
 <section id="controlling-execution">
-<h3><span class="section-number">8.3.5. </span>Controlling execution<a class="headerlink" href="#controlling-execution" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">8.3.5. </span>Controlling execution<a class="headerlink" href="#controlling-execution" title="Link to this heading">¶</a></h3>
 <p>Once execution halts at a breakpoint, the debugger provides the user with the
 ability to control the further execution of the program.
 <a class="reference internal" href="#debug-controls"><span class="std std-numref">Fig. 8.2</span></a> shows the available controls and their meaning. The
@@ -309,7 +308,7 @@ on the first instruction contained in that function.</p>
 <figure class="align-default" id="id8">
 <span id="debug-controls"></span><a class="reference internal image-reference" href="_images/debug_controls_annotated.pdf"><img alt="_images/debug_controls_annotated.pdf" src="_images/debug_controls_annotated.pdf" style="width: 33%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8.2 </span><span class="caption-text">The Visual Studio Code debugging execution controls.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p><span class="caption-number">Fig. 8.2 </span><span class="caption-text">The Visual Studio Code debugging execution controls.</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
 <div class="legend">
 <ol class="arabic simple">
 <li><p>Continue execution until the next breakpoint, or the end of the script.</p></li>
@@ -325,7 +324,7 @@ on the first instruction contained in that function.</p>
 </section>
 </section>
 <section id="invoking-a-command-line-debugger">
-<h2><span class="section-number">8.4. </span>Invoking a command-line debugger<a class="headerlink" href="#invoking-a-command-line-debugger" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">8.4. </span>Invoking a command-line debugger<a class="headerlink" href="#invoking-a-command-line-debugger" title="Link to this heading">¶</a></h2>
 <details>
 <summary>
 Video: command line debuggers.</summary><div class="video_wrapper" style="">
@@ -336,7 +335,7 @@ programs and Python modules that can be invoked from within a running program.
 There are many ways of launching a debugger depending on the circumstances in
 which an error occurs. Here we restrict ourselves to a few of the more common ones.</p>
 <section id="postmortem-debugging">
-<h3><span class="section-number">8.4.1. </span>Postmortem debugging<a class="headerlink" href="#postmortem-debugging" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">8.4.1. </span>Postmortem debugging<a class="headerlink" href="#postmortem-debugging" title="Link to this heading">¶</a></h3>
 <p>Postmortem debugging means using a debugger after an exception has
 occurred (i.e. after the program has “died”). The default behaviour of
 Python on an untrapped exception is to print a <a class="reference internal" href="6_exceptions.html#term-traceback"><span class="xref std std-term">traceback</span></a> and
@@ -347,7 +346,7 @@ debugger on exception. The way we do this depends very much on how we were
 using Python.</p>
 </section>
 <section id="invoking-ipdb-from-within-ipython">
-<h3><span class="section-number">8.4.2. </span>Invoking ipdb from within IPython<a class="headerlink" href="#invoking-ipdb-from-within-ipython" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">8.4.2. </span>Invoking ipdb from within IPython<a class="headerlink" href="#invoking-ipdb-from-within-ipython" title="Link to this heading">¶</a></h3>
 <p>IPython supports a class of non-Python built-in commands called <em>magics</em>. A
 magic is distinguished from a Python command by starting with a percent symbol
 (<code class="xref py py-obj docutils literal notranslate"><span class="pre">%</span></code>). There are two magics for debugging. If the last command raised a
@@ -358,7 +357,7 @@ acts as a toggle switch, so you use the same command to switch off automatic
 debugger calling.</p>
 </section>
 <section id="invoking-pdbpp-from-a-failed-test">
-<h3><span class="section-number">8.4.3. </span>Invoking pdbpp from a failed test<a class="headerlink" href="#invoking-pdbpp-from-a-failed-test" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">8.4.3. </span>Invoking pdbpp from a failed test<a class="headerlink" href="#invoking-pdbpp-from-a-failed-test" title="Link to this heading">¶</a></h3>
 <p><a class="reference external" href="https://docs.pytest.org/en/stable/">Pytest</a> has built-in support for
 calling a debugger at the point that a test exceptions. By default this
 debugger is pdb, but if pdbpp is installed then it is called instead. The option to
@@ -374,7 +373,7 @@ after the first failing test. We therefore run, for example:</p>
 </div>
 </section>
 <section id="invoking-the-debugger-from-a-running-program">
-<h3><span class="section-number">8.4.4. </span>Invoking the debugger from a running program<a class="headerlink" href="#invoking-the-debugger-from-a-running-program" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">8.4.4. </span>Invoking the debugger from a running program<a class="headerlink" href="#invoking-the-debugger-from-a-running-program" title="Link to this heading">¶</a></h3>
 <p>The alternative to post-mortem debugging is to invoke the debugger from within
 a program that is running normally. This is often useful if the erroneous
 behaviour you are concerned about is not an exception but rather the
@@ -384,7 +383,7 @@ in an IDE window, insert a line of code. For ipdb, the line to insert is:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipdb</span><span class="p">;</span> <span class="n">ipdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>while pdb and pdbpp can use the built-in <a class="reference external" href="https://docs.python.org/3/library/functions.html#breakpoint" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">breakpoint()</span></code></a> function that was
+<p>while pdb and pdbpp can use the built-in <a class="reference external" href="https://docs.python.org/3/library/functions.html#breakpoint" title="(in Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">breakpoint()</span></code></a> function that was
 introduced in Python 3.7, or use their own function:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pdb</span><span class="p">;</span> <span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
 </pre></div>
@@ -392,7 +391,7 @@ introduced in Python 3.7, or use their own function:</p>
 </section>
 </section>
 <section id="command-line-debugger-commands">
-<h2><span class="section-number">8.5. </span>Command-line debugger commands<a class="headerlink" href="#command-line-debugger-commands" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">8.5. </span>Command-line debugger commands<a class="headerlink" href="#command-line-debugger-commands" title="Link to this heading">¶</a></h2>
 <p>Whichever way your command-line debugger is invoked, it will give you a command
 line with a prompt somewhat different from the Python prompt, so that you know
 that you’re in the debugger. For example, the pdb++ prompt looks like this:</p>
@@ -409,7 +408,7 @@ debugger commands that is enough to get started.</p>
 <table class="docutils align-default" id="debug-commands" style="width: 100%">
 <caption><span class="caption-number">Table 8.2 </span><span class="caption-text">Common debugger commands. For a much more complete list see
 <a class="reference external" href="debugger-commands">the pdb documentation</a>. The part before the brackets
-is an abbreviated command which saves typing.</span><a class="headerlink" href="#debug-commands" title="Permalink to this table">¶</a></caption>
+is an abbreviated command which saves typing.</span><a class="headerlink" href="#debug-commands" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 17.0%" />
 <col style="width: 59.0%" />
@@ -476,7 +475,7 @@ prefacing it with two exclamation marks:</p>
 </div>
 </section>
 <section id="debugging-strategy">
-<h2><span class="section-number">8.6. </span>Debugging strategy<a class="headerlink" href="#debugging-strategy" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">8.6. </span>Debugging strategy<a class="headerlink" href="#debugging-strategy" title="Link to this heading">¶</a></h2>
 <p>The tools and techniques we have discussed thus far are all about how to find
 the source of a problem. However, how do you know that you’ve actually found
 the root of the issue?</p>
@@ -497,7 +496,7 @@ wrong but isn’t the cause of the particular problem you observe.</p>
 to become much more systematic about debugging. An important part of this
 systematisation is hypothesis testing.</p>
 <section id="hypothesis-testing-in-code">
-<h3><span class="section-number">8.6.1. </span>Hypothesis testing in code<a class="headerlink" href="#hypothesis-testing-in-code" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">8.6.1. </span>Hypothesis testing in code<a class="headerlink" href="#hypothesis-testing-in-code" title="Link to this heading">¶</a></h3>
 <p>At this stage, it’s informative to remind ourselves of the distinction
 between logical truth in the mathematical sense, and experimentally
 established knowledge in the scientific sense. A theorem is the
@@ -535,7 +534,7 @@ which would show that the program has a bug are simply not part of the suite of
 tests being run.</p>
 </section>
 <section id="hypothesis-based-debugging">
-<h3><span class="section-number">8.6.2. </span>Hypothesis-based debugging<a class="headerlink" href="#hypothesis-based-debugging" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">8.6.2. </span>Hypothesis-based debugging<a class="headerlink" href="#hypothesis-based-debugging" title="Link to this heading">¶</a></h3>
 <p>What does all of this have to do with debugging? If you’re debugging you
 presumably already have an observed error. If you’re lucky then it will be an
 exception, and if you are less lucky then it will be the program returning the
@@ -579,7 +578,7 @@ information to make new hypotheses to test.</p>
 </ol>
 </section>
 <section id="test-driven-development">
-<h3><span class="section-number">8.6.3. </span>Test-driven development<a class="headerlink" href="#test-driven-development" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">8.6.3. </span>Test-driven development<a class="headerlink" href="#test-driven-development" title="Link to this heading">¶</a></h3>
 <p>It’s not necessary to write the code in order to formulate hypotheses about
 what a correctly performing program would do. Indeed, you are presumably
 writing the software because you want it to do something, and in at least some
@@ -600,13 +599,13 @@ well-posed.</p>
 </section>
 </section>
 <section id="debugging-tactics">
-<h2><span class="section-number">8.7. </span>Debugging tactics<a class="headerlink" href="#debugging-tactics" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">8.7. </span>Debugging tactics<a class="headerlink" href="#debugging-tactics" title="Link to this heading">¶</a></h2>
 <details>
 <summary>
 Video: minimal failing examples and bisection.</summary><div class="video_wrapper" style="">
 <iframe allowfullscreen="true" src="https://player.vimeo.com/video/520604328" style="border: 0; height: 345px; width: 560px">
 </iframe></div></details><section id="creating-a-minimal-failing-example">
-<span id="debugging-mfe"></span><h3><span class="section-number">8.7.1. </span>Creating a minimal failing example<a class="headerlink" href="#creating-a-minimal-failing-example" title="Permalink to this heading">¶</a></h3>
+<span id="debugging-mfe"></span><h3><span class="section-number">8.7.1. </span>Creating a minimal failing example<a class="headerlink" href="#creating-a-minimal-failing-example" title="Link to this heading">¶</a></h3>
 <p>One of the frequent problems encountered in debugging is that the program is
 too large to understand all at once, and certainly far to large to show to
 someone else to ask for help. If you are going to post a question in a web
@@ -629,7 +628,7 @@ producing the minimal failing example does not shed light on the problem, you
 at least now have a much smaller piece of code to ask for help with.</p>
 </section>
 <section id="bisection-debugging">
-<span id="id2"></span><h3><span class="section-number">8.7.2. </span>Bisection debugging<a class="headerlink" href="#bisection-debugging" title="Permalink to this heading">¶</a></h3>
+<span id="id2"></span><h3><span class="section-number">8.7.2. </span>Bisection debugging<a class="headerlink" href="#bisection-debugging" title="Link to this heading">¶</a></h3>
 <p>We are already familiar with git as a mechanism for accessing and saving code.
 However, revision control offers a lot more to the programmer than a place to
 keep code. In particular, one of the key benefits is the ability to go back to
@@ -665,13 +664,13 @@ process until the commits are adjacent. We then know that the later of these
 two commits introduced the bug.</p>
 </section>
 <section id="bisection-support-in-git">
-<h3><span class="section-number">8.7.3. </span>Bisection support in git<a class="headerlink" href="#bisection-support-in-git" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">8.7.3. </span>Bisection support in git<a class="headerlink" href="#bisection-support-in-git" title="Link to this heading">¶</a></h3>
 <p>Git has built-in support for bisection and can even automate the process. What
 we need is the start and end points of our bisection interval, and a command
 that we can run at the command line which succeeds if the bug is not present,
 and fails if it is.</p>
 <section id="creating-a-test-command">
-<h4><span class="section-number">8.7.3.1. </span>Creating a test command<a class="headerlink" href="#creating-a-test-command" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">8.7.3.1. </span>Creating a test command<a class="headerlink" href="#creating-a-test-command" title="Link to this heading">¶</a></h4>
 <p>Since Pytest provides a framework for creating programs which succeed or fail,
 one approach is write the test that we wish had existed at the time the bug
 slipped into our code. The bisection search effectively enables us to
@@ -690,7 +689,7 @@ the working directory, we would then run this test with:</p>
 </div>
 </section>
 <section id="finding-the-starting-point">
-<h4><span class="section-number">8.7.3.2. </span>Finding the starting point<a class="headerlink" href="#finding-the-starting-point" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">8.7.3.2. </span>Finding the starting point<a class="headerlink" href="#finding-the-starting-point" title="Link to this heading">¶</a></h4>
 <p>We start by looking at the list of commit messages in our repository. This can
 be accessed on the command line using:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>log
@@ -746,7 +745,7 @@ but since the usual scenario is that the bug is present in the current state of
 the repository, we can simply use that.</p>
 </section>
 <section id="running-the-bisection">
-<h4><span class="section-number">8.7.3.3. </span>Running the bisection<a class="headerlink" href="#running-the-bisection" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">8.7.3.3. </span>Running the bisection<a class="headerlink" href="#running-the-bisection" title="Link to this heading">¶</a></h4>
 <p>First, check that you are up to date with <code class="docutils literal notranslate"><span class="pre">main</span></code> (or whatever your current
 branch is called). And that you know the commit id you want to start from. To
 set up the bisection we run:</p>
@@ -804,26 +803,26 @@ your bisection session and that your repository is up to date with the
 </section>
 </section>
 <section id="glossary">
-<h2><span class="section-number">8.8. </span>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">8.8. </span>Glossary<a class="headerlink" href="#glossary" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple glossary">
-<dt id="term-breakpoint">breakpoint<a class="headerlink" href="#term-breakpoint" title="Permalink to this term">¶</a></dt><dd><p>A line of code or an event, such as an untrapped exception, at which
+<dt id="term-breakpoint">breakpoint<a class="headerlink" href="#term-breakpoint" title="Link to this term">¶</a></dt><dd><p>A line of code or an event, such as an untrapped exception, at which
 the debugger is instructed to stop. The debugger will stop every time
 the breakpoint is encountered.</p>
 </dd>
-<dt id="term-debugger">debugger<a class="headerlink" href="#term-debugger" title="Permalink to this term">¶</a></dt><dd><p>A piece of software which enables an interactive Python command
+<dt id="term-debugger">debugger<a class="headerlink" href="#term-debugger" title="Link to this term">¶</a></dt><dd><p>A piece of software which enables an interactive Python command
 line to be attached to a running, or just terminated, Python
 program. This enables the state of the program to be examined
 to determine the cause of problems.</p>
 </dd>
-<dt id="term-minimal-failing-example">minimal failing example<a class="headerlink" href="#term-minimal-failing-example" title="Permalink to this term">¶</a></dt><dd><p>The shortest piece of code which exhibits a particular bug. A true
+<dt id="term-minimal-failing-example">minimal failing example<a class="headerlink" href="#term-minimal-failing-example" title="Link to this term">¶</a></dt><dd><p>The shortest piece of code which exhibits a particular bug. A true
 minimal failing example contains no code which can be removed without
 the bug disappearing.</p>
 </dd>
-<dt id="term-postmortem-debugging">postmortem debugging<a class="headerlink" href="#term-postmortem-debugging" title="Permalink to this term">¶</a></dt><dd><p>Running a <a class="reference internal" href="#term-debugger"><span class="xref std std-term">debugger</span></a> on a piece of code after an exception has
+<dt id="term-postmortem-debugging">postmortem debugging<a class="headerlink" href="#term-postmortem-debugging" title="Link to this term">¶</a></dt><dd><p>Running a <a class="reference internal" href="#term-debugger"><span class="xref std std-term">debugger</span></a> on a piece of code after an exception has
 occurred (i.e. after the program has “died”).</p>
 </dd>
-<dt id="term-regression">regression<a class="headerlink" href="#term-regression" title="Permalink to this term">¶</a></dt><dd><p>A bug which occurs in the current version of a program which did not
+<dt id="term-regression">regression<a class="headerlink" href="#term-regression" title="Link to this term">¶</a></dt><dd><p>A bug which occurs in the current version of a program which did not
 occur in a previous version. The functionality of the software has
 “gone backwards”.</p>
 </dd>
@@ -831,7 +830,7 @@ occur in a previous version. The functionality of the software has
 </div></blockquote>
 </section>
 <section id="exercises">
-<h2><span class="section-number">8.9. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">8.9. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
 <p>The exercises work a little differently this week, because the objective is
 not to write code but to practice debugging techniques. The information on
 the <a class="reference external" href="https://oxmmscpython.github.io/exercises.html">book website</a>
@@ -894,15 +893,15 @@ The online quiz will tell you if you are correct.</p>
 </ol>
 </div></div><p class="rubric">Footnotes</p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id5" role="note">
+<aside class="footnote brackets" id="id5" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://pandas.pydata.org/docs/">&lt;https://pandas.pydata.org/docs/&gt;</a></p>
 </aside>
-<aside class="footnote brackets" id="ufl" role="note">
+<aside class="footnote brackets" id="ufl" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">2</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://github.com/object-oriented-python/ufl">https://github.com/object-oriented-python/ufl</a></p>
 </aside>
-<aside class="footnote brackets" id="exercise-page" role="note">
+<aside class="footnote brackets" id="exercise-page" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://oxmmscpython.github.io/exercises.html">https://oxmmscpython.github.io/exercises.html</a></p>
 </aside>
@@ -918,8 +917,8 @@ The online quiz will tell you if you are correct.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019-2023, David A. Ham.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2019-2023, David A. Ham.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>
